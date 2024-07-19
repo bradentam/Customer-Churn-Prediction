@@ -1,0 +1,5 @@
+__pycache__
+mlruns
+mlartifacts
+.DS_Store
+.ipynb_checkpoints

@@ -22,6 +22,12 @@ variable "credentials_file" {
   default     = "/Users/bradentam/terraform-key.json"
 }
 
+variable "db_instance_name" {
+  description = "name for the db instance"
+  type        = string
+  default     = "mlflow-db"
+}
+
 variable "db_username" {
   description = "username for the postgres database"
   type        = string
@@ -31,7 +37,7 @@ variable "db_username" {
 variable "db_password" {
   description = "password for the postgres database"
   type        = string
-  default     = "test123"
+  default     = "admin"
 }
 
 variable "db_name" {
@@ -43,22 +49,47 @@ variable "db_name" {
 variable "network_name" {
   description = "The name of the VPC network"
   type        = string
-  default     = "main"
+  default     = "mlflow-vpc"
 }
 
 variable "subnet_name" {
   description = "The name of the subnet"
   type        = string
-  default     = "default-subnet"
+  default     = "internal"
 }
 
-variable "ip_cidr_range" {
-  description = "The IP CIDR range for the subnet"
+variable "subnet_ip_range" {
+  description = "The CID IP range for subnet"
   type        = string
-  default     = "10.0.0.0/16"
+  default     = "10.0.1.0/24"
 }
 
-variable "vpn_to_access_db" {
-  default     = "0.0.0.0/0"
-  description = "VPN that will be used to connect to DB, while using 0.0.0.0/0 the application will be available from any IP (it will be accessible from the internet)."
+variable "ip_peering_range" {
+  description = "The IP range for VPC peering"
+  type        = string
+  default     = "10.1.0.0"
+}
+
+variable "ip_peering_name" {
+  description = "name of the private ip range"
+  type        = string
+  default     = "mlflow-private"
+}
+
+variable "compute_instance_name" {
+  description = "name for the compute instance"
+  type        = string
+  default     = "mlflow-server"
+}
+
+variable "mlflow_bucket_name" {
+  description = "name of the mlflow bucket name"
+  type        = string
+  default     = "mlflow-artifacts-bt"
+}
+
+variable "scoring_bucket_name" {
+  description = "name of the mlflow bucket name"
+  type        = string
+  default     = "scoring-artifacts-bt"
 }

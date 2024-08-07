@@ -11,15 +11,14 @@ module "vpc" {
     version = "~> 9.1"
 
     project_id   = var.project_id
-    network_name = "test-vpc"
-    routing_mode = "GLOBAL"
+    network_name = var.network_name
+    routing_mode = "REGIONAL"
 
     subnets =[
         {
-            subnet_name           = "private"
-            subnet_ip             = "10.0.1.0/24"
-            subnet_region         = "us-west1"
-            subnet_private_access = "true"
+            subnet_name           = var.subnet_name
+            subnet_ip             = var.subnet_ip_range
+            subnet_region         = var.region
         }
     ]
 }
@@ -30,11 +29,13 @@ resource "google_compute_global_address" "private_ip_range" {
 
   network = module.vpc.network_name
 
-  name          = "test"
+  name          = var.ip_peering_name
   purpose       = "VPC_PEERING"
-  address       = "10.1.0.0"
+  address       = var.ip_peering_range
   prefix_length = "24"
   address_type  = "INTERNAL"
+
+  depends_on = [module.vpc]
 }
 
 resource "google_service_networking_connection" "private_service_connection" {
@@ -42,10 +43,8 @@ resource "google_service_networking_connection" "private_service_connection" {
   service                 = "servicenetworking.googleapis.com"
   reserved_peering_ranges = [google_compute_global_address.private_ip_range.name]
 
-  depends_on = [
-    google_compute_global_address.private_ip_range,
-    google_project_service.compute
-  ]
+  depends_on = [module.vpc,
+                google_compute_global_address.private_ip_range]
 }
 
 resource "google_compute_network_peering_routes_config" "peering_routes" {
@@ -54,58 +53,66 @@ resource "google_compute_network_peering_routes_config" "peering_routes" {
   peering = google_service_networking_connection.private_service_connection.peering
   network = module.vpc.network_name
 
-  import_custom_routes = true
-  export_custom_routes = true
+  import_custom_routes = false
+  export_custom_routes = false
 
-  depends_on = [google_service_networking_connection.private_service_connection]
+  depends_on = [module.vpc, 
+                google_service_networking_connection.private_service_connection]
 }
 
 
 resource "google_sql_database_instance" "pg-instance" {
-  name             = "mlflow-db"
+  name             = var.db_instance_name
   database_version = "POSTGRES_14"
   region           = var.region
 
   settings {
     tier = "db-f1-micro"
-    ip_configuration {
+    ip_configuration {  
       ipv4_enabled    = false  # Disable public IP
       private_network = module.vpc.network_self_link #google_compute_network.default.id #google_compute_network.default.id # Private network must be specified
     }
   }
   
-  depends_on = [google_compute_network_peering_routes_config.peering_routes]
+  depends_on = [module.vpc, 
+                google_compute_global_address.private_ip_range,
+                google_service_networking_connection.private_service_connection,
+                google_compute_network_peering_routes_config.peering_routes]
 
   deletion_protection = false
 
 }
 
-resource "google_sql_database" "mlflow" {
+resource "google_sql_database" "database" {
   name     = var.db_name
   instance = google_sql_database_instance.pg-instance.name
+
+  depends_on = [google_sql_database_instance.pg-instance]
 }
 
-resource "google_sql_user" "default" {
+resource "google_sql_user" "user" {
   name     = var.db_username
   instance = google_sql_database_instance.pg-instance.name
   password = var.db_password
+
+  depends_on = [google_sql_database.database]
 }
 
 resource "google_storage_bucket" "mlflow-artifacts" {
-  name          = "mlflow-artifacts-braden_tam"
+  name          = var.mlflow_bucket_name
   location      = var.region
   force_destroy = true
 }
 
 resource "google_storage_bucket" "scoring-artifacts" {
-  name          = "scoring-artifacts-braden_tam"
+  name          = var.scoring_bucket_name
   location      = var.region
   force_destroy = true
 }
 
 
 resource "google_compute_instance" "mlflow_server" {
-  name         = "mlflow-server"
+  name         = var.compute_instance_name
   machine_type = "e2-medium"
   tags         = ["mlflow-server"]
 
@@ -118,7 +125,8 @@ resource "google_compute_instance" "mlflow_server" {
   }
 
   network_interface {
-    network = "default"
+    network    = "projects/${var.project_id}/global/networks/${var.network_name}"
+    subnetwork = "projects/${var.project_id}/regions/${var.region}/subnetworks/${var.subnet_name}"
 
     access_config {
       // Assigns an external IP address
@@ -129,22 +137,37 @@ resource "google_compute_instance" "mlflow_server" {
     scopes = ["https://www.googleapis.com/auth/cloud-platform"]
   }
 
-  # metadata_startup_script = <<-EOT
-  #   #!/bin/bash
-  #   sudo apt update
-  #   pip install mlflow psycopg2-binary
-  #   echo mlflow installed
-  #   nohup mlflow server \
-  #     --host 0.0.0.0 \
-  #     --port 5000 \
-  #     --backend-store-uri postgresql://${var.db_username}:${var.db_password}@${google_sql_database_instance.pg-instance.ip_address[0].ip_address}:5432/${var.db_name} \
-  #     --default-artifact-root gs://${google_storage_bucket.mlflow-artifacts.name}/ > mlflow.log 2>&1 &
-  # EOT
+  metadata_startup_script = <<-EOT
+    #!/bin/bash
+    sudo apt update
+    pip install virtualenv
+    
+    # Create a virtual environment
+    virtualenv mlflow_env
+
+    # Activate the virtual environment
+    source mlflow_env/bin/activate
+
+    pip install mlflow psycopg2-binary
+    echo mlflow installed
+    nohup mlflow server \
+      --host 0.0.0.0 \
+      --port 5000 \
+      --backend-store-uri postgresql://${var.db_username}:${var.db_password}@${google_sql_database_instance.pg-instance.ip_address[0].ip_address}:5432/${var.db_name} \
+      --default-artifact-root gs://${google_storage_bucket.mlflow-artifacts.name}/ > mlflow.log 2>&1 &
+    
+    echo "MLflow installed and server started" > /var/log/startup-script.log
+  EOT
+
+  depends_on = [module.vpc, 
+                google_compute_global_address.private_ip_range,
+                google_service_networking_connection.private_service_connection,
+                google_compute_network_peering_routes_config.peering_routes]
 }
 
 resource "google_compute_firewall" "mlflow_firewall" {
   name    = "allow-mlflow"
-  network = "default"
+  network = module.vpc.network_name
 
   allow {
     protocol = "tcp"

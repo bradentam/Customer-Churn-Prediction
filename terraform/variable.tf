@@ -40,10 +40,22 @@ variable "db_password" {
   default     = "admin"
 }
 
-variable "db_name" {
-  description = "name for the postgres database"
+variable "airflow_db_name" {
+  description = "name for the airflow postgres database"
+  type        = string
+  default     = "airflow"
+}
+
+variable "mlflow_db_name" {
+  description = "name for the mlflow postgres database"
   type        = string
   default     = "mlflow"
+}
+
+variable "grafana_db_name" {
+  description = "name for the grafana postgres database"
+  type        = string
+  default     = "grafana"
 }
 
 variable "network_name" {

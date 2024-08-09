@@ -27,6 +27,8 @@ x-airflow-common:
     &airflow-common-depends-on
     postgres:
       condition: service_healthy
+    mlflow:
+      condition: service_healthy
 
 services:
   postgres:
@@ -39,6 +41,8 @@ services:
       - postgres-db-volume:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - backend
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "airflow"]
       interval: 10s
@@ -57,6 +61,8 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
+    networks:
+      - backend
     restart: always
     depends_on:
       <<: *airflow-common-depends-on
@@ -72,6 +78,8 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
+    networks:
+      - backend
     restart: always
     depends_on:
       <<: *airflow-common-depends-on
@@ -87,6 +95,8 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
+    networks:
+      - backend
     restart: always
     depends_on:
       <<: *airflow-common-depends-on
@@ -168,6 +178,8 @@ services:
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
       _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
+    networks:
+      - backend
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
 
@@ -179,6 +191,9 @@ services:
       <<: *airflow-common-env
       CONNECTION_CHECK_MAX_COUNT: "0"
     # Workaround for entrypoint issue. See: https://github.com/apache/airflow/issues/16252
+    networks:
+      - frontend
+      - backend
     command:
       - bash
       - -c
@@ -192,6 +207,17 @@ services:
       - mlflow_data:/mlflow
     ports:
       - "5001:5000"
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5000"]
+      interval: 10s
+      timeout: 10s
+      retries: 1
 
   grafana:
     image: grafana/grafana:8.2.3
@@ -204,17 +230,22 @@ services:
       - ./monitoring/config/grafana_dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
       - ./monitoring/dashboards:/opt/grafana/dashboards
     networks:
-      - back-tier
-      - front-tier
+      - backend
+      - frontend
     restart: always
+    depends_on:
+      mlflow:
+        condition: service_healthy
 volumes:
   postgres-db-volume:
   mlflow_data:
   grafana_data:
 
 networks:
-  front-tier:
-  back-tier:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
 
 # services:
 #   postgres:

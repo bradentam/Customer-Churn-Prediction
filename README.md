@@ -56,6 +56,7 @@ Sets environmental variable in terminal to allow credentials to be used:
 
 ### Updating file configurations
 
+
 **docker-compose.yaml:**
 - update lines 10 and 11 to add connection to GCP postgres DB instance.
 

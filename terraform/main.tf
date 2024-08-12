@@ -128,7 +128,7 @@ resource "google_storage_bucket" "scoring-artifacts" {
 resource "google_compute_instance" "mlflow_server" {
   name         = var.compute_instance_name
   machine_type = "e2-medium"
-  tags         = ["mlflow-server"]
+  tags         = ["mlops-server"]
 
   boot_disk {
     initialize_params {
@@ -151,27 +151,27 @@ resource "google_compute_instance" "mlflow_server" {
     scopes = ["https://www.googleapis.com/auth/cloud-platform"]
   }
 
-  metadata_startup_script = <<-EOT
-    #!/bin/bash
-    sudo apt update
-    pip install virtualenv
+  # metadata_startup_script = <<-EOT
+  #   #!/bin/bash
+  #   sudo apt update
+  #   pip install virtualenv
     
-    # Create a virtual environment
-    virtualenv mlflow_env
+  #   # Create a virtual environment
+  #   virtualenv mlflow_env
 
-    # Activate the virtual environment
-    source mlflow_env/bin/activate
+  #   # Activate the virtual environment
+  #   source mlflow_env/bin/activate
 
-    pip install mlflow psycopg2-binary
-    echo mlflow installed
-    nohup mlflow server \
-      --host 0.0.0.0 \
-      --port 5000 \
-      --backend-store-uri postgresql://${var.db_username}:${var.db_password}@${google_sql_database_instance.pg-instance.ip_address[0].ip_address}:5432/${var.mlflow_db_name} \
-      --default-artifact-root gs://${google_storage_bucket.mlflow-artifacts.name}/ > mlflow.log 2>&1 &
+  #   pip install mlflow psycopg2-binary
+  #   echo mlflow installed
+  #   nohup mlflow server \
+  #     --host 0.0.0.0 \
+  #     --port 5000 \
+  #     --backend-store-uri postgresql://${var.db_username}:${var.db_password}@${google_sql_database_instance.pg-instance.ip_address[0].ip_address}:5432/${var.mlflow_db_name} \
+  #     --default-artifact-root gs://${google_storage_bucket.mlflow-artifacts.name}/ > mlflow.log 2>&1 &
     
-    echo "MLflow installed and server started" > /var/log/startup-script.log
-  EOT
+  #   echo "MLflow installed and server started" > /var/log/startup-script.log
+  # EOT
 
   depends_on = [module.vpc, 
                 google_compute_global_address.private_ip_range,
@@ -180,7 +180,7 @@ resource "google_compute_instance" "mlflow_server" {
 }
 
 resource "google_compute_firewall" "mlflow_firewall" {
-  name    = "allow-mlflow"
+  name    = "allow-mlops"
   network = module.vpc.network_name
 
   allow {
@@ -189,12 +189,6 @@ resource "google_compute_firewall" "mlflow_firewall" {
   }
 
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["mlflow-server"]
+  target_tags   = ["mlops-server"]
 
 }
-
-# nohup mlflow server \
-#   --host 0.0.0.0 \
-#   --port 5000 \
-#   --backend-store-uri postgresql://mlflowuser:test123@10.1.0.5:5432/mlflow \
-#   --default-artifact-root gs://mlflow-artifacts-braden_tam

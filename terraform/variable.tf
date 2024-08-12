@@ -19,19 +19,19 @@ variable "zone" {
 variable "credentials_file" {
   description = "path to credentials file"
   type        = string
-  default     = "/Users/bradentam/terraform-key.json"
+  default     = "/path/to/terraform-key.json"
 }
 
 variable "db_instance_name" {
   description = "name for the db instance"
   type        = string
-  default     = "mlflow-db"
+  default     = "mlops-db"
 }
 
 variable "db_username" {
   description = "username for the postgres database"
   type        = string
-  default     = "mlflowuser"
+  default     = "mlopsuser"
 }
 
 variable "db_password" {
@@ -61,7 +61,7 @@ variable "grafana_db_name" {
 variable "network_name" {
   description = "The name of the VPC network"
   type        = string
-  default     = "mlflow-vpc"
+  default     = "mlops-vpc"
 }
 
 variable "subnet_name" {
@@ -85,13 +85,13 @@ variable "ip_peering_range" {
 variable "ip_peering_name" {
   description = "name of the private ip range"
   type        = string
-  default     = "mlflow-private"
+  default     = "mlops-private"
 }
 
 variable "compute_instance_name" {
   description = "name for the compute instance"
   type        = string
-  default     = "mlflow-server"
+  default     = "mlops-server"
 }
 
 variable "mlflow_bucket_name" {

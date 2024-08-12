@@ -7,11 +7,11 @@ datasources:
   - name: PostgreSQL
     type: postgres
     access: proxy
-    url: db:5432
+    url: <INTERNAL_IP_ADRESS_OF_DB_INSTANCE>:5432 # use the following if local: postgres:5432
     database: churn
-    user: postgres
+    user: airflow
     secureJsonData:
-      password: 'admin'
+      password: 'airflow'
     jsonData:
       sslmode: 'disable'
       database: churn

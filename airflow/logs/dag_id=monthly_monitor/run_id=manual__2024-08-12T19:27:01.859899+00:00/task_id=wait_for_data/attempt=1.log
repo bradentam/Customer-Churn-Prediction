@@ -1,0 +1,13 @@
+[2024-08-12T19:27:21.422+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:27:01.859899+00:00 [queued]>
+[2024-08-12T19:27:21.444+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:27:01.859899+00:00 [queued]>
+[2024-08-12T19:27:21.444+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:27:21.496+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:27:01.859899+00:00
+[2024-08-12T19:27:21.565+0000] {standard_task_runner.py:57} INFO - Started process 5367 to run task
+[2024-08-12T19:27:21.589+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:27:01.859899+00:00', '--job-id', '544', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpv5os5m0l']
+[2024-08-12T19:27:21.641+0000] {standard_task_runner.py:85} INFO - Job 544: Subtask wait_for_data
+[2024-08-12T19:27:21.887+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:27:01.859899+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:27:22.144+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:27:01.859899+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:27:01.859899+00:00'
+[2024-08-12T19:27:22.200+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:27:01.859899+00:00 ... 
+[2024-08-12T19:27:22.307+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:27:22.393+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:27:22.419+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

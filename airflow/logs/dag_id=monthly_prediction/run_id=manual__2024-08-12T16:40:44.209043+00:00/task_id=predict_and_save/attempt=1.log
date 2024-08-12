@@ -1,0 +1,27 @@
+[2024-08-12T16:40:48.460+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.predict_and_save manual__2024-08-12T16:40:44.209043+00:00 [queued]>
+[2024-08-12T16:40:48.465+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.predict_and_save manual__2024-08-12T16:40:44.209043+00:00 [queued]>
+[2024-08-12T16:40:48.465+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T16:40:48.470+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): predict_and_save> on 2024-08-12 16:40:44.209043+00:00
+[2024-08-12T16:40:48.475+0000] {standard_task_runner.py:57} INFO - Started process 22762 to run task
+[2024-08-12T16:40:48.477+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'predict_and_save', 'manual__2024-08-12T16:40:44.209043+00:00', '--job-id', '138', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpfhikw04y']
+[2024-08-12T16:40:48.478+0000] {standard_task_runner.py:85} INFO - Job 138: Subtask predict_and_save
+[2024-08-12T16:40:48.501+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.predict_and_save manual__2024-08-12T16:40:44.209043+00:00 [running]> on host fa284eed0508
+[2024-08-12T16:40:48.661+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='predict_and_save' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T16:40:44.209043+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T16:40:44.209043+00:00'
+[2024-08-12T16:40:48.718+0000] {logging_mixin.py:151} INFO - gs://mlflow-artifacts-bt/1/fab1118790cd421ab4d4d45e0b254b51/artifacts/models
+[2024-08-12T16:40:49.282+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:   0%|          | 0/9 [00:00<?, ?it/s]
+[2024-08-12T16:40:49.283+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  11%|#1        | 1/9 [00:00<00:00, 9619.96it/s]
+[2024-08-12T16:40:49.284+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  22%|##2       | 2/9 [00:00<00:00, 2014.07it/s]
+[2024-08-12T16:40:49.327+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  33%|###3      | 3/9 [00:00<00:00, 68.10it/s]  
+[2024-08-12T16:40:49.340+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  44%|####4     | 4/9 [00:00<00:00, 69.76it/s]
+[2024-08-12T16:40:49.357+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  56%|#####5    | 5/9 [00:00<00:00, 67.96it/s]
+[2024-08-12T16:40:49.375+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 65.23it/s]
+[2024-08-12T16:40:49.380+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  78%|#######7  | 7/9 [00:00<00:00, 72.08it/s]
+[2024-08-12T16:40:49.387+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 77.16it/s]
+[2024-08-12T16:40:49.388+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 77.16it/s]
+[2024-08-12T16:40:50.337+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00, 77.16it/s]
+[2024-08-12T16:40:50.339+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.52it/s]
+[2024-08-12T16:40:50.527+0000] {logging_mixin.py:151} INFO - RandomForestClassifier version 1 loaded
+[2024-08-12T16:40:50.922+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T16:40:50.930+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_prediction, task_id=predict_and_save, execution_date=20240812T164044, start_date=20240812T164048, end_date=20240812T164050
+[2024-08-12T16:40:50.950+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T16:40:50.963+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

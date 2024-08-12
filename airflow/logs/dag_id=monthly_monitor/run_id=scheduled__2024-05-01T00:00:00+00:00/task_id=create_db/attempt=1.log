@@ -1,0 +1,118 @@
+[2024-08-12T18:04:51.769+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:04:51.776+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:04:51.778+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T18:04:51.791+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_db> on 2024-05-01 00:00:00+00:00
+[2024-08-12T18:04:51.818+0000] {standard_task_runner.py:57} INFO - Started process 7878 to run task
+[2024-08-12T18:04:51.825+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_db', 'scheduled__2024-05-01T00:00:00+00:00', '--job-id', '215', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpghphk0ta']
+[2024-08-12T18:04:51.827+0000] {standard_task_runner.py:85} INFO - Job 215: Subtask create_db
+[2024-08-12T18:04:51.884+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T18:04:51.964+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_db' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-01T00:00:00+00:00'
+[2024-08-12T18:04:51.966+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitor.py", line 31, in create_db
+    conn = psycopg2.connect(**conn_params)
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (::1), port 5432 failed: Cannot assign requested address
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2024-08-12T18:04:51.978+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=monthly_monitor, task_id=create_db, execution_date=20240501T000000, start_date=20240812T180451, end_date=20240812T180451
+[2024-08-12T18:04:51.985+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 215 for task create_db (connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (::1), port 5432 failed: Cannot assign requested address
+	Is the server running on that host and accepting TCP/IP connections?
+; 7878)
+[2024-08-12T18:04:52.008+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-08-12T18:04:52.027+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T18:13:35.065+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:13:35.129+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:13:35.185+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T18:13:35.251+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_db> on 2024-05-01 00:00:00+00:00
+[2024-08-12T18:13:35.324+0000] {standard_task_runner.py:57} INFO - Started process 9112 to run task
+[2024-08-12T18:13:35.376+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_db', 'scheduled__2024-05-01T00:00:00+00:00', '--job-id', '259', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpw6uw40d8']
+[2024-08-12T18:13:35.447+0000] {standard_task_runner.py:85} INFO - Job 259: Subtask create_db
+[2024-08-12T18:13:35.799+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T18:13:36.472+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_db' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-01T00:00:00+00:00'
+[2024-08-12T18:13:36.514+0000] {logging_mixin.py:151} INFO - churn database already created
+[2024-08-12T18:13:36.531+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T18:13:36.570+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_db, execution_date=20240501T000000, start_date=20240812T181335, end_date=20240812T181336
+[2024-08-12T18:13:36.692+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T18:13:37.296+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:19:26.102+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:19:26.204+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:19:26.216+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:19:26.335+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_db> on 2024-05-01 00:00:00+00:00
+[2024-08-12T19:19:26.841+0000] {standard_task_runner.py:57} INFO - Started process 3578 to run task
+[2024-08-12T19:19:26.896+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_db', 'scheduled__2024-05-01T00:00:00+00:00', '--job-id', '443', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp4zq2by94']
+[2024-08-12T19:19:26.985+0000] {standard_task_runner.py:85} INFO - Job 443: Subtask create_db
+[2024-08-12T19:19:27.224+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:19:27.926+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_db' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-01T00:00:00+00:00'
+[2024-08-12T19:19:27.975+0000] {logging_mixin.py:151} INFO - churn database already created
+[2024-08-12T19:19:27.981+0000] {python.py:194} INFO - Done. Returned value was: {'host': 'postgres', 'port': '5432', 'user': '***', 'password': '***', 'dbname': 'churn'}
+[2024-08-12T19:19:28.134+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_db, execution_date=20240501T000000, start_date=20240812T191926, end_date=20240812T191928
+[2024-08-12T19:19:28.419+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:19:28.808+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:22:01.758+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:22:01.900+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:22:01.907+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:22:02.270+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_db> on 2024-05-01 00:00:00+00:00
+[2024-08-12T19:22:02.348+0000] {standard_task_runner.py:57} INFO - Started process 4260 to run task
+[2024-08-12T19:22:02.383+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_db', 'scheduled__2024-05-01T00:00:00+00:00', '--job-id', '483', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp_e58r9qd']
+[2024-08-12T19:22:02.405+0000] {standard_task_runner.py:85} INFO - Job 483: Subtask create_db
+[2024-08-12T19:22:02.679+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:22:03.133+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_db' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-01T00:00:00+00:00'
+[2024-08-12T19:22:03.174+0000] {logging_mixin.py:151} INFO - churn database already created
+[2024-08-12T19:22:03.183+0000] {python.py:194} INFO - Done. Returned value was: {'host': 'postgres', 'port': '5432', 'user': '***', 'password': '***', 'dbname': 'churn'}
+[2024-08-12T19:22:03.313+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_db, execution_date=20240501T000000, start_date=20240812T192201, end_date=20240812T192203
+[2024-08-12T19:22:03.375+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:22:03.447+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:27:13.641+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:27:13.681+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:27:13.704+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:27:13.754+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_db> on 2024-05-01 00:00:00+00:00
+[2024-08-12T19:27:13.801+0000] {standard_task_runner.py:57} INFO - Started process 5255 to run task
+[2024-08-12T19:27:13.807+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_db', 'scheduled__2024-05-01T00:00:00+00:00', '--job-id', '537', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp1nrgviei']
+[2024-08-12T19:27:13.819+0000] {standard_task_runner.py:85} INFO - Job 537: Subtask create_db
+[2024-08-12T19:27:14.022+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:27:14.520+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_db' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-01T00:00:00+00:00'
+[2024-08-12T19:27:14.554+0000] {logging_mixin.py:151} INFO - churn database already created
+[2024-08-12T19:27:14.583+0000] {python.py:194} INFO - Done. Returned value was: {'host': 'postgres', 'port': '5432', 'user': '***', 'password': '***', 'dbname': 'churn'}
+[2024-08-12T19:27:14.755+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_db, execution_date=20240501T000000, start_date=20240812T192713, end_date=20240812T192714
+[2024-08-12T19:27:15.185+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:27:15.537+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:28:36.882+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:28:36.911+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:28:36.922+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:28:36.964+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_db> on 2024-05-01 00:00:00+00:00
+[2024-08-12T19:28:37.021+0000] {standard_task_runner.py:57} INFO - Started process 5751 to run task
+[2024-08-12T19:28:37.034+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_db', 'scheduled__2024-05-01T00:00:00+00:00', '--job-id', '569', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpwo20hmhr']
+[2024-08-12T19:28:37.066+0000] {standard_task_runner.py:85} INFO - Job 569: Subtask create_db
+[2024-08-12T19:28:37.214+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:28:37.426+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_db' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-01T00:00:00+00:00'
+[2024-08-12T19:28:37.462+0000] {logging_mixin.py:151} INFO - churn database already created
+[2024-08-12T19:28:37.465+0000] {python.py:194} INFO - Done. Returned value was: {'host': 'postgres', 'port': '5432', 'user': '***', 'password': '***', 'dbname': 'churn'}
+[2024-08-12T19:28:37.513+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_db, execution_date=20240501T000000, start_date=20240812T192836, end_date=20240812T192837
+[2024-08-12T19:28:37.594+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:28:37.698+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T20:09:53.842+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T20:09:53.913+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [queued]>
+[2024-08-12T20:09:53.917+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T20:09:54.075+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_db> on 2024-05-01 00:00:00+00:00
+[2024-08-12T20:09:54.220+0000] {standard_task_runner.py:57} INFO - Started process 13057 to run task
+[2024-08-12T20:09:54.328+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_db', 'scheduled__2024-05-01T00:00:00+00:00', '--job-id', '905', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpuuhpxni8']
+[2024-08-12T20:09:54.417+0000] {standard_task_runner.py:85} INFO - Job 905: Subtask create_db
+[2024-08-12T20:09:54.861+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_db scheduled__2024-05-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T20:09:55.713+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_db' AIRFLOW_CTX_EXECUTION_DATE='2024-05-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-05-01T00:00:00+00:00'
+[2024-08-12T20:09:56.002+0000] {logging_mixin.py:151} INFO - churn database already created
+[2024-08-12T20:09:56.011+0000] {python.py:194} INFO - Done. Returned value was: {'host': 'postgres', 'port': '5432', 'user': '***', 'password': '***', 'dbname': 'churn'}
+[2024-08-12T20:09:56.473+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_db, execution_date=20240501T000000, start_date=20240812T200953, end_date=20240812T200956
+[2024-08-12T20:09:57.578+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T20:09:58.165+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

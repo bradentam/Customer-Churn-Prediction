@@ -1,0 +1,151 @@
+[2024-08-12T19:00:20.143+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:00:20.149+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:00:20.150+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:00:20.158+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:00:20.163+0000] {standard_task_runner.py:57} INFO - Started process 1415 to run task
+[2024-08-12T19:00:20.168+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '398', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp2x89gmwz']
+[2024-08-12T19:00:20.172+0000] {standard_task_runner.py:85} INFO - Job 398: Subtask wait_for_data
+[2024-08-12T19:00:20.209+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:00:20.291+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:00:20.301+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:00:20.326+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:00:20.345+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:00:20.356+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:01:22.526+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:01:22.530+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:01:22.530+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:01:22.535+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:01:22.539+0000] {standard_task_runner.py:57} INFO - Started process 1571 to run task
+[2024-08-12T19:01:22.542+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '405', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpo4qg2udi']
+[2024-08-12T19:01:22.544+0000] {standard_task_runner.py:85} INFO - Job 405: Subtask wait_for_data
+[2024-08-12T19:01:22.569+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:01:22.609+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:01:22.614+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:01:22.628+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:01:22.641+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:01:22.651+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:02:23.981+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:02:23.984+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:02:23.984+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:02:23.989+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:02:23.993+0000] {standard_task_runner.py:57} INFO - Started process 1703 to run task
+[2024-08-12T19:02:23.995+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '409', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpsoov6s2w']
+[2024-08-12T19:02:23.997+0000] {standard_task_runner.py:85} INFO - Job 409: Subtask wait_for_data
+[2024-08-12T19:02:24.017+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:02:24.052+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:02:24.057+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:02:24.070+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:02:24.096+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:02:24.105+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:03:26.369+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:03:26.373+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:03:26.374+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:03:26.379+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:03:26.382+0000] {standard_task_runner.py:57} INFO - Started process 1825 to run task
+[2024-08-12T19:03:26.384+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '412', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmps3vbcn7j']
+[2024-08-12T19:03:26.385+0000] {standard_task_runner.py:85} INFO - Job 412: Subtask wait_for_data
+[2024-08-12T19:03:26.407+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:03:26.443+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:03:26.448+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:03:26.461+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:03:26.484+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:03:26.493+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:04:27.786+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:04:27.789+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:04:27.790+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:04:27.794+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:04:27.799+0000] {standard_task_runner.py:57} INFO - Started process 1933 to run task
+[2024-08-12T19:04:27.801+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '415', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp4xygvj1z']
+[2024-08-12T19:04:27.803+0000] {standard_task_runner.py:85} INFO - Job 415: Subtask wait_for_data
+[2024-08-12T19:04:27.830+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:04:27.872+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:04:27.878+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:04:27.892+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:04:27.898+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:04:27.907+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:05:29.968+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:05:29.972+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:05:29.972+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:05:29.977+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:05:29.981+0000] {standard_task_runner.py:57} INFO - Started process 2055 to run task
+[2024-08-12T19:05:29.983+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '418', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp9onqn7yn']
+[2024-08-12T19:05:29.984+0000] {standard_task_runner.py:85} INFO - Job 418: Subtask wait_for_data
+[2024-08-12T19:05:30.005+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:05:30.042+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:05:30.047+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:05:30.059+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:05:30.079+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:05:30.087+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:06:32.499+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:06:32.503+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:06:32.503+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:06:32.508+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:06:32.512+0000] {standard_task_runner.py:57} INFO - Started process 2166 to run task
+[2024-08-12T19:06:32.514+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '420', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpb_grk_vv']
+[2024-08-12T19:06:32.515+0000] {standard_task_runner.py:85} INFO - Job 420: Subtask wait_for_data
+[2024-08-12T19:06:32.536+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:06:32.589+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:06:32.599+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:06:32.621+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:06:32.660+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:06:32.670+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:07:34.646+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:07:34.650+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:07:34.650+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:07:34.656+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:07:34.660+0000] {standard_task_runner.py:57} INFO - Started process 2277 to run task
+[2024-08-12T19:07:34.662+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '422', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpcs81e21l']
+[2024-08-12T19:07:34.663+0000] {standard_task_runner.py:85} INFO - Job 422: Subtask wait_for_data
+[2024-08-12T19:07:34.686+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:07:34.721+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:07:34.726+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:07:34.740+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:07:34.761+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:07:34.770+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:08:36.457+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:08:36.461+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:08:36.462+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:08:36.467+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:08:36.472+0000] {standard_task_runner.py:57} INFO - Started process 2385 to run task
+[2024-08-12T19:08:36.474+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '424', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpmb7oe1kx']
+[2024-08-12T19:08:36.476+0000] {standard_task_runner.py:85} INFO - Job 424: Subtask wait_for_data
+[2024-08-12T19:08:36.509+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:08:36.571+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:08:36.579+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:08:36.597+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:08:36.613+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:08:36.624+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:09:39.432+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:09:39.437+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:09:39.437+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:09:39.443+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:09:39.447+0000] {standard_task_runner.py:57} INFO - Started process 2501 to run task
+[2024-08-12T19:09:39.450+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '426', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp2mkcvy3c']
+[2024-08-12T19:09:39.451+0000] {standard_task_runner.py:85} INFO - Job 426: Subtask wait_for_data
+[2024-08-12T19:09:39.478+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:09:39.515+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:09:39.521+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:09:39.534+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:09:39.547+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:09:39.557+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:11:04.789+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:11:04.794+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [queued]>
+[2024-08-12T19:11:04.794+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:11:04.801+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_data> on 2024-08-12 19:00:18.050010+00:00
+[2024-08-12T19:11:04.806+0000] {standard_task_runner.py:57} INFO - Started process 2577 to run task
+[2024-08-12T19:11:04.809+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'wait_for_data', 'manual__2024-08-12T19:00:18.050010+00:00', '--job-id', '427', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp_b1ywsya']
+[2024-08-12T19:11:04.811+0000] {standard_task_runner.py:85} INFO - Job 427: Subtask wait_for_data
+[2024-08-12T19:11:04.843+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.wait_for_data manual__2024-08-12T19:00:18.050010+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:11:05.027+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='wait_for_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:00:18.050010+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:00:18.050010+00:00'
+[2024-08-12T19:11:05.068+0000] {external_task.py:244} INFO - Poking for tasks ['predict_and_save'] in dag monthly_prediction on 2024-08-12T19:00:18.050010+00:00 ... 
+[2024-08-12T19:11:05.111+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/external_task.py", line 334, in execute
+    super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 274, in execute
+    raise AirflowSensorTimeout(message)
+airflow.exceptions.AirflowSensorTimeout: Sensor has timed out; run duration of 644.861969 seconds exceeds the specified timeout of 600.0.
+[2024-08-12T19:11:05.140+0000] {taskinstance.py:1398} INFO - Immediate failure requested. Marking task as FAILED. dag_id=monthly_monitor, task_id=wait_for_data, execution_date=20240812T190018, start_date=20240812T191104, end_date=20240812T191105
+[2024-08-12T19:11:05.166+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 427 for task wait_for_data (Sensor has timed out; run duration of 644.861969 seconds exceeds the specified timeout of 600.0.; 2577)
+[2024-08-12T19:11:05.205+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-08-12T19:11:05.283+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

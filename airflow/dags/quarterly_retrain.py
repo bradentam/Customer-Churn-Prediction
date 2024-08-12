@@ -162,7 +162,7 @@ def quarterly_retrain():
         )
         register_best_model(client, experiment_name, model_type)
 
-    TRACKING_SERVER_HOST = 'mlflow' #'127.0.0.1'
+    TRACKING_SERVER_HOST = 'mlflow' 
     TRACKING_URI = f'http://{TRACKING_SERVER_HOST}:5000'
     EXPERIMENT_NAME = 'churn_experiment'
     mlflow.set_tracking_uri(TRACKING_URI)

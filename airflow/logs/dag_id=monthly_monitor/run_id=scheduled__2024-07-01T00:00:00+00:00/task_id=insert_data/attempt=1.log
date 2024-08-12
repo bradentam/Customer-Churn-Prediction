@@ -1,0 +1,132 @@
+[2024-08-12T18:14:09.130+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:14:09.145+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:14:09.145+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T18:14:09.180+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): insert_data> on 2024-07-01 00:00:00+00:00
+[2024-08-12T18:14:09.204+0000] {standard_task_runner.py:57} INFO - Started process 9477 to run task
+[2024-08-12T18:14:09.214+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'insert_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '289', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp__m5y5n_']
+[2024-08-12T18:14:09.222+0000] {standard_task_runner.py:85} INFO - Job 289: Subtask insert_data
+[2024-08-12T18:14:09.397+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T18:14:09.686+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-08-12T18:14:09.703+0000] {logging_mixin.py:151} INFO - inserted data for 2024-06-30
+[2024-08-12T18:14:09.705+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T18:14:09.724+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=insert_data, execution_date=20240701T000000, start_date=20240812T181409, end_date=20240812T181409
+[2024-08-12T18:14:09.744+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T18:14:09.755+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:19:41.643+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:19:41.661+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:19:41.662+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:19:41.703+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): insert_data> on 2024-07-01 00:00:00+00:00
+[2024-08-12T19:19:41.713+0000] {standard_task_runner.py:57} INFO - Started process 3726 to run task
+[2024-08-12T19:19:41.723+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'insert_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '458', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpm9p5mrn_']
+[2024-08-12T19:19:41.728+0000] {standard_task_runner.py:85} INFO - Job 458: Subtask insert_data
+[2024-08-12T19:19:41.791+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:19:41.892+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-08-12T19:19:41.900+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitor.py", line 133, in insert_data
+    cur.execute(insert_statement, data)
+psycopg2.errors.UndefinedColumn: column "share_of_drifted_columns" of relation "monitor_metrics" does not exist
+LINE 6:             share_of_drifted_columns
+                    ^
+
+[2024-08-12T19:19:41.910+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=monthly_monitor, task_id=insert_data, execution_date=20240701T000000, start_date=20240812T191941, end_date=20240812T191941
+[2024-08-12T19:19:41.916+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 458 for task insert_data (column "share_of_drifted_columns" of relation "monitor_metrics" does not exist
+LINE 6:             share_of_drifted_columns
+                    ^
+; 3726)
+[2024-08-12T19:19:41.943+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-08-12T19:19:41.958+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:22:16.078+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:22:16.087+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:22:16.088+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:22:16.113+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): insert_data> on 2024-07-01 00:00:00+00:00
+[2024-08-12T19:22:16.132+0000] {standard_task_runner.py:57} INFO - Started process 4401 to run task
+[2024-08-12T19:22:16.139+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'insert_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '502', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp7rwxxulw']
+[2024-08-12T19:22:16.150+0000] {standard_task_runner.py:85} INFO - Job 502: Subtask insert_data
+[2024-08-12T19:22:16.241+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:22:16.333+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-08-12T19:22:16.338+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitor.py", line 133, in insert_data
+    cur.execute(insert_statement, data)
+psycopg2.errors.UndefinedColumn: column "share_of_drifted_columns" of relation "monitor_metrics" does not exist
+LINE 6:             share_of_drifted_columns
+                    ^
+
+[2024-08-12T19:22:16.345+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=monthly_monitor, task_id=insert_data, execution_date=20240701T000000, start_date=20240812T192216, end_date=20240812T192216
+[2024-08-12T19:22:16.350+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 502 for task insert_data (column "share_of_drifted_columns" of relation "monitor_metrics" does not exist
+LINE 6:             share_of_drifted_columns
+                    ^
+; 4401)
+[2024-08-12T19:22:16.358+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-08-12T19:22:16.368+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:27:25.097+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:27:25.109+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:27:25.109+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:27:25.129+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): insert_data> on 2024-07-01 00:00:00+00:00
+[2024-08-12T19:27:25.137+0000] {standard_task_runner.py:57} INFO - Started process 5408 to run task
+[2024-08-12T19:27:25.140+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'insert_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '555', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpim0ryd1a']
+[2024-08-12T19:27:25.144+0000] {standard_task_runner.py:85} INFO - Job 555: Subtask insert_data
+[2024-08-12T19:27:25.189+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:27:25.289+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-08-12T19:27:25.295+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitor.py", line 133, in insert_data
+    cur.execute(insert_statement, data)
+psycopg2.errors.UndefinedColumn: column "share_of_drifted_columns" of relation "monitor_metrics" does not exist
+LINE 6:             share_of_drifted_columns
+                    ^
+
+[2024-08-12T19:27:25.302+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=monthly_monitor, task_id=insert_data, execution_date=20240701T000000, start_date=20240812T192725, end_date=20240812T192725
+[2024-08-12T19:27:25.307+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 555 for task insert_data (column "share_of_drifted_columns" of relation "monitor_metrics" does not exist
+LINE 6:             share_of_drifted_columns
+                    ^
+; 5408)
+[2024-08-12T19:27:25.323+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-08-12T19:27:25.336+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:28:44.381+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:28:44.395+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:28:44.398+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:28:44.437+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): insert_data> on 2024-07-01 00:00:00+00:00
+[2024-08-12T19:28:44.447+0000] {standard_task_runner.py:57} INFO - Started process 5889 to run task
+[2024-08-12T19:28:44.453+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'insert_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '589', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp61xyp0az']
+[2024-08-12T19:28:44.456+0000] {standard_task_runner.py:85} INFO - Job 589: Subtask insert_data
+[2024-08-12T19:28:44.496+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:28:44.573+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-08-12T19:28:44.579+0000] {logging_mixin.py:151} INFO - inserted data for 2024-06-30
+[2024-08-12T19:28:44.579+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T19:28:44.585+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=insert_data, execution_date=20240701T000000, start_date=20240812T192844, end_date=20240812T192844
+[2024-08-12T19:28:44.636+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:28:44.647+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T20:10:19.188+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T20:10:19.193+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [queued]>
+[2024-08-12T20:10:19.193+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T20:10:19.201+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): insert_data> on 2024-07-01 00:00:00+00:00
+[2024-08-12T20:10:19.206+0000] {standard_task_runner.py:57} INFO - Started process 13236 to run task
+[2024-08-12T20:10:19.211+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'insert_data', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '921', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpazbircnd']
+[2024-08-12T20:10:19.214+0000] {standard_task_runner.py:85} INFO - Job 921: Subtask insert_data
+[2024-08-12T20:10:19.255+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.insert_data scheduled__2024-07-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T20:10:19.337+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
+[2024-08-12T20:10:19.343+0000] {logging_mixin.py:151} INFO - inserted data for 2024-06-30
+[2024-08-12T20:10:19.343+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T20:10:19.350+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=insert_data, execution_date=20240701T000000, start_date=20240812T201019, end_date=20240812T201019
+[2024-08-12T20:10:19.393+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T20:10:19.405+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

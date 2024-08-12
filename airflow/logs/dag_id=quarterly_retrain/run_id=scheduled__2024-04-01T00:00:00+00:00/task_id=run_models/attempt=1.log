@@ -1,0 +1,264 @@
+[2024-08-12T05:56:57.635+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T05:56:57.639+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T05:56:57.639+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T05:56:57.645+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): run_models> on 2024-04-01 00:00:00+00:00
+[2024-08-12T05:56:57.654+0000] {standard_task_runner.py:57} INFO - Started process 5381 to run task
+[2024-08-12T05:56:57.657+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'quarterly_retrain', 'run_models', 'scheduled__2024-04-01T00:00:00+00:00', '--job-id', '91', '--raw', '--subdir', 'DAGS_FOLDER/quarterly_retrain.py', '--cfg-path', '/tmp/tmpsv13lwr2']
+[2024-08-12T05:56:57.659+0000] {standard_task_runner.py:85} INFO - Job 91: Subtask run_models
+[2024-08-12T05:56:57.689+0000] {task_command.py:415} INFO - Running <TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [running]> on host fa284eed0508
+[2024-08-12T05:57:00.747+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='quarterly_retrain' AIRFLOW_CTX_TASK_ID='run_models' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-01T00:00:00+00:00'
+[2024-08-12T05:57:00.851+0000] {logging_mixin.py:151} WARNING - 2024/08/12 05:57:00 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2024-08-12T05:57:00.974+0000] {logging_mixin.py:151} INFO - training LogisticRegression
+[2024-08-12T05:57:04.261+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/_distutils_hack/__init__.py:33 UserWarning: Setuptools is replacing distutils.
+[2024-08-12T05:57:05.469+0000] {logging_mixin.py:151} INFO - training RandomForestClassifier
+[2024-08-12T05:57:10.195+0000] {logging_mixin.py:151} INFO - training XGBClassifier
+[2024-08-12T05:57:16.290+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T05:57:16.374+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=quarterly_retrain, task_id=run_models, execution_date=20240401T000000, start_date=20240812T055657, end_date=20240812T055716
+[2024-08-12T05:57:16.446+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T05:57:16.467+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T06:00:08.051+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:00:08.055+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:00:08.055+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T06:00:08.060+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): run_models> on 2024-04-01 00:00:00+00:00
+[2024-08-12T06:00:08.065+0000] {standard_task_runner.py:57} INFO - Started process 6775 to run task
+[2024-08-12T06:00:08.067+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'quarterly_retrain', 'run_models', 'scheduled__2024-04-01T00:00:00+00:00', '--job-id', '100', '--raw', '--subdir', 'DAGS_FOLDER/quarterly_retrain.py', '--cfg-path', '/tmp/tmpspdkbm07']
+[2024-08-12T06:00:08.068+0000] {standard_task_runner.py:85} INFO - Job 100: Subtask run_models
+[2024-08-12T06:00:08.092+0000] {task_command.py:415} INFO - Running <TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [running]> on host fa284eed0508
+[2024-08-12T06:00:12.298+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='quarterly_retrain' AIRFLOW_CTX_TASK_ID='run_models' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-01T00:00:00+00:00'
+[2024-08-12T06:00:12.524+0000] {logging_mixin.py:151} WARNING - 2024/08/12 06:00:12 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2024-08-12T06:00:12.598+0000] {logging_mixin.py:151} INFO - training LogisticRegression
+[2024-08-12T06:00:15.594+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/_distutils_hack/__init__.py:33 UserWarning: Setuptools is replacing distutils.
+[2024-08-12T06:00:16.845+0000] {logging_mixin.py:151} INFO - training RandomForestClassifier
+[2024-08-12T06:00:20.805+0000] {logging_mixin.py:151} INFO - training XGBClassifier
+[2024-08-12T06:00:24.506+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T06:00:24.537+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=quarterly_retrain, task_id=run_models, execution_date=20240401T000000, start_date=20240812T060008, end_date=20240812T060024
+[2024-08-12T06:00:24.565+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T06:00:24.590+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T06:01:12.912+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:01:12.918+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:01:12.918+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T06:01:12.924+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): run_models> on 2024-04-01 00:00:00+00:00
+[2024-08-12T06:01:12.928+0000] {standard_task_runner.py:57} INFO - Started process 7474 to run task
+[2024-08-12T06:01:12.931+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'quarterly_retrain', 'run_models', 'scheduled__2024-04-01T00:00:00+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/quarterly_retrain.py', '--cfg-path', '/tmp/tmp4i01tc7m']
+[2024-08-12T06:01:12.932+0000] {standard_task_runner.py:85} INFO - Job 107: Subtask run_models
+[2024-08-12T06:01:12.965+0000] {task_command.py:415} INFO - Running <TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [running]> on host fa284eed0508
+[2024-08-12T06:01:15.201+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='quarterly_retrain' AIRFLOW_CTX_TASK_ID='run_models' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-01T00:00:00+00:00'
+[2024-08-12T06:01:15.271+0000] {logging_mixin.py:151} WARNING - 2024/08/12 06:01:15 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2024-08-12T06:01:15.291+0000] {logging_mixin.py:151} INFO - training LogisticRegression
+[2024-08-12T06:01:17.628+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/_distutils_hack/__init__.py:33 UserWarning: Setuptools is replacing distutils.
+[2024-08-12T06:01:18.691+0000] {logging_mixin.py:151} INFO - training RandomForestClassifier
+[2024-08-12T06:01:22.680+0000] {logging_mixin.py:151} INFO - training XGBClassifier
+[2024-08-12T06:01:29.996+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T06:01:30.054+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=quarterly_retrain, task_id=run_models, execution_date=20240401T000000, start_date=20240812T060112, end_date=20240812T060130
+[2024-08-12T06:01:30.137+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T06:01:30.164+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T06:07:00.331+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:07:00.335+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:07:00.335+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T06:07:00.342+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): run_models> on 2024-04-01 00:00:00+00:00
+[2024-08-12T06:07:00.348+0000] {standard_task_runner.py:57} INFO - Started process 8441 to run task
+[2024-08-12T06:07:00.351+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'quarterly_retrain', 'run_models', 'scheduled__2024-04-01T00:00:00+00:00', '--job-id', '117', '--raw', '--subdir', 'DAGS_FOLDER/quarterly_retrain.py', '--cfg-path', '/tmp/tmpgu_1f6a7']
+[2024-08-12T06:07:00.352+0000] {standard_task_runner.py:85} INFO - Job 117: Subtask run_models
+[2024-08-12T06:07:00.420+0000] {task_command.py:415} INFO - Running <TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [running]> on host fa284eed0508
+[2024-08-12T06:07:02.930+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='quarterly_retrain' AIRFLOW_CTX_TASK_ID='run_models' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-01T00:00:00+00:00'
+[2024-08-12T06:07:03.001+0000] {logging_mixin.py:151} WARNING - 2024/08/12 06:07:02 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2024-08-12T06:07:03.043+0000] {logging_mixin.py:151} INFO - training LogisticRegression
+[2024-08-12T06:07:06.059+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/_distutils_hack/__init__.py:33 UserWarning: Setuptools is replacing distutils.
+[2024-08-12T06:07:07.141+0000] {logging_mixin.py:151} INFO - training RandomForestClassifier
+[2024-08-12T06:07:10.835+0000] {logging_mixin.py:151} INFO - training XGBClassifier
+[2024-08-12T06:07:16.190+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T06:07:16.227+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=quarterly_retrain, task_id=run_models, execution_date=20240401T000000, start_date=20240812T060700, end_date=20240812T060716
+[2024-08-12T06:07:16.270+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T06:07:16.285+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T06:12:17.427+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:12:17.434+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:12:17.434+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T06:12:17.446+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): run_models> on 2024-04-01 00:00:00+00:00
+[2024-08-12T06:12:17.461+0000] {standard_task_runner.py:57} INFO - Started process 9927 to run task
+[2024-08-12T06:12:17.477+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'quarterly_retrain', 'run_models', 'scheduled__2024-04-01T00:00:00+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/quarterly_retrain.py', '--cfg-path', '/tmp/tmp0m7kgd6t']
+[2024-08-12T06:12:17.479+0000] {standard_task_runner.py:85} INFO - Job 124: Subtask run_models
+[2024-08-12T06:12:17.531+0000] {task_command.py:415} INFO - Running <TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [running]> on host fa284eed0508
+[2024-08-12T06:12:21.866+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='quarterly_retrain' AIRFLOW_CTX_TASK_ID='run_models' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-01T00:00:00+00:00'
+[2024-08-12T06:12:22.023+0000] {logging_mixin.py:151} WARNING - 2024/08/12 06:12:22 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2024-08-12T06:12:22.101+0000] {logging_mixin.py:151} INFO - training LogisticRegression
+[2024-08-12T06:12:26.699+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/_distutils_hack/__init__.py:33 UserWarning: Setuptools is replacing distutils.
+[2024-08-12T06:12:27.998+0000] {logging_mixin.py:151} INFO - training RandomForestClassifier
+[2024-08-12T06:12:32.066+0000] {logging_mixin.py:151} INFO - training XGBClassifier
+[2024-08-12T06:12:35.796+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T06:12:35.836+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=quarterly_retrain, task_id=run_models, execution_date=20240401T000000, start_date=20240812T061217, end_date=20240812T061235
+[2024-08-12T06:12:35.891+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T06:12:35.904+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T06:14:22.081+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:14:22.088+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T06:14:22.089+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T06:14:22.094+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): run_models> on 2024-04-01 00:00:00+00:00
+[2024-08-12T06:14:22.110+0000] {standard_task_runner.py:57} INFO - Started process 11012 to run task
+[2024-08-12T06:14:22.121+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'quarterly_retrain', 'run_models', 'scheduled__2024-04-01T00:00:00+00:00', '--job-id', '132', '--raw', '--subdir', 'DAGS_FOLDER/quarterly_retrain.py', '--cfg-path', '/tmp/tmpnflopdn4']
+[2024-08-12T06:14:22.129+0000] {standard_task_runner.py:85} INFO - Job 132: Subtask run_models
+[2024-08-12T06:14:22.215+0000] {task_command.py:415} INFO - Running <TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [running]> on host fa284eed0508
+[2024-08-12T06:14:24.643+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='quarterly_retrain' AIRFLOW_CTX_TASK_ID='run_models' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-01T00:00:00+00:00'
+[2024-08-12T06:14:24.762+0000] {logging_mixin.py:151} WARNING - 2024/08/12 06:14:24 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2024-08-12T06:14:24.786+0000] {logging_mixin.py:151} INFO - training LogisticRegression
+[2024-08-12T06:14:27.902+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/_distutils_hack/__init__.py:33 UserWarning: Setuptools is replacing distutils.
+[2024-08-12T06:14:29.247+0000] {logging_mixin.py:151} INFO - training RandomForestClassifier
+[2024-08-12T06:14:32.680+0000] {logging_mixin.py:151} INFO - training XGBClassifier
+[2024-08-12T06:14:35.798+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T06:14:35.816+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=quarterly_retrain, task_id=run_models, execution_date=20240401T000000, start_date=20240812T061422, end_date=20240812T061435
+[2024-08-12T06:14:35.875+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T06:14:35.887+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T16:45:31.231+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T16:45:31.236+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T16:45:31.236+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T16:45:31.243+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): run_models> on 2024-04-01 00:00:00+00:00
+[2024-08-12T16:45:31.250+0000] {standard_task_runner.py:57} INFO - Started process 23320 to run task
+[2024-08-12T16:45:31.253+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'quarterly_retrain', 'run_models', 'scheduled__2024-04-01T00:00:00+00:00', '--job-id', '151', '--raw', '--subdir', 'DAGS_FOLDER/quarterly_retrain.py', '--cfg-path', '/tmp/tmps_crf_8l']
+[2024-08-12T16:45:31.254+0000] {standard_task_runner.py:85} INFO - Job 151: Subtask run_models
+[2024-08-12T16:45:31.331+0000] {task_command.py:415} INFO - Running <TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [running]> on host fa284eed0508
+[2024-08-12T16:45:42.083+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='quarterly_retrain' AIRFLOW_CTX_TASK_ID='run_models' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-01T00:00:00+00:00'
+[2024-08-12T16:45:42.563+0000] {logging_mixin.py:151} WARNING - 2024/08/12 16:45:42 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2024-08-12T16:45:43.095+0000] {logging_mixin.py:151} INFO - training LogisticRegression
+[2024-08-12T16:45:55.613+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/_distutils_hack/__init__.py:33 UserWarning: Setuptools is replacing distutils.
+[2024-08-12T16:45:58.714+0000] {logging_mixin.py:151} INFO - training RandomForestClassifier
+[2024-08-12T16:46:04.865+0000] {logging_mixin.py:151} INFO - training XGBClassifier
+[2024-08-12T16:46:09.994+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T16:46:10.052+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=quarterly_retrain, task_id=run_models, execution_date=20240401T000000, start_date=20240812T164531, end_date=20240812T164610
+[2024-08-12T16:46:10.122+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T16:46:10.138+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T18:14:10.279+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:14:10.284+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:14:10.285+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T18:14:10.291+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): run_models> on 2024-04-01 00:00:00+00:00
+[2024-08-12T18:14:10.297+0000] {standard_task_runner.py:57} INFO - Started process 9537 to run task
+[2024-08-12T18:14:10.299+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'quarterly_retrain', 'run_models', 'scheduled__2024-04-01T00:00:00+00:00', '--job-id', '290', '--raw', '--subdir', 'DAGS_FOLDER/quarterly_retrain.py', '--cfg-path', '/tmp/tmpg1onvqt8']
+[2024-08-12T18:14:10.300+0000] {standard_task_runner.py:85} INFO - Job 290: Subtask run_models
+[2024-08-12T18:14:10.353+0000] {task_command.py:415} INFO - Running <TaskInstance: quarterly_retrain.run_models scheduled__2024-04-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T18:14:13.232+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='quarterly_retrain' AIRFLOW_CTX_TASK_ID='run_models' AIRFLOW_CTX_EXECUTION_DATE='2024-04-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-04-01T00:00:00+00:00'
+[2024-08-12T18:14:13.570+0000] {logging_mixin.py:151} WARNING - 2024/08/12 18:14:13 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
+The git executable must be specified in one of the following ways:
+    - be included in your $PATH
+    - be set via $GIT_PYTHON_GIT_EXECUTABLE
+    - explicitly set via git.refresh(<full-path-to-git-executable>)
+
+All git commands will error until this is rectified.
+
+This initial message can be silenced or aggravated in the future by setting the
+$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
+    - quiet|q|silence|s|silent|none|n|0: for no message or exception
+    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
+    - error|e|exception|raise|r|2: for a raised exception
+
+Example:
+    export GIT_PYTHON_REFRESH=quiet
+[2024-08-12T18:14:13.664+0000] {logging_mixin.py:151} INFO - training LogisticRegression
+[2024-08-12T18:14:19.388+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/_distutils_hack/__init__.py:33 UserWarning: Setuptools is replacing distutils.
+[2024-08-12T18:14:20.848+0000] {logging_mixin.py:151} INFO - training RandomForestClassifier
+[2024-08-12T18:14:25.418+0000] {logging_mixin.py:151} INFO - training XGBClassifier
+[2024-08-12T18:14:29.848+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T18:14:29.947+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=quarterly_retrain, task_id=run_models, execution_date=20240401T000000, start_date=20240812T181410, end_date=20240812T181429
+[2024-08-12T18:14:30.008+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T18:14:30.046+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

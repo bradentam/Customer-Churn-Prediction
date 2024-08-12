@@ -1,0 +1,14 @@
+[2024-08-12T20:09:47.952+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_db manual__2024-08-12T20:09:10.250524+00:00 [queued]>
+[2024-08-12T20:09:48.205+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_db manual__2024-08-12T20:09:10.250524+00:00 [queued]>
+[2024-08-12T20:09:48.221+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T20:09:48.516+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_db> on 2024-08-12 20:09:10.250524+00:00
+[2024-08-12T20:09:48.582+0000] {standard_task_runner.py:57} INFO - Started process 13039 to run task
+[2024-08-12T20:09:48.636+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_db', 'manual__2024-08-12T20:09:10.250524+00:00', '--job-id', '897', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpdl81pczi']
+[2024-08-12T20:09:48.678+0000] {standard_task_runner.py:85} INFO - Job 897: Subtask create_db
+[2024-08-12T20:09:49.358+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_db manual__2024-08-12T20:09:10.250524+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T20:09:50.592+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_db' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T20:09:10.250524+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T20:09:10.250524+00:00'
+[2024-08-12T20:09:50.663+0000] {logging_mixin.py:151} INFO - churn database already created
+[2024-08-12T20:09:50.678+0000] {python.py:194} INFO - Done. Returned value was: {'host': 'postgres', 'port': '5432', 'user': '***', 'password': '***', 'dbname': 'churn'}
+[2024-08-12T20:09:51.034+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_db, execution_date=20240812T200910, start_date=20240812T200947, end_date=20240812T200951
+[2024-08-12T20:09:52.855+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T20:09:54.136+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

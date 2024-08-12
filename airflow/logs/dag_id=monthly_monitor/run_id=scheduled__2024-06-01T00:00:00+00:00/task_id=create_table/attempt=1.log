@@ -1,0 +1,118 @@
+[2024-08-12T18:04:56.886+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:04:56.901+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:04:56.905+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T18:04:56.922+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-06-01 00:00:00+00:00
+[2024-08-12T18:04:56.933+0000] {standard_task_runner.py:57} INFO - Started process 7960 to run task
+[2024-08-12T18:04:56.938+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_table', 'scheduled__2024-06-01T00:00:00+00:00', '--job-id', '217', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp3i6j48he']
+[2024-08-12T18:04:56.944+0000] {standard_task_runner.py:85} INFO - Job 217: Subtask create_table
+[2024-08-12T18:04:57.056+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T18:04:57.145+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-01T00:00:00+00:00'
+[2024-08-12T18:04:57.146+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitor.py", line 44, in create_table
+    conn = psycopg2.connect(**conn_params)
+  File "/home/airflow/.local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (::1), port 5432 failed: Cannot assign requested address
+	Is the server running on that host and accepting TCP/IP connections?
+
+[2024-08-12T18:04:57.167+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=monthly_monitor, task_id=create_table, execution_date=20240601T000000, start_date=20240812T180456, end_date=20240812T180457
+[2024-08-12T18:04:57.179+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 217 for task create_table (connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+connection to server at "localhost" (::1), port 5432 failed: Cannot assign requested address
+	Is the server running on that host and accepting TCP/IP connections?
+; 7960)
+[2024-08-12T18:04:57.214+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-08-12T18:04:57.234+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T18:13:34.295+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:13:34.435+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T18:13:34.450+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T18:13:34.610+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-06-01 00:00:00+00:00
+[2024-08-12T18:13:34.760+0000] {standard_task_runner.py:57} INFO - Started process 9107 to run task
+[2024-08-12T18:13:34.809+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_table', 'scheduled__2024-06-01T00:00:00+00:00', '--job-id', '256', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp9hdqa7g7']
+[2024-08-12T18:13:34.821+0000] {standard_task_runner.py:85} INFO - Job 256: Subtask create_table
+[2024-08-12T18:13:35.420+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T18:13:36.064+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-01T00:00:00+00:00'
+[2024-08-12T18:13:36.179+0000] {logging_mixin.py:151} INFO - table monitor_metrics already exists
+[2024-08-12T18:13:36.197+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T18:13:36.243+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_table, execution_date=20240601T000000, start_date=20240812T181334, end_date=20240812T181336
+[2024-08-12T18:13:36.692+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T18:13:36.901+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:19:40.654+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:19:40.704+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:19:40.707+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:19:40.720+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-06-01 00:00:00+00:00
+[2024-08-12T19:19:40.742+0000] {standard_task_runner.py:57} INFO - Started process 3712 to run task
+[2024-08-12T19:19:40.746+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_table', 'scheduled__2024-06-01T00:00:00+00:00', '--job-id', '455', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpbjb9glnf']
+[2024-08-12T19:19:40.749+0000] {standard_task_runner.py:85} INFO - Job 455: Subtask create_table
+[2024-08-12T19:19:40.842+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:19:40.969+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-01T00:00:00+00:00'
+[2024-08-12T19:19:40.977+0000] {logging_mixin.py:151} INFO - table monitor_metrics already exists
+[2024-08-12T19:19:40.978+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T19:19:40.993+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_table, execution_date=20240601T000000, start_date=20240812T191940, end_date=20240812T191940
+[2024-08-12T19:19:41.050+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:19:41.094+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:22:11.590+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:22:11.632+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:22:11.652+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:22:11.717+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-06-01 00:00:00+00:00
+[2024-08-12T19:22:11.774+0000] {standard_task_runner.py:57} INFO - Started process 4356 to run task
+[2024-08-12T19:22:11.833+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_table', 'scheduled__2024-06-01T00:00:00+00:00', '--job-id', '495', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp4cnv7j_2']
+[2024-08-12T19:22:11.877+0000] {standard_task_runner.py:85} INFO - Job 495: Subtask create_table
+[2024-08-12T19:22:12.252+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:22:12.515+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-01T00:00:00+00:00'
+[2024-08-12T19:22:12.542+0000] {logging_mixin.py:151} INFO - table monitor_metrics already exists
+[2024-08-12T19:22:12.545+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T19:22:12.559+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_table, execution_date=20240601T000000, start_date=20240812T192211, end_date=20240812T192212
+[2024-08-12T19:22:12.649+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:22:12.698+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:27:24.525+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:27:24.536+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:27:24.546+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:27:24.654+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-06-01 00:00:00+00:00
+[2024-08-12T19:27:24.670+0000] {standard_task_runner.py:57} INFO - Started process 5399 to run task
+[2024-08-12T19:27:24.674+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_table', 'scheduled__2024-06-01T00:00:00+00:00', '--job-id', '553', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpu2hu2rt7']
+[2024-08-12T19:27:24.679+0000] {standard_task_runner.py:85} INFO - Job 553: Subtask create_table
+[2024-08-12T19:27:24.773+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:27:24.928+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-01T00:00:00+00:00'
+[2024-08-12T19:27:24.943+0000] {logging_mixin.py:151} INFO - table monitor_metrics already exists
+[2024-08-12T19:27:24.949+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T19:27:24.996+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_table, execution_date=20240601T000000, start_date=20240812T192724, end_date=20240812T192724
+[2024-08-12T19:27:25.025+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:27:25.048+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:28:43.108+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:28:43.153+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T19:28:43.172+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:28:43.212+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-06-01 00:00:00+00:00
+[2024-08-12T19:28:43.220+0000] {standard_task_runner.py:57} INFO - Started process 5873 to run task
+[2024-08-12T19:28:43.227+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_table', 'scheduled__2024-06-01T00:00:00+00:00', '--job-id', '584', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp1juhqi34']
+[2024-08-12T19:28:43.235+0000] {standard_task_runner.py:85} INFO - Job 584: Subtask create_table
+[2024-08-12T19:28:43.328+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:28:43.553+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-01T00:00:00+00:00'
+[2024-08-12T19:28:43.567+0000] {logging_mixin.py:151} INFO - table monitor_metrics already exists
+[2024-08-12T19:28:43.568+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T19:28:43.580+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_table, execution_date=20240601T000000, start_date=20240812T192843, end_date=20240812T192843
+[2024-08-12T19:28:43.619+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:28:43.641+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T20:10:12.662+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T20:10:12.685+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [queued]>
+[2024-08-12T20:10:12.689+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T20:10:12.823+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): create_table> on 2024-06-01 00:00:00+00:00
+[2024-08-12T20:10:12.878+0000] {standard_task_runner.py:57} INFO - Started process 13199 to run task
+[2024-08-12T20:10:12.888+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'create_table', 'scheduled__2024-06-01T00:00:00+00:00', '--job-id', '907', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmp1tqujtkd']
+[2024-08-12T20:10:12.915+0000] {standard_task_runner.py:85} INFO - Job 907: Subtask create_table
+[2024-08-12T20:10:13.281+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.create_table scheduled__2024-06-01T00:00:00+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T20:10:13.830+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2024-06-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-06-01T00:00:00+00:00'
+[2024-08-12T20:10:13.885+0000] {logging_mixin.py:151} INFO - table monitor_metrics already exists
+[2024-08-12T20:10:13.925+0000] {python.py:194} INFO - Done. Returned value was: None
+[2024-08-12T20:10:14.064+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_monitor, task_id=create_table, execution_date=20240601T000000, start_date=20240812T201012, end_date=20240812T201014
+[2024-08-12T20:10:14.197+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T20:10:14.365+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

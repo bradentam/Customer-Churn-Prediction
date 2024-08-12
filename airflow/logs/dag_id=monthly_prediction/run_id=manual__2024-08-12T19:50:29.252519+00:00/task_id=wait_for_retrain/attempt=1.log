@@ -1,0 +1,151 @@
+[2024-08-12T19:50:31.303+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:50:31.307+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:50:31.307+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:50:31.314+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:50:31.320+0000] {standard_task_runner.py:57} INFO - Started process 9407 to run task
+[2024-08-12T19:50:31.321+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '726', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpvx7hreno']
+[2024-08-12T19:50:31.323+0000] {standard_task_runner.py:85} INFO - Job 726: Subtask wait_for_retrain
+[2024-08-12T19:50:31.555+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:50:31.599+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:50:31.607+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:50:31.630+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:50:31.669+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:50:31.693+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:51:33.143+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:51:33.148+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:51:33.148+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:51:33.154+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:51:33.160+0000] {standard_task_runner.py:57} INFO - Started process 9618 to run task
+[2024-08-12T19:51:33.163+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '738', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmp02dn_0o4']
+[2024-08-12T19:51:33.166+0000] {standard_task_runner.py:85} INFO - Job 738: Subtask wait_for_retrain
+[2024-08-12T19:51:33.366+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:51:33.414+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:51:33.421+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:51:33.441+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:51:33.476+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:51:33.491+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:52:35.635+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:52:35.646+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:52:35.646+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:52:35.660+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:52:35.669+0000] {standard_task_runner.py:57} INFO - Started process 9820 to run task
+[2024-08-12T19:52:35.674+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '749', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpa0v2bqo1']
+[2024-08-12T19:52:35.678+0000] {standard_task_runner.py:85} INFO - Job 749: Subtask wait_for_retrain
+[2024-08-12T19:52:36.024+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:52:36.097+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:52:36.108+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:52:36.139+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:52:36.165+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:52:36.186+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:53:37.983+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:53:37.989+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:53:37.990+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:53:37.997+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:53:38.003+0000] {standard_task_runner.py:57} INFO - Started process 10022 to run task
+[2024-08-12T19:53:38.005+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '760', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpca2dplkj']
+[2024-08-12T19:53:38.007+0000] {standard_task_runner.py:85} INFO - Job 760: Subtask wait_for_retrain
+[2024-08-12T19:53:38.187+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:53:38.235+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:53:38.243+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:53:38.264+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:53:38.273+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:53:38.288+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:54:39.761+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:54:39.769+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:54:39.770+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:54:39.781+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:54:39.790+0000] {standard_task_runner.py:57} INFO - Started process 10224 to run task
+[2024-08-12T19:54:39.792+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '771', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmp0tzsoqxf']
+[2024-08-12T19:54:39.795+0000] {standard_task_runner.py:85} INFO - Job 771: Subtask wait_for_retrain
+[2024-08-12T19:54:40.025+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:54:40.110+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:54:40.123+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:54:40.149+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:54:40.195+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:54:40.211+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:55:42.164+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:55:42.176+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:55:42.177+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:55:42.193+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:55:42.204+0000] {standard_task_runner.py:57} INFO - Started process 10439 to run task
+[2024-08-12T19:55:42.210+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '782', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmp93tpxbge']
+[2024-08-12T19:55:42.213+0000] {standard_task_runner.py:85} INFO - Job 782: Subtask wait_for_retrain
+[2024-08-12T19:55:42.410+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:55:42.452+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:55:42.460+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:55:42.479+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:55:42.528+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:55:42.540+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:56:45.588+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:56:45.596+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:56:45.596+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:56:45.605+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:56:45.616+0000] {standard_task_runner.py:57} INFO - Started process 10696 to run task
+[2024-08-12T19:56:45.619+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '796', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmp_d6p5ouu']
+[2024-08-12T19:56:45.623+0000] {standard_task_runner.py:85} INFO - Job 796: Subtask wait_for_retrain
+[2024-08-12T19:56:45.895+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:56:45.990+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:56:46.008+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:56:46.048+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:56:46.091+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:56:46.118+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:57:47.661+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:57:47.665+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:57:47.666+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:57:47.672+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:57:47.677+0000] {standard_task_runner.py:57} INFO - Started process 10991 to run task
+[2024-08-12T19:57:47.679+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '814', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpmk18x_yb']
+[2024-08-12T19:57:47.681+0000] {standard_task_runner.py:85} INFO - Job 814: Subtask wait_for_retrain
+[2024-08-12T19:57:47.840+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:57:47.881+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:57:47.888+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:57:47.906+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:57:47.952+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:57:47.964+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:58:50.912+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:58:50.919+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:58:50.920+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:58:50.929+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:58:50.936+0000] {standard_task_runner.py:57} INFO - Started process 11153 to run task
+[2024-08-12T19:58:50.940+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '821', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpz7nyyap2']
+[2024-08-12T19:58:50.942+0000] {standard_task_runner.py:85} INFO - Job 821: Subtask wait_for_retrain
+[2024-08-12T19:58:51.145+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:58:51.196+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:58:51.205+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:58:51.237+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:58:51.249+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:58:51.266+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T19:59:53.480+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:59:53.487+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T19:59:53.487+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T19:59:53.497+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T19:59:53.505+0000] {standard_task_runner.py:57} INFO - Started process 11292 to run task
+[2024-08-12T19:59:53.508+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '828', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpnv78c0gz']
+[2024-08-12T19:59:53.510+0000] {standard_task_runner.py:85} INFO - Job 828: Subtask wait_for_retrain
+[2024-08-12T19:59:53.902+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T19:59:53.988+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T19:59:54.003+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T19:59:54.043+0000] {taskinstance.py:1895} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2024-08-12T19:59:54.059+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T19:59:54.090+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-12T20:00:57.661+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T20:00:57.678+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [queued]>
+[2024-08-12T20:00:57.679+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T20:00:57.695+0000] {taskinstance.py:1380} INFO - Executing <Task(ExternalTaskSensor): wait_for_retrain> on 2024-08-12 19:50:29.252519+00:00
+[2024-08-12T20:00:57.705+0000] {standard_task_runner.py:57} INFO - Started process 11446 to run task
+[2024-08-12T20:00:57.709+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'wait_for_retrain', 'manual__2024-08-12T19:50:29.252519+00:00', '--job-id', '833', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpubqc_nqr']
+[2024-08-12T20:00:57.713+0000] {standard_task_runner.py:85} INFO - Job 833: Subtask wait_for_retrain
+[2024-08-12T20:00:58.130+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.wait_for_retrain manual__2024-08-12T19:50:29.252519+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T20:00:58.205+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='wait_for_retrain' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T19:50:29.252519+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T19:50:29.252519+00:00'
+[2024-08-12T20:00:58.217+0000] {external_task.py:244} INFO - Poking for tasks ['optimize_and_register_best_classifier'] in dag quarterly_retrain on 2024-07-31T19:50:29.252519+00:00 ... 
+[2024-08-12T20:00:58.234+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/external_task.py", line 334, in execute
+    super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 274, in execute
+    raise AirflowSensorTimeout(message)
+airflow.exceptions.AirflowSensorTimeout: Sensor has timed out; run duration of 626.664274 seconds exceeds the specified timeout of 600.0.
+[2024-08-12T20:00:58.247+0000] {taskinstance.py:1398} INFO - Immediate failure requested. Marking task as FAILED. dag_id=monthly_prediction, task_id=wait_for_retrain, execution_date=20240812T195029, start_date=20240812T200057, end_date=20240812T200058
+[2024-08-12T20:00:58.263+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 833 for task wait_for_retrain (Sensor has timed out; run duration of 626.664274 seconds exceeds the specified timeout of 600.0.; 11446)
+[2024-08-12T20:00:58.306+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-08-12T20:00:58.333+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

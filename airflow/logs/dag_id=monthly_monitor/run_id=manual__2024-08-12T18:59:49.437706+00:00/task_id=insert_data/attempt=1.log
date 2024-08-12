@@ -1,0 +1,30 @@
+[2024-08-12T18:59:54.914+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_monitor.insert_data manual__2024-08-12T18:59:49.437706+00:00 [queued]>
+[2024-08-12T18:59:54.917+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_monitor.insert_data manual__2024-08-12T18:59:49.437706+00:00 [queued]>
+[2024-08-12T18:59:54.918+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T18:59:54.923+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): insert_data> on 2024-08-12 18:59:49.437706+00:00
+[2024-08-12T18:59:54.927+0000] {standard_task_runner.py:57} INFO - Started process 1341 to run task
+[2024-08-12T18:59:54.929+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_monitor', 'insert_data', 'manual__2024-08-12T18:59:49.437706+00:00', '--job-id', '396', '--raw', '--subdir', 'DAGS_FOLDER/monitor.py', '--cfg-path', '/tmp/tmpxi83f7zc']
+[2024-08-12T18:59:54.931+0000] {standard_task_runner.py:85} INFO - Job 396: Subtask insert_data
+[2024-08-12T18:59:54.955+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_monitor.insert_data manual__2024-08-12T18:59:49.437706+00:00 [running]> on host a9166c5dc5ae
+[2024-08-12T18:59:55.001+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_monitor' AIRFLOW_CTX_TASK_ID='insert_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T18:59:49.437706+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T18:59:49.437706+00:00'
+[2024-08-12T18:59:55.005+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/monitor.py", line 129, in insert_data
+    cur.execute(check_statement, (data[0],))
+psycopg2.errors.UndefinedTable: relation "monitor_metrics" does not exist
+LINE 2:         SELECT 1 FROM monitor_metrics WHERE timestamp = '202...
+                              ^
+
+[2024-08-12T18:59:55.010+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=monthly_monitor, task_id=insert_data, execution_date=20240812T185949, start_date=20240812T185954, end_date=20240812T185955
+[2024-08-12T18:59:55.014+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 396 for task insert_data (relation "monitor_metrics" does not exist
+LINE 2:         SELECT 1 FROM monitor_metrics WHERE timestamp = '202...
+                              ^
+; 1341)
+[2024-08-12T18:59:55.027+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2024-08-12T18:59:55.035+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

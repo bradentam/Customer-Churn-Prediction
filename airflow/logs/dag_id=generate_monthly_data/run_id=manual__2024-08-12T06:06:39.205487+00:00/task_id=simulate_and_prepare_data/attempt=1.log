@@ -1,0 +1,26 @@
+[2024-08-12T06:06:41.523+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: generate_monthly_data.simulate_and_prepare_data manual__2024-08-12T06:06:39.205487+00:00 [queued]>
+[2024-08-12T06:06:41.529+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: generate_monthly_data.simulate_and_prepare_data manual__2024-08-12T06:06:39.205487+00:00 [queued]>
+[2024-08-12T06:06:41.530+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2024-08-12T06:06:41.540+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): simulate_and_prepare_data> on 2024-08-12 06:06:39.205487+00:00
+[2024-08-12T06:06:41.555+0000] {standard_task_runner.py:57} INFO - Started process 8312 to run task
+[2024-08-12T06:06:41.561+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'generate_monthly_data', 'simulate_and_prepare_data', 'manual__2024-08-12T06:06:39.205487+00:00', '--job-id', '113', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmp2sey0job']
+[2024-08-12T06:06:41.562+0000] {standard_task_runner.py:85} INFO - Job 113: Subtask simulate_and_prepare_data
+[2024-08-12T06:06:41.594+0000] {task_command.py:415} INFO - Running <TaskInstance: generate_monthly_data.simulate_and_prepare_data manual__2024-08-12T06:06:39.205487+00:00 [running]> on host fa284eed0508
+[2024-08-12T06:06:41.677+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='generate_monthly_data' AIRFLOW_CTX_TASK_ID='simulate_and_prepare_data' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T06:06:39.205487+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T06:06:39.205487+00:00'
+[2024-08-12T06:06:41.697+0000] {python.py:194} INFO - Done. Returned value was:           age  ...  payment_method_mailed_check
+0   -1.527973  ...                          0.0
+1   -1.527973  ...                          0.0
+2   -0.009926  ...                          0.0
+3    0.340393  ...                          0.0
+4    0.924257  ...                          0.0
+..        ...  ...                          ...
+995 -0.243471  ...                          0.0
+996 -1.236041  ...                          0.0
+997  0.924257  ...                          0.0
+998  1.566508  ...                          0.0
+999  1.216190  ...                          0.0
+
+[1000 rows x 56 columns]
+[2024-08-12T06:06:41.757+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=generate_monthly_data, task_id=simulate_and_prepare_data, execution_date=20240812T060639, start_date=20240812T060641, end_date=20240812T060641
+[2024-08-12T06:06:41.781+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2024-08-12T06:06:41.798+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

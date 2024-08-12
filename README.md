@@ -32,19 +32,19 @@ Customer churn is a large part of every company as retaining existing customers 
 
 - open command shell and insert the following prompts: 
 
-Configures the CLI to the project
+Configures the CLI to the project: 
 ```gcloud config set project <INSERT_PROJECT_NAME>```
 
-Creates a service account
+Creates a service account: 
 ```gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" ```
 
-Configures the service account role to owner
+Configures the service account role to owner: 
 ```gcloud projects add-iam-policy-binding <INSERT_PROJECT_NAME> --member="serviceAccount:gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com" --role="roles/owner"```
 
-Creates json key
+Creates json key: 
 ```gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com```
 
-Sets environmental variable in terminal to allow credentials to be used
+Sets environmental variable in terminal to allow credentials to be used: 
 ```export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'```
 
 ### Terraform
@@ -92,43 +92,25 @@ Run the docker compose file
 - ```docker-compose up```
 
 ### Airflow
-- access by entering "<EXTERNAL_IP_ADDRESS_VM>:8080" into your web browser
+- access Airflow UI by entering "<EXTERNAL_IP_ADDRESS_VM>:8080" into your web browser
 - the external IP address can be found by using the following command
 ```gcloud compute instances list```
 
 ![image info](./images/airflow.png)
-### MLFlow
-- access by entering "<EXTERNAL_IP_ADDRESS_VM>:5000" into your web browser
+### MLflow
+- access MLflow UI by entering "<EXTERNAL_IP_ADDRESS_VM>:5000" into your web browser
 - The experiments can be tracked here with data regarding the tracked metrics and models.
 
-![image info](./images/mlflow_experiments.png)
+![image info](./images/mlflow_experiments.png)  
+
 ![image info](./images/mlflow_registry.png)
+
+### Monitoring
+- access Grafana dashboard by entering "<EXTERNAL_IP_ADDRESS_VM>:3000" into your web browser
+
+![image info](./images/grafana.png)
 
 ### Running locally
 
 If you would like to run the project locally, you can skip setting up GCP and terraform. You'll still need to configure the docker-compose.yaml, Docker.mlflow, grafana_datasources.yaml files.
 
-
-
-
-
-DAGS:
-- quarterly_retrain
-- monthly_prediction
-
-### EDA
-
-### Modelling / Training
-
-
-### Performance
-
-
-### Monitoring
-
-
-### Project Replication
-
-- prerequisites
-
-### Further Improvements

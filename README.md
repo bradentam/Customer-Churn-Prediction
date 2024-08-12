@@ -18,7 +18,7 @@ Customer churn is a large part of every company as retaining existing customers 
 ## Technologies used
 
 - Terraform: infrastructure as code (IaC)
-- GCP: cloud
+- GCP: cloud infrastructure (VM, SQL, storage)
 - MLFlow: experiment tracking and model registry
 - Airflow: orchestration
 - Docker: deployment
@@ -33,19 +33,19 @@ Customer churn is a large part of every company as retaining existing customers 
 - open command shell and insert the following prompts: 
 
 Configures the CLI to the project: 
-```gcloud config set project <INSERT_PROJECT_NAME>```
+- ```gcloud config set project <INSERT_PROJECT_NAME>```
 
 Creates a service account: 
-```gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" ```
+- ```gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" ```
 
 Configures the service account role to owner: 
-```gcloud projects add-iam-policy-binding <INSERT_PROJECT_NAME> --member="serviceAccount:gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com" --role="roles/owner"```
+- ```gcloud projects add-iam-policy-binding <INSERT_PROJECT_NAME> --member="serviceAccount:gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com" --role="roles/owner"```
 
 Creates json key: 
-```gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com```
+- ```gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com```
 
 Sets environmental variable in terminal to allow credentials to be used: 
-```export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'```
+- ```export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'```
 
 ### Terraform
 
@@ -56,11 +56,15 @@ Sets environmental variable in terminal to allow credentials to be used:
 
 ### Updating file configurations
 
-docker-compose.yaml:
-- update line 10 and 11 to add connection to GCP postgres DB instance.
+**docker-compose.yaml:**
+- update lines 10 and 11 to add connection to GCP postgres DB instance.
 
-Dockerfile.mlflow:
-- update line 8 and 11 to add connection to GCP postgres DB instance and GCS bucket. 
+**Dockerfile.mlflow:**
+- update lines 8 and 11 to add connection to GCP postgres DB instance and GCS bucket. 
+
+**grafana_datasources.yaml:**
+- update lines 10, 12, and 14 to add connection to GCP postgres DB.
+
 ### Deploying with Docker on the GCP VM
 
 After the virtual machine is created, we'll need to copy the required files to the virtual machine with the following prompt:
@@ -79,16 +83,16 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 The following commands will apply to both deployment locally and on the VM:
 
-Set airflow_uid in environmental file
+Set airflow_uid in environmental file:
 - ```echo -e "AIRFLOW_UID=$(id -u)" > .env```
 
-Initialize airflow db
+Initialize airflow db:
 - ```docker-compose up airflow-init```
 
-Build the docker images
+Build the docker images:
 - ```docker-compose build```
 
-Run the docker compose file
+Run the docker compose file:
 - ```docker-compose up```
 
 ### Airflow

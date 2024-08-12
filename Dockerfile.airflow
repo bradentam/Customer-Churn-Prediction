@@ -1,0 +1,6 @@
+FROM apache/airflow:2.7.1
+
+RUN pip install -U pip --upgrade pip
+
+COPY requirements.txt /tmp
+RUN pip install -r /tmp/requirements.txt

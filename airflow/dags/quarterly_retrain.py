@@ -1,5 +1,4 @@
 from airflow.decorators import task, dag
-from airflow.operators.python_operator import PythonOperator
 from datetime import timedelta, datetime
 
 import mlflow
@@ -123,7 +122,6 @@ def register_best_model(client, experiment_name, model_type):
 
 @dag(schedule_interval='0 0 1 1,4,7,10 *', start_date=datetime(2023, 1, 1), catchup=False)
 def quarterly_retrain():
-    
     @task
     def load_transform_data(data_path, cat_features, num_features):
         df = utils.read_and_clean_data(data_path)
@@ -184,8 +182,8 @@ def quarterly_retrain():
     # Define task dependencies
     data_path = f'gs://churn-data-bt/telecom_customer_churn.csv'
     data = load_transform_data(data_path, cat_features, num_features)
-    run_models(data)
-    optimize_and_register_best_classifier(client, EXPERIMENT_NAME, data)
+    models = run_models(data)
+    models >> optimize_and_register_best_classifier(client, EXPERIMENT_NAME, data)
 
 
 dag_instance = quarterly_retrain()

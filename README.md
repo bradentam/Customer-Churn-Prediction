@@ -4,8 +4,6 @@
 
 This project was completed for the [MLOps Zoomcamp Course](https://github.com/DataTalksClub/mlops-zoomcamp/tree/main). The main goal was to create a complete MLOps workflow that includes experiment tracking and model registry, monitoring, workflow orchestration,containerized deployment on the cloud, provisioning of infrastructure through IaC (infrastructure as code).
 
-- infrastructure visual
-
 ## Problem Description
 
 Customer churn is a large part of every company as retaining existing customers is crucial for maintaining revenue and growth. It's essential to understand what leads a customer to leave and what preventative measures we can put in place. The goal is to train a classification model using various metrics to predict whether a customer is likely to leave. 

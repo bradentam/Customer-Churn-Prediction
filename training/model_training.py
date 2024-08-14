@@ -1,10 +1,10 @@
-import os
+import sys
 import mlflow
 import pandas as pd
 import numpy as np
 
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import f1_score, roc_auc_score, average_precision_score
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
@@ -15,27 +15,31 @@ from mlflow.entities import ViewType
 
 from hyperopt import fmin, tpe, hp, Trials, STATUS_OK
 
+sys.path.append('../utils/')
 import utils
 
-def run_model(model, X_train, X_test, y_train, y_test):
+def run_model(model, X_train, X_val, y_train, y_val):
     with mlflow.start_run():
         mlflow.set_tag('developer','Braden')
         mlflow.set_tag('model_type', type(model).__name__)
         print(f'training {type(model).__name__}')
         model.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
-
+        y_pred = model.predict(X_val)
         mlflow.sklearn.log_model(model, artifact_path='models')
 
-        roc_auc = roc_auc_score(y_test, model.predict_proba(X_test)[:, 1])
+        pr_auc = average_precision_score(y_val, model.predict_proba(X_val)[:, 1])
+        roc_auc = roc_auc_score(y_val, model.predict_proba(X_val)[:, 1])
+        f1 = f1_score(y_val, y_pred)
+        mlflow.log_metric('pr_auc', pr_auc)
         mlflow.log_metric('roc_auc', roc_auc)
+        mlflow.log_metric('f1_score', f1)
 
 def find_best_classifier(client, experiment_name):
     best_run = client.search_runs(
         experiment_ids=client.get_experiment_by_name(experiment_name).experiment_id,
         run_view_type=ViewType.ACTIVE_ONLY,
         max_results=1,
-        order_by=['metrics.roc_auc DESC']
+        order_by=['metrics.pr_auc DESC']
     )[0]
 
     model_type = best_run.data.tags['model_type']
@@ -68,37 +72,42 @@ def hyperparameter_space(model_type):
             'colsample_bytree': hp.uniform('colsample_bytree', 0.6, 1.0)
         }
     
-def objective(params, model_type, X_train, X_test, y_train, y_test):
-    params['max_depth'] = int(params['max_depth'])
-    params['min_child_weight'] = int(params['min_child_weight'])
+def objective(params, model_type, X_train, X_val, y_train, y_val):
     with mlflow.start_run(nested=True):
         if model_type == 'LogisticRegression':
             model = LogisticRegression(**params)
         elif model_type == 'RandomForestClassifier':
             model = RandomForestClassifier(**params)
         elif model_type == 'XGBClassifier':
+            params['max_depth'] = int(params['max_depth'])
+            params['min_child_weight'] = int(params['min_child_weight'])
             model = XGBClassifier(**params)
         model.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
-        roc_auc = roc_auc_score(y_test, model.predict_proba(X_test)[:, 1])
-            
+        y_pred = model.predict(X_val)
+
+        pr_auc = average_precision_score(y_val, model.predict_proba(X_val)[:, 1])
+        roc_auc = roc_auc_score(y_val, model.predict_proba(X_val)[:, 1])
+        f1 = f1_score(y_val, y_pred)
+
         # Log parameters and metrics
         mlflow.set_tag('developer','Braden')
         mlflow.set_tag('model_type', type(model).__name__)
         mlflow.log_params(params)
+        mlflow.log_metric('pr_auc', pr_auc)
         mlflow.log_metric('roc_auc', roc_auc)
+        mlflow.log_metric('f1_score', f1)
         # Log the model
         mlflow.sklearn.log_model(model, 'models')
 
             
-        return {'loss': -roc_auc, 'status': STATUS_OK}
+        return {'loss': -pr_auc, 'status': STATUS_OK}
     
 def register_best_model(client, experiment_name, model_type):
     best_run = client.search_runs(
         experiment_ids=client.get_experiment_by_name(experiment_name).experiment_id,
         run_view_type=ViewType.ACTIVE_ONLY,
         max_results=1,
-        order_by=['metrics.roc_auc DESC']
+        order_by=['metrics.pr_auc DESC']
     )[0]
 
     run_id = best_run.info.run_id
@@ -110,7 +119,7 @@ def register_best_model(client, experiment_name, model_type):
 
 
 def main():
-    TRACKING_SERVER_HOST = '34.127.24.6'
+    TRACKING_SERVER_HOST = '34.168.107.123'
     TRACKING_URI = f'http://{TRACKING_SERVER_HOST}:5000'
     EXPERIMENT_NAME = 'churn_experiment'
     mlflow.set_tracking_uri(TRACKING_URI)
@@ -126,18 +135,19 @@ def main():
                     'avg_monthly_long_distance_charges', 'avg_monthly_gb_download', 'monthly_charge', 
                     'total_charges', 'total_refunds', 'total_extra_data_charges', 
                     'total_long_distance_charges', 'total_revenue']
+    df = utils.read_and_clean_data('../data/telecom_customer_churn.csv')
+    X_train, X_val, y_train, y_val = utils.process_data(df, cat_features, num_features, test_size=0.2)
+    X_train, y_train = utils.over_sample(X_train, y_train)
 
-    X_train, X_test, y_train, y_test = utils.read_and_process_data(cat_features, num_features, test_size=0.2)
-
-    run_model(LogisticRegression(), X_train, X_test, y_train, y_test)
-    run_model(RandomForestClassifier(random_state = 42), X_train, X_test, y_train, y_test)
-    run_model(XGBClassifier(), X_train, X_test, y_train, y_test)
+    run_model(LogisticRegression(), X_train, X_val, y_train, y_val)
+    run_model(RandomForestClassifier(random_state = 42), X_train, X_val, y_train, y_val)
+    run_model(XGBClassifier(), X_train, X_val, y_train, y_val)
 
     model_type = find_best_classifier(client, EXPERIMENT_NAME) 
     search_space = hyperparameter_space(model_type)
 
     best_params = fmin(
-        fn=lambda params: objective(params, model_type, X_train, X_test, y_train, y_test),
+        fn=lambda params: objective(params, model_type, X_train, X_val, y_train, y_val),
         space=search_space,
         algo=tpe.suggest,
         max_evals=50,

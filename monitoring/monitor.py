@@ -15,7 +15,7 @@ def create_db(conn_params, db_name):
     conn = psycopg2.connect(**conn_params)
     conn.autocommit = True
     with conn.cursor() as cur:
-        cur.execute("SELECT 1 FROM pg_database WHERE datname='test'")
+        cur.execute(f"SELECT 1 FROM pg_database WHERE datname='{db_name}'")
         if len(cur.fetchall()) == 0:
             print(f'creating database {db_name}')
             cur.execute(f'CREATE DATABASE {db_name};')
@@ -39,6 +39,7 @@ def create_table(conn_params, table_name):
     try:
         with conn.cursor() as cur:
             cur.execute(create_table_statement)
+            print(f'table {table_name} created')
     except:
         print(f'table {table_name} already exists')
 		
@@ -74,14 +75,22 @@ def main():
                    'user': 'postgres',
                    'password': 'admin'}  
     
-    db_name = 'test'
+    db_name = 'churn'
     table_name = 'monitor_metrics'
-    
+
     create_db(conn_params, db_name)
     create_table(conn_params, table_name)
 
-    ref_df = pd.read_csv('../data/scored_reference_df.csv')
-    curr_df = pd.read_csv('../data/scored_current_df.csv')
+    month_end = (datetime.now() + pd.offsets.MonthEnd(0)).date()
+    previous_month = (datetime.now() + pd.offsets.MonthEnd(-1)).date()
+
+    ref_path = f'gs://scoring-bradentam/output/reference_df_{previous_month}.csv'
+    curr_path = f'gs://scoring-bradentam/output/reference_df_{month_end}.csv'
+
+    # ref_df = pd.read_csv('../data/scored_reference_df.csv')
+    # curr_df = pd.read_csv('../data/scored_current_df.csv')
+    ref_df = pd.read_csv(ref_path)
+    curr_df = pd.read_csv(curr_path)
 
 
     cat_features = ['gender', 'married', 'offer', 'phone_service', 'multiple_lines', 'internet_service', 
@@ -113,7 +122,6 @@ def main():
 
     result = report.as_dict()
     
-    month_end = (datetime.now() + pd.offsets.MonthEnd(0)).date()
     prediction_drift = result['metrics'][0]['result']['drift_score']
     num_drifted_columns = result['metrics'][1]['result']['number_of_drifted_columns'] 
 

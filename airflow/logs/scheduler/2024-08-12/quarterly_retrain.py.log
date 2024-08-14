@@ -13626,3 +13626,195 @@ TypeError: missing a required argument: 'X_val'
 [2024-08-12T22:54:47.388+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:54:47.388+0000] {dag.py:2915} INFO - Sync 1 DAGs
 [2024-08-12T22:54:47.397+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:54:47.397+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
 [2024-08-12T22:54:47.405+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.113 seconds
+[2024-08-12T22:55:17.714+0000] {processor.py:157} INFO - Started process (PID=28470) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:55:17.716+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T22:55:17.717+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:55:17.716+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:55:18.699+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:55:18.745+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:55:18.744+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T22:55:18.745+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:55:18.745+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T22:55:18.755+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:55:18.755+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T22:55:18.763+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.052 seconds
+[2024-08-12T22:55:49.064+0000] {processor.py:157} INFO - Started process (PID=28516) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:55:49.066+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T22:55:49.067+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:55:49.067+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:55:49.925+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:55:49.981+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:55:49.980+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T22:55:49.982+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:55:49.981+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T22:55:49.992+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:55:49.992+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T22:55:50.000+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.940 seconds
+[2024-08-12T22:56:20.374+0000] {processor.py:157} INFO - Started process (PID=28562) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:56:20.375+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T22:56:20.376+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:56:20.376+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:56:21.279+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:56:21.328+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:56:21.328+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T22:56:21.328+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:56:21.328+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T22:56:21.338+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:56:21.338+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T22:56:21.346+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.975 seconds
+[2024-08-12T22:56:51.460+0000] {processor.py:157} INFO - Started process (PID=28608) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:56:51.461+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T22:56:51.462+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:56:51.462+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:56:52.306+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:56:52.350+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:56:52.349+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T22:56:52.350+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:56:52.350+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T22:56:52.359+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:56:52.359+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T22:56:52.367+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.911 seconds
+[2024-08-12T22:57:22.771+0000] {processor.py:157} INFO - Started process (PID=28654) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:57:22.773+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T22:57:22.774+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:57:22.774+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:57:23.623+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:57:23.669+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:57:23.668+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T22:57:23.669+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:57:23.669+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T22:57:23.678+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:57:23.678+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T22:57:23.686+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.920 seconds
+[2024-08-12T22:57:54.110+0000] {processor.py:157} INFO - Started process (PID=28700) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:57:54.112+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T22:57:54.113+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:57:54.112+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:57:55.169+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:57:55.214+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:57:55.214+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T22:57:55.215+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:57:55.214+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T22:57:55.223+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:57:55.223+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T22:57:55.230+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.125 seconds
+[2024-08-12T22:58:25.520+0000] {processor.py:157} INFO - Started process (PID=28746) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:58:25.521+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T22:58:25.522+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:58:25.522+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:58:26.425+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:58:26.474+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:58:26.474+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T22:58:26.474+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:58:26.474+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T22:58:26.484+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:58:26.484+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T22:58:26.491+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.976 seconds
+[2024-08-12T22:58:56.936+0000] {processor.py:157} INFO - Started process (PID=28799) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:58:56.938+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T22:58:56.939+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:58:56.939+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:58:57.798+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:58:57.844+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:58:57.844+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T22:58:57.845+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:58:57.844+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T22:58:57.858+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:58:57.858+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T22:58:57.869+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.936 seconds
+[2024-08-12T22:59:28.639+0000] {processor.py:157} INFO - Started process (PID=28845) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:59:28.640+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T22:59:28.641+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:59:28.641+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:59:29.503+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T22:59:29.547+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:59:29.546+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T22:59:29.547+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:59:29.547+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T22:59:29.558+0000] {logging_mixin.py:151} INFO - [2024-08-12T22:59:29.558+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T22:59:29.566+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.930 seconds
+[2024-08-12T23:00:00.124+0000] {processor.py:157} INFO - Started process (PID=28891) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:00:00.126+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:00:00.127+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:00:00.126+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:00:01.029+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:00:01.073+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:00:01.073+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:00:01.074+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:00:01.074+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:00:01.082+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:00:01.082+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:00:01.090+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.970 seconds
+[2024-08-12T23:00:31.758+0000] {processor.py:157} INFO - Started process (PID=28937) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:00:31.760+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:00:31.762+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:00:31.761+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:00:33.077+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:00:33.131+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:00:33.130+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:00:33.131+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:00:33.131+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:00:33.141+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:00:33.141+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:00:33.151+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.399 seconds
+[2024-08-12T23:01:03.448+0000] {processor.py:157} INFO - Started process (PID=28982) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:01:03.449+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:01:03.450+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:01:03.450+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:01:04.783+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:01:04.858+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:01:04.857+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:01:04.859+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:01:04.858+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:01:04.874+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:01:04.871+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:01:04.883+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.439 seconds
+[2024-08-12T23:01:35.091+0000] {processor.py:157} INFO - Started process (PID=29028) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:01:35.092+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:01:35.093+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:01:35.093+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:01:36.015+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:01:36.060+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:01:36.060+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:01:36.061+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:01:36.060+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:01:36.069+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:01:36.069+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:01:36.076+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.988 seconds
+[2024-08-12T23:02:13.269+0000] {processor.py:157} INFO - Started process (PID=29077) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:02:13.272+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:02:13.275+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:02:13.274+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:02:17.757+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:02:17.980+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:02:17.979+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:02:17.982+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:02:17.981+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:02:18.022+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:02:18.021+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:02:18.054+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 4.798 seconds
+[2024-08-12T23:02:48.186+0000] {processor.py:157} INFO - Started process (PID=29123) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:02:48.187+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:02:48.188+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:02:48.188+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:02:49.111+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:02:49.155+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:02:49.155+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:02:49.156+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:02:49.156+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:02:49.164+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:02:49.164+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:02:49.171+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 0.988 seconds
+[2024-08-12T23:18:18.494+0000] {processor.py:157} INFO - Started process (PID=29169) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:18:18.500+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:18:18.504+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:18:18.503+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:18:19.984+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:18:20.032+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:18:20.031+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:18:20.032+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:18:20.032+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:18:20.042+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:18:20.041+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:18:20.049+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.571 seconds
+[2024-08-12T23:35:19.122+0000] {processor.py:157} INFO - Started process (PID=29218) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:35:19.123+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:35:19.124+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:35:19.124+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:35:20.790+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:35:20.840+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:35:20.839+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:35:20.840+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:35:20.840+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:35:20.855+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:35:20.855+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:35:20.866+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.746 seconds
+[2024-08-12T23:35:51.333+0000] {processor.py:157} INFO - Started process (PID=29265) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:35:51.336+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:35:51.338+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:35:51.337+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:35:52.620+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:35:52.722+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:35:52.721+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:35:52.722+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:35:52.722+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:35:52.735+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:35:52.734+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:35:52.743+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.413 seconds
+[2024-08-12T23:36:23.174+0000] {processor.py:157} INFO - Started process (PID=29311) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:36:23.175+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:36:23.177+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:36:23.176+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:36:24.179+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:36:24.225+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:36:24.225+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:36:24.226+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:36:24.226+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:36:24.235+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:36:24.235+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:36:24.243+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.089 seconds
+[2024-08-12T23:36:54.700+0000] {processor.py:157} INFO - Started process (PID=29357) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:36:54.701+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:36:54.702+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:36:54.702+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:36:55.796+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:36:55.851+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:36:55.851+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:36:55.852+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:36:55.851+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:36:55.861+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:36:55.861+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:36:55.868+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.171 seconds
+[2024-08-12T23:37:26.314+0000] {processor.py:157} INFO - Started process (PID=29403) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:37:26.315+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:37:26.315+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:37:26.315+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:37:27.356+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:37:27.413+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:37:27.412+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:37:27.413+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:37:27.413+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:37:27.422+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:37:27.422+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:37:27.430+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.118 seconds
+[2024-08-12T23:37:57.860+0000] {processor.py:157} INFO - Started process (PID=29448) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:37:57.860+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:37:57.861+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:37:57.861+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:37:58.898+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:37:58.945+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:37:58.945+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:37:58.946+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:37:58.945+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:37:58.955+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:37:58.955+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:37:58.962+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.104 seconds
+[2024-08-12T23:55:01.219+0000] {processor.py:157} INFO - Started process (PID=29494) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:55:01.220+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:55:01.221+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:55:01.221+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:55:02.807+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:55:02.850+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:55:02.849+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:55:02.850+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:55:02.850+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:55:02.860+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:55:02.860+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:55:02.867+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.650 seconds
+[2024-08-12T23:55:33.277+0000] {processor.py:157} INFO - Started process (PID=29540) to work on /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:55:33.283+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/quarterly_retrain.py for tasks to queue
+[2024-08-12T23:55:33.285+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:55:33.285+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:55:34.588+0000] {processor.py:839} INFO - DAG(s) dict_keys(['quarterly_retrain']) retrieved from /opt/airflow/dags/quarterly_retrain.py
+[2024-08-12T23:55:34.637+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:55:34.637+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:quarterly_retrain' as access control is unset.
+[2024-08-12T23:55:34.639+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:55:34.639+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2024-08-12T23:55:34.649+0000] {logging_mixin.py:151} INFO - [2024-08-12T23:55:34.649+0000] {dag.py:3696} INFO - Setting next_dagrun for quarterly_retrain to 2024-04-01T00:00:00+00:00, run_after=2024-07-01T00:00:00+00:00
+[2024-08-12T23:55:34.656+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/quarterly_retrain.py took 1.388 seconds

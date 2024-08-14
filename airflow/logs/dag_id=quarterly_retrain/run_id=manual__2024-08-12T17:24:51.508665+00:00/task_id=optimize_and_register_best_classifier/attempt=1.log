@@ -1,185 +1,0 @@
-[2024-08-12T17:25:10.390+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: quarterly_retrain.optimize_and_register_best_classifier manual__2024-08-12T17:24:51.508665+00:00 [queued]>
-[2024-08-12T17:25:10.395+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: quarterly_retrain.optimize_and_register_best_classifier manual__2024-08-12T17:24:51.508665+00:00 [queued]>
-[2024-08-12T17:25:10.395+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
-[2024-08-12T17:25:10.401+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): optimize_and_register_best_classifier> on 2024-08-12 17:24:51.508665+00:00
-[2024-08-12T17:25:10.406+0000] {standard_task_runner.py:57} INFO - Started process 2063 to run task
-[2024-08-12T17:25:10.408+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'quarterly_retrain', 'optimize_and_register_best_classifier', 'manual__2024-08-12T17:24:51.508665+00:00', '--job-id', '190', '--raw', '--subdir', 'DAGS_FOLDER/quarterly_retrain.py', '--cfg-path', '/tmp/tmpcyucn29u']
-[2024-08-12T17:25:10.409+0000] {standard_task_runner.py:85} INFO - Job 190: Subtask optimize_and_register_best_classifier
-[2024-08-12T17:25:10.433+0000] {task_command.py:415} INFO - Running <TaskInstance: quarterly_retrain.optimize_and_register_best_classifier manual__2024-08-12T17:24:51.508665+00:00 [running]> on host a9166c5dc5ae
-[2024-08-12T17:25:11.225+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='quarterly_retrain' AIRFLOW_CTX_TASK_ID='optimize_and_register_best_classifier' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T17:24:51.508665+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T17:24:51.508665+00:00'
-[2024-08-12T17:25:11.284+0000] {logging_mixin.py:151} INFO -   0%|          | 0/50 [00:00<?, ?trial/s, best loss=?]
-[2024-08-12T17:25:11.286+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000652 seconds
-[2024-08-12T17:25:11.286+0000] {tpe.py:900} INFO - TPE using 0 trials
-[2024-08-12T17:25:11.315+0000] {logging_mixin.py:151} WARNING - 2024/08/12 17:25:11 WARNING mlflow.utils.git_utils: Failed to import Git (the Git executable is probably not on your PATH), so Git SHA is not available. Error: Failed to initialize: Bad git executable.
-The git executable must be specified in one of the following ways:
-    - be included in your $PATH
-    - be set via $GIT_PYTHON_GIT_EXECUTABLE
-    - explicitly set via git.refresh(<full-path-to-git-executable>)
-
-All git commands will error until this is rectified.
-
-This initial message can be silenced or aggravated in the future by setting the
-$GIT_PYTHON_REFRESH environment variable. Use one of the following values:
-    - quiet|q|silence|s|silent|none|n|0: for no message or exception
-    - warn|w|warning|log|l|1: for a warning message (logging level CRITICAL, displayed by default)
-    - error|e|exception|raise|r|2: for a raised exception
-
-Example:
-    export GIT_PYTHON_REFRESH=quiet
-[2024-08-12T17:25:13.478+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/_distutils_hack/__init__.py:33 UserWarning: Setuptools is replacing distutils.
-[2024-08-12T17:25:14.505+0000] {logging_mixin.py:151} INFO -   2%|2         | 1/50 [00:03<02:37,  3.22s/trial, best loss: -0.2905918057663126]
-[2024-08-12T17:25:14.508+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.002242 seconds
-[2024-08-12T17:25:14.508+0000] {tpe.py:900} INFO - TPE using 1/1 trials with best loss -0.290592
-[2024-08-12T17:25:17.084+0000] {logging_mixin.py:151} INFO -   4%|4         | 2/50 [00:05<02:16,  2.84s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:17.087+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.001561 seconds
-[2024-08-12T17:25:17.088+0000] {tpe.py:900} INFO - TPE using 2/2 trials with best loss -0.729336
-[2024-08-12T17:25:19.428+0000] {logging_mixin.py:151} INFO -   6%|6         | 3/50 [00:08<02:02,  2.61s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:19.429+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000764 seconds
-[2024-08-12T17:25:19.429+0000] {tpe.py:900} INFO - TPE using 3/3 trials with best loss -0.729336
-[2024-08-12T17:25:21.960+0000] {logging_mixin.py:151} INFO -   8%|8         | 4/50 [00:10<01:58,  2.58s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:21.962+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000883 seconds
-[2024-08-12T17:25:21.962+0000] {tpe.py:900} INFO - TPE using 4/4 trials with best loss -0.729336
-[2024-08-12T17:25:24.314+0000] {logging_mixin.py:151} INFO -  10%|#         | 5/50 [00:13<01:52,  2.50s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:24.315+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000712 seconds
-[2024-08-12T17:25:24.315+0000] {tpe.py:900} INFO - TPE using 5/5 trials with best loss -0.729336
-[2024-08-12T17:25:26.642+0000] {logging_mixin.py:151} INFO -  12%|#2        | 6/50 [00:15<01:47,  2.44s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:26.643+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000818 seconds
-[2024-08-12T17:25:26.644+0000] {tpe.py:900} INFO - TPE using 6/6 trials with best loss -0.729336
-[2024-08-12T17:25:28.866+0000] {logging_mixin.py:151} INFO -  14%|#4        | 7/50 [00:17<01:41,  2.37s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:28.867+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000704 seconds
-[2024-08-12T17:25:28.867+0000] {tpe.py:900} INFO - TPE using 7/7 trials with best loss -0.729336
-[2024-08-12T17:25:31.026+0000] {logging_mixin.py:151} INFO -  16%|#6        | 8/50 [00:19<01:36,  2.30s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:31.027+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000764 seconds
-[2024-08-12T17:25:31.027+0000] {tpe.py:900} INFO - TPE using 8/8 trials with best loss -0.729336
-[2024-08-12T17:25:33.271+0000] {logging_mixin.py:151} INFO -  18%|#8        | 9/50 [00:21<01:33,  2.29s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:33.273+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000772 seconds
-[2024-08-12T17:25:33.273+0000] {tpe.py:900} INFO - TPE using 9/9 trials with best loss -0.729336
-[2024-08-12T17:25:35.639+0000] {logging_mixin.py:151} INFO -  20%|##        | 10/50 [00:24<01:32,  2.31s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:35.640+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000812 seconds
-[2024-08-12T17:25:35.640+0000] {tpe.py:900} INFO - TPE using 10/10 trials with best loss -0.729336
-[2024-08-12T17:25:37.850+0000] {logging_mixin.py:151} INFO -  22%|##2       | 11/50 [00:26<01:28,  2.28s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:37.851+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000777 seconds
-[2024-08-12T17:25:37.852+0000] {tpe.py:900} INFO - TPE using 11/11 trials with best loss -0.729336
-[2024-08-12T17:25:40.193+0000] {logging_mixin.py:151} INFO -  24%|##4       | 12/50 [00:28<01:27,  2.30s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:40.195+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000755 seconds
-[2024-08-12T17:25:40.195+0000] {tpe.py:900} INFO - TPE using 12/12 trials with best loss -0.729336
-[2024-08-12T17:25:43.113+0000] {logging_mixin.py:151} INFO -  26%|##6       | 13/50 [00:31<01:32,  2.49s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:43.116+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000986 seconds
-[2024-08-12T17:25:43.116+0000] {tpe.py:900} INFO - TPE using 13/13 trials with best loss -0.729336
-[2024-08-12T17:25:45.541+0000] {logging_mixin.py:151} INFO -  28%|##8       | 14/50 [00:34<01:28,  2.47s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:45.542+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000813 seconds
-[2024-08-12T17:25:45.542+0000] {tpe.py:900} INFO - TPE using 14/14 trials with best loss -0.729336
-[2024-08-12T17:25:47.957+0000] {logging_mixin.py:151} INFO -  30%|###       | 15/50 [00:36<01:25,  2.45s/trial, best loss: -0.7293362758172872]
-[2024-08-12T17:25:47.958+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000718 seconds
-[2024-08-12T17:25:47.958+0000] {tpe.py:900} INFO - TPE using 15/15 trials with best loss -0.729336
-[2024-08-12T17:25:50.324+0000] {logging_mixin.py:151} INFO -  32%|###2      | 16/50 [00:39<01:22,  2.43s/trial, best loss: -0.791990517748646] 
-[2024-08-12T17:25:50.326+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000837 seconds
-[2024-08-12T17:25:50.327+0000] {tpe.py:900} INFO - TPE using 16/16 trials with best loss -0.791991
-[2024-08-12T17:25:53.208+0000] {logging_mixin.py:151} INFO -  34%|###4      | 17/50 [00:41<01:24,  2.56s/trial, best loss: -0.791990517748646]
-[2024-08-12T17:25:53.210+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000764 seconds
-[2024-08-12T17:25:53.210+0000] {tpe.py:900} INFO - TPE using 17/17 trials with best loss -0.791991
-[2024-08-12T17:25:55.983+0000] {logging_mixin.py:151} INFO -  36%|###6      | 18/50 [00:44<01:24,  2.63s/trial, best loss: -0.791990517748646]
-[2024-08-12T17:25:55.984+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000946 seconds
-[2024-08-12T17:25:55.985+0000] {tpe.py:900} INFO - TPE using 18/18 trials with best loss -0.791991
-[2024-08-12T17:25:58.365+0000] {logging_mixin.py:151} INFO -  38%|###8      | 19/50 [00:47<01:19,  2.55s/trial, best loss: -0.791990517748646]
-[2024-08-12T17:25:58.367+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000775 seconds
-[2024-08-12T17:25:58.367+0000] {tpe.py:900} INFO - TPE using 19/19 trials with best loss -0.791991
-[2024-08-12T17:26:00.714+0000] {logging_mixin.py:151} INFO -  40%|####      | 20/50 [00:49<01:14,  2.49s/trial, best loss: -0.791990517748646]
-[2024-08-12T17:26:00.715+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000719 seconds
-[2024-08-12T17:26:00.716+0000] {tpe.py:900} INFO - TPE using 20/20 trials with best loss -0.791991
-[2024-08-12T17:26:03.136+0000] {logging_mixin.py:151} INFO -  42%|####2     | 21/50 [00:51<01:11,  2.47s/trial, best loss: -0.791990517748646]
-[2024-08-12T17:26:03.137+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000821 seconds
-[2024-08-12T17:26:03.138+0000] {tpe.py:900} INFO - TPE using 21/21 trials with best loss -0.791991
-[2024-08-12T17:26:05.481+0000] {logging_mixin.py:151} INFO -  44%|####4     | 22/50 [00:54<01:08,  2.43s/trial, best loss: -0.8067916711999055]
-[2024-08-12T17:26:05.484+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000832 seconds
-[2024-08-12T17:26:05.484+0000] {tpe.py:900} INFO - TPE using 22/22 trials with best loss -0.806792
-[2024-08-12T17:26:07.671+0000] {logging_mixin.py:151} INFO -  46%|####6     | 23/50 [00:56<01:03,  2.36s/trial, best loss: -0.8067916711999055]
-[2024-08-12T17:26:07.672+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000825 seconds
-[2024-08-12T17:26:07.672+0000] {tpe.py:900} INFO - TPE using 23/23 trials with best loss -0.806792
-[2024-08-12T17:26:09.959+0000] {logging_mixin.py:151} INFO -  48%|####8     | 24/50 [00:58<01:00,  2.34s/trial, best loss: -0.8067916711999055]
-[2024-08-12T17:26:09.960+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000969 seconds
-[2024-08-12T17:26:09.961+0000] {tpe.py:900} INFO - TPE using 24/24 trials with best loss -0.806792
-[2024-08-12T17:26:12.400+0000] {logging_mixin.py:151} INFO -  50%|#####     | 25/50 [01:01<00:59,  2.37s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:12.401+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000787 seconds
-[2024-08-12T17:26:12.401+0000] {tpe.py:900} INFO - TPE using 25/25 trials with best loss -0.819048
-[2024-08-12T17:26:14.748+0000] {logging_mixin.py:151} INFO -  52%|#####2    | 26/50 [01:03<00:56,  2.36s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:14.749+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000901 seconds
-[2024-08-12T17:26:14.750+0000] {tpe.py:900} INFO - TPE using 26/26 trials with best loss -0.819048
-[2024-08-12T17:26:17.059+0000] {logging_mixin.py:151} INFO -  54%|#####4    | 27/50 [01:05<00:53,  2.35s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:17.061+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000820 seconds
-[2024-08-12T17:26:17.061+0000] {tpe.py:900} INFO - TPE using 27/27 trials with best loss -0.819048
-[2024-08-12T17:26:19.367+0000] {logging_mixin.py:151} INFO -  56%|#####6    | 28/50 [01:08<00:51,  2.34s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:19.369+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000878 seconds
-[2024-08-12T17:26:19.369+0000] {tpe.py:900} INFO - TPE using 28/28 trials with best loss -0.819048
-[2024-08-12T17:26:21.686+0000] {logging_mixin.py:151} INFO -  58%|#####8    | 29/50 [01:10<00:48,  2.33s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:21.687+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000790 seconds
-[2024-08-12T17:26:21.687+0000] {tpe.py:900} INFO - TPE using 29/29 trials with best loss -0.819048
-[2024-08-12T17:26:24.175+0000] {logging_mixin.py:151} INFO -  60%|######    | 30/50 [01:12<00:47,  2.38s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:24.176+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000820 seconds
-[2024-08-12T17:26:24.176+0000] {tpe.py:900} INFO - TPE using 30/30 trials with best loss -0.819048
-[2024-08-12T17:26:26.624+0000] {logging_mixin.py:151} INFO -  62%|######2   | 31/50 [01:15<00:45,  2.40s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:26.626+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000999 seconds
-[2024-08-12T17:26:26.627+0000] {tpe.py:900} INFO - TPE using 31/31 trials with best loss -0.819048
-[2024-08-12T17:26:29.056+0000] {logging_mixin.py:151} INFO -  64%|######4   | 32/50 [01:17<00:43,  2.41s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:29.057+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000958 seconds
-[2024-08-12T17:26:29.058+0000] {tpe.py:900} INFO - TPE using 32/32 trials with best loss -0.819048
-[2024-08-12T17:26:31.546+0000] {logging_mixin.py:151} INFO -  66%|######6   | 33/50 [01:20<00:41,  2.43s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:31.548+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000924 seconds
-[2024-08-12T17:26:31.548+0000] {tpe.py:900} INFO - TPE using 33/33 trials with best loss -0.819048
-[2024-08-12T17:26:33.897+0000] {logging_mixin.py:151} INFO -  68%|######8   | 34/50 [01:22<00:38,  2.41s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:33.899+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000790 seconds
-[2024-08-12T17:26:33.899+0000] {tpe.py:900} INFO - TPE using 34/34 trials with best loss -0.819048
-[2024-08-12T17:26:36.162+0000] {logging_mixin.py:151} INFO -  70%|#######   | 35/50 [01:24<00:35,  2.37s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:36.164+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.001269 seconds
-[2024-08-12T17:26:36.165+0000] {tpe.py:900} INFO - TPE using 35/35 trials with best loss -0.819048
-[2024-08-12T17:26:38.343+0000] {logging_mixin.py:151} INFO -  72%|#######2  | 36/50 [01:27<00:32,  2.31s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:38.345+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000912 seconds
-[2024-08-12T17:26:38.345+0000] {tpe.py:900} INFO - TPE using 36/36 trials with best loss -0.819048
-[2024-08-12T17:26:40.766+0000] {logging_mixin.py:151} INFO -  74%|#######4  | 37/50 [01:29<00:30,  2.34s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:40.768+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000949 seconds
-[2024-08-12T17:26:40.768+0000] {tpe.py:900} INFO - TPE using 37/37 trials with best loss -0.819048
-[2024-08-12T17:26:43.208+0000] {logging_mixin.py:151} INFO -  76%|#######6  | 38/50 [01:31<00:28,  2.37s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:43.210+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000850 seconds
-[2024-08-12T17:26:43.211+0000] {tpe.py:900} INFO - TPE using 38/38 trials with best loss -0.819048
-[2024-08-12T17:26:45.651+0000] {logging_mixin.py:151} INFO -  78%|#######8  | 39/50 [01:34<00:26,  2.39s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:45.652+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000805 seconds
-[2024-08-12T17:26:45.652+0000] {tpe.py:900} INFO - TPE using 39/39 trials with best loss -0.819048
-[2024-08-12T17:26:48.129+0000] {logging_mixin.py:151} INFO -  80%|########  | 40/50 [01:36<00:24,  2.42s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:48.131+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000793 seconds
-[2024-08-12T17:26:48.131+0000] {tpe.py:900} INFO - TPE using 40/40 trials with best loss -0.819048
-[2024-08-12T17:26:50.476+0000] {logging_mixin.py:151} INFO -  82%|########2 | 41/50 [01:39<00:21,  2.40s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:50.477+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000789 seconds
-[2024-08-12T17:26:50.477+0000] {tpe.py:900} INFO - TPE using 41/41 trials with best loss -0.819048
-[2024-08-12T17:26:52.868+0000] {logging_mixin.py:151} INFO -  84%|########4 | 42/50 [01:41<00:19,  2.40s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:52.870+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000800 seconds
-[2024-08-12T17:26:52.870+0000] {tpe.py:900} INFO - TPE using 42/42 trials with best loss -0.819048
-[2024-08-12T17:26:55.251+0000] {logging_mixin.py:151} INFO -  86%|########6 | 43/50 [01:43<00:16,  2.39s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:55.252+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000809 seconds
-[2024-08-12T17:26:55.253+0000] {tpe.py:900} INFO - TPE using 43/43 trials with best loss -0.819048
-[2024-08-12T17:26:57.782+0000] {logging_mixin.py:151} INFO -  88%|########8 | 44/50 [01:46<00:14,  2.43s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:26:57.783+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000803 seconds
-[2024-08-12T17:26:57.783+0000] {tpe.py:900} INFO - TPE using 44/44 trials with best loss -0.819048
-[2024-08-12T17:27:00.180+0000] {logging_mixin.py:151} INFO -  90%|######### | 45/50 [01:48<00:12,  2.42s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:27:00.182+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.001006 seconds
-[2024-08-12T17:27:00.182+0000] {tpe.py:900} INFO - TPE using 45/45 trials with best loss -0.819048
-[2024-08-12T17:27:03.663+0000] {logging_mixin.py:151} INFO -  92%|#########2| 46/50 [01:52<00:10,  2.74s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:27:03.665+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000949 seconds
-[2024-08-12T17:27:03.666+0000] {tpe.py:900} INFO - TPE using 46/46 trials with best loss -0.819048
-[2024-08-12T17:27:06.402+0000] {logging_mixin.py:151} INFO -  94%|#########3| 47/50 [01:55<00:08,  2.74s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:27:06.404+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000751 seconds
-[2024-08-12T17:27:06.404+0000] {tpe.py:900} INFO - TPE using 47/47 trials with best loss -0.819048
-[2024-08-12T17:27:08.727+0000] {logging_mixin.py:151} INFO -  96%|#########6| 48/50 [01:57<00:05,  2.62s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:27:08.729+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000931 seconds
-[2024-08-12T17:27:08.729+0000] {tpe.py:900} INFO - TPE using 48/48 trials with best loss -0.819048
-[2024-08-12T17:27:11.686+0000] {logging_mixin.py:151} INFO -  98%|#########8| 49/50 [02:00<00:02,  2.72s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:27:11.687+0000] {tpe.py:864} INFO - build_posterior_wrapper took 0.000756 seconds
-[2024-08-12T17:27:11.688+0000] {tpe.py:900} INFO - TPE using 49/49 trials with best loss -0.819048
-[2024-08-12T17:27:14.166+0000] {logging_mixin.py:151} INFO - 100%|##########| 50/50 [02:02<00:00,  2.65s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:27:14.166+0000] {logging_mixin.py:151} INFO - 100%|##########| 50/50 [02:02<00:00,  2.46s/trial, best loss: -0.8190479457156846]
-[2024-08-12T17:27:14.212+0000] {logging_mixin.py:151} WARNING - Successfully registered model 'RandomForestClassifier'.
-[2024-08-12T17:27:14.228+0000] {logging_mixin.py:151} WARNING - 2024/08/12 17:27:14 INFO mlflow.store.model_registry.abstract_store: Waiting up to 300 seconds for model version to finish creation. Model name: RandomForestClassifier, version 1
-[2024-08-12T17:27:14.228+0000] {logging_mixin.py:151} WARNING - Created version '1' of model 'RandomForestClassifier'.
-[2024-08-12T17:27:14.229+0000] {python.py:194} INFO - Done. Returned value was: None
-[2024-08-12T17:27:14.245+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=quarterly_retrain, task_id=optimize_and_register_best_classifier, execution_date=20240812T172451, start_date=20240812T172510, end_date=20240812T172714
-[2024-08-12T17:27:14.275+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
-[2024-08-12T17:27:14.292+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

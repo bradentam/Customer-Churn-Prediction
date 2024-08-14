@@ -1,38 +1,0 @@
-[2024-08-12T16:41:46.297+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.predict_and_save manual__2024-08-12T16:41:41.517209+00:00 [queued]>
-[2024-08-12T16:41:46.301+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.predict_and_save manual__2024-08-12T16:41:41.517209+00:00 [queued]>
-[2024-08-12T16:41:46.301+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
-[2024-08-12T16:41:46.306+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): predict_and_save> on 2024-08-12 16:41:41.517209+00:00
-[2024-08-12T16:41:46.310+0000] {standard_task_runner.py:57} INFO - Started process 22860 to run task
-[2024-08-12T16:41:46.312+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'predict_and_save', 'manual__2024-08-12T16:41:41.517209+00:00', '--job-id', '140', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmppek20_m5']
-[2024-08-12T16:41:46.313+0000] {standard_task_runner.py:85} INFO - Job 140: Subtask predict_and_save
-[2024-08-12T16:41:46.335+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.predict_and_save manual__2024-08-12T16:41:41.517209+00:00 [running]> on host fa284eed0508
-[2024-08-12T16:41:46.496+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='predict_and_save' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T16:41:41.517209+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T16:41:41.517209+00:00'
-[2024-08-12T16:41:46.544+0000] {logging_mixin.py:151} INFO - gs://mlflow-artifacts-bt/1/fab1118790cd421ab4d4d45e0b254b51/artifacts/models
-[2024-08-12T16:41:47.120+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:   0%|          | 0/9 [00:00<?, ?it/s]
-[2024-08-12T16:41:47.121+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  11%|#1        | 1/9 [00:00<00:00, 15477.14it/s]
-[2024-08-12T16:41:47.121+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  22%|##2       | 2/9 [00:00<00:00, 6748.68it/s] 
-[2024-08-12T16:41:47.167+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  33%|###3      | 3/9 [00:00<00:00, 65.07it/s]  
-[2024-08-12T16:41:47.202+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  44%|####4     | 4/9 [00:00<00:00, 49.25it/s]
-[2024-08-12T16:41:47.221+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  56%|#####5    | 5/9 [00:00<00:00, 50.02it/s]
-[2024-08-12T16:41:47.223+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 58.55it/s]
-[2024-08-12T16:41:47.224+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 58.55it/s]
-[2024-08-12T16:41:47.231+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  78%|#######7  | 7/9 [00:00<00:00, 58.55it/s]
-[2024-08-12T16:41:47.257+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 58.55it/s]
-[2024-08-12T16:41:48.914+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00, 58.55it/s]
-[2024-08-12T16:41:48.914+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  5.02it/s]
-[2024-08-12T16:41:49.076+0000] {logging_mixin.py:151} INFO - RandomForestClassifier version 1 loaded
-[2024-08-12T16:41:49.100+0000] {taskinstance.py:1935} ERROR - Task failed with exception
-Traceback (most recent call last):
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
-    return_value = super().execute(context)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
-    return_value = self.execute_callable()
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
-    return self.python_callable(*self.op_args, **self.op_kwargs)
-  File "/opt/airflow/dags/monthly_prediction.py", line 39, in predict_and_save
-    month_end = kwargs['ds'].replace(day=1) - timedelta(days=1)#(datetime.now() + pd.offsets.MonthEnd(0)).date()
-TypeError: replace() takes no keyword arguments
-[2024-08-12T16:41:49.107+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=monthly_prediction, task_id=predict_and_save, execution_date=20240812T164141, start_date=20240812T164146, end_date=20240812T164149
-[2024-08-12T16:41:49.114+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 140 for task predict_and_save (replace() takes no keyword arguments; 22860)
-[2024-08-12T16:41:49.161+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
-[2024-08-12T16:41:49.172+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

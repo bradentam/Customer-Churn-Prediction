@@ -1,377 +1,0 @@
-[2024-08-12T05:57:09.742+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T05:57:09.745+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T05:57:09.746+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
-[2024-08-12T05:57:09.751+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): predict_and_save> on 2024-07-01 00:00:00+00:00
-[2024-08-12T05:57:09.756+0000] {standard_task_runner.py:57} INFO - Started process 5535 to run task
-[2024-08-12T05:57:09.758+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'generate_monthly_data', 'predict_and_save', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '94', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpc8g3xtan']
-[2024-08-12T05:57:09.759+0000] {standard_task_runner.py:85} INFO - Job 94: Subtask predict_and_save
-[2024-08-12T05:57:09.784+0000] {task_command.py:415} INFO - Running <TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [running]> on host fa284eed0508
-[2024-08-12T05:57:09.868+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='generate_monthly_data' AIRFLOW_CTX_TASK_ID='predict_and_save' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
-[2024-08-12T05:57:09.903+0000] {logging_mixin.py:151} INFO - gs://mlflow-artifacts-bt/1/fab1118790cd421ab4d4d45e0b254b51/artifacts/models
-[2024-08-12T05:57:12.004+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:   0%|          | 0/9 [00:00<?, ?it/s]
-[2024-08-12T05:57:12.007+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  11%|#1        | 1/9 [00:00<00:00, 2972.58it/s]
-[2024-08-12T05:57:12.008+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  22%|##2       | 2/9 [00:00<00:00, 1826.39it/s]
-[2024-08-12T05:57:12.008+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  33%|###3      | 3/9 [00:00<00:00, 1873.29it/s]
-[2024-08-12T05:57:12.056+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  44%|####4     | 4/9 [00:00<00:00, 80.52it/s]  
-[2024-08-12T05:57:12.065+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  56%|#####5    | 5/9 [00:00<00:00, 85.17it/s]
-[2024-08-12T05:57:12.095+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 68.34it/s]
-[2024-08-12T05:57:12.099+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  78%|#######7  | 7/9 [00:00<00:00, 76.52it/s]
-[2024-08-12T05:57:12.122+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 70.93it/s]
-[2024-08-12T05:57:12.124+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 70.93it/s]
-[2024-08-12T05:57:13.042+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00, 70.93it/s]
-[2024-08-12T05:57:13.045+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.67it/s]
-[2024-08-12T05:57:13.404+0000] {logging_mixin.py:151} INFO - RandomForestClassifier version 1 loaded
-[2024-08-12T05:59:47.226+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to None. Terminating instance.
-[2024-08-12T05:59:47.231+0000] {process_utils.py:131} INFO - Sending 15 to group 5535. PIDs of all processes in the group: [5535]
-[2024-08-12T05:59:47.232+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 5535
-[2024-08-12T05:59:47.233+0000] {taskinstance.py:1630} ERROR - Received SIGTERM. Terminating subprocesses.
-[2024-08-12T05:59:47.262+0000] {taskinstance.py:1935} ERROR - Task failed with exception
-Traceback (most recent call last):
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
-    return_value = super().execute(context)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
-    return_value = self.execute_callable()
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
-    return self.python_callable(*self.op_args, **self.op_kwargs)
-  File "/opt/airflow/dags/monthly_prediction.py", line 37, in predict_and_save
-    df.to_csv(output_path, index=False)
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 3772, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/format.py", line 1186, in to_csv
-    csv_formatter.save()
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/csvs.py", line 240, in save
-    with get_handle(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 716, in get_handle
-    ioargs = _get_filepath_or_buffer(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 414, in _get_filepath_or_buffer
-    file_obj = fsspec.open(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 484, in open
-    out = open_files(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 310, in open_files
-    fs.makedirs(parent, exist_ok=True)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 118, in wrapper
-    return sync(self.loop, func, *args, **kwargs)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 91, in sync
-    if event.wait(1):
-  File "/usr/local/lib/python3.8/threading.py", line 558, in wait
-    signaled = self._cond.wait(timeout)
-  File "/usr/local/lib/python3.8/threading.py", line 306, in wait
-    gotit = waiter.acquire(True, timeout)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1632, in signal_handler
-    raise AirflowException("Task received SIGTERM signal")
-airflow.exceptions.AirflowException: Task received SIGTERM signal
-[2024-08-12T05:59:47.271+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=generate_monthly_data, task_id=predict_and_save, execution_date=20240701T000000, start_date=, end_date=20240812T055947
-[2024-08-12T05:59:47.285+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 94 for task predict_and_save ((psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "dag_run_dag_id_execution_date_key"
-DETAIL:  Key (dag_id, execution_date)=(generate_monthly_data, 2024-07-01 00:00:00+00) already exists.
-
-[SQL: INSERT INTO dag_run (id, dag_id, queued_at, execution_date, start_date, end_date, state, run_id, creating_job_id, external_trigger, run_type, conf, data_interval_start, data_interval_end, last_scheduling_decision, dag_hash, log_template_id, updated_at) VALUES (%(id)s, %(dag_id)s, %(queued_at)s, %(execution_date)s, %(start_date)s, %(end_date)s, %(state)s, %(run_id)s, %(creating_job_id)s, %(external_trigger)s, %(run_type)s, %(conf)s, %(data_interval_start)s, %(data_interval_end)s, %(last_scheduling_decision)s, %(dag_hash)s, %(log_template_id)s, %(updated_at)s)]
-[parameters: {'id': 56, 'dag_id': 'generate_monthly_data', 'queued_at': datetime.datetime(2024, 8, 12, 5, 57, 5, 845119, tzinfo=Timezone('UTC')), 'execution_date': datetime.datetime(2024, 7, 1, 0, 0, tzinfo=Timezone('UTC')), 'start_date': datetime.datetime(2024, 8, 12, 5, 57, 5, 852944, tzinfo=Timezone('UTC')), 'end_date': None, 'state': 'running', 'run_id': 'scheduled__2024-07-01T00:00:00+00:00', 'creating_job_id': 74, 'external_trigger': False, 'run_type': 'scheduled', 'conf': <psycopg2.extensions.Binary object at 0xffff4c3d9120>, 'data_interval_start': datetime.datetime(2024, 7, 1, 0, 0, tzinfo=Timezone('UTC')), 'data_interval_end': datetime.datetime(2024, 8, 1, 0, 0, tzinfo=Timezone('UTC')), 'last_scheduling_decision': datetime.datetime(2024, 8, 12, 5, 57, 8, 787410, tzinfo=Timezone('UTC')), 'dag_hash': '2cfd341c425a0965478dd9896d3f8df3', 'log_template_id': 2, 'updated_at': datetime.datetime(2024, 8, 12, 5, 57, 8, 795668, tzinfo=Timezone('UTC'))}]
-(Background on this error at: https://sqlalche.me/e/14/gkpj); 5535)
-[2024-08-12T05:59:47.333+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=5535, status='terminated', exitcode=1, started='05:57:09') (5535) terminated with exit code 1
-[2024-08-12T05:59:49.399+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T05:59:49.403+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T05:59:49.403+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
-[2024-08-12T05:59:49.410+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): predict_and_save> on 2024-07-01 00:00:00+00:00
-[2024-08-12T05:59:49.416+0000] {standard_task_runner.py:57} INFO - Started process 6677 to run task
-[2024-08-12T05:59:49.419+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'generate_monthly_data', 'predict_and_save', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '98', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpn63x19u9']
-[2024-08-12T05:59:49.420+0000] {standard_task_runner.py:85} INFO - Job 98: Subtask predict_and_save
-[2024-08-12T05:59:49.460+0000] {task_command.py:415} INFO - Running <TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [running]> on host fa284eed0508
-[2024-08-12T05:59:49.549+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='generate_monthly_data' AIRFLOW_CTX_TASK_ID='predict_and_save' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
-[2024-08-12T05:59:49.601+0000] {logging_mixin.py:151} INFO - gs://mlflow-artifacts-bt/1/fab1118790cd421ab4d4d45e0b254b51/artifacts/models
-[2024-08-12T05:59:50.076+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:   0%|          | 0/9 [00:00<?, ?it/s]
-[2024-08-12T05:59:50.077+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  11%|#1        | 1/9 [00:00<00:00, 7013.89it/s]
-[2024-08-12T05:59:50.077+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  22%|##2       | 2/9 [00:00<00:00, 2398.12it/s]
-[2024-08-12T05:59:50.094+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  33%|###3      | 3/9 [00:00<00:00, 169.51it/s] 
-[2024-08-12T05:59:50.103+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  44%|####4     | 4/9 [00:00<00:00, 154.93it/s]
-[2024-08-12T05:59:50.106+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  56%|#####5    | 5/9 [00:00<00:00, 168.70it/s]
-[2024-08-12T05:59:50.154+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 77.91it/s] 
-[2024-08-12T05:59:50.156+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  78%|#######7  | 7/9 [00:00<00:00, 89.04it/s]
-[2024-08-12T05:59:50.159+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 96.81it/s]
-[2024-08-12T05:59:51.080+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.97it/s]
-[2024-08-12T05:59:51.081+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.97it/s]
-[2024-08-12T05:59:51.081+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.96it/s]
-[2024-08-12T05:59:51.243+0000] {logging_mixin.py:151} INFO - RandomForestClassifier version 1 loaded
-[2024-08-12T06:00:55.122+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to None. Terminating instance.
-[2024-08-12T06:00:55.133+0000] {process_utils.py:131} INFO - Sending 15 to group 6677. PIDs of all processes in the group: [6677]
-[2024-08-12T06:00:55.134+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 6677
-[2024-08-12T06:00:55.135+0000] {taskinstance.py:1630} ERROR - Received SIGTERM. Terminating subprocesses.
-[2024-08-12T06:00:55.167+0000] {taskinstance.py:1935} ERROR - Task failed with exception
-Traceback (most recent call last):
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
-    return_value = super().execute(context)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
-    return_value = self.execute_callable()
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
-    return self.python_callable(*self.op_args, **self.op_kwargs)
-  File "/opt/airflow/dags/monthly_prediction.py", line 37, in predict_and_save
-    df.to_csv(output_path, index=False)
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 3772, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/format.py", line 1186, in to_csv
-    csv_formatter.save()
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/csvs.py", line 240, in save
-    with get_handle(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 716, in get_handle
-    ioargs = _get_filepath_or_buffer(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 414, in _get_filepath_or_buffer
-    file_obj = fsspec.open(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 484, in open
-    out = open_files(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 310, in open_files
-    fs.makedirs(parent, exist_ok=True)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 118, in wrapper
-    return sync(self.loop, func, *args, **kwargs)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 91, in sync
-    if event.wait(1):
-  File "/usr/local/lib/python3.8/threading.py", line 558, in wait
-    signaled = self._cond.wait(timeout)
-  File "/usr/local/lib/python3.8/threading.py", line 306, in wait
-    gotit = waiter.acquire(True, timeout)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1632, in signal_handler
-    raise AirflowException("Task received SIGTERM signal")
-airflow.exceptions.AirflowException: Task received SIGTERM signal
-[2024-08-12T06:00:55.176+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=generate_monthly_data, task_id=predict_and_save, execution_date=20240701T000000, start_date=20240812T055949, end_date=20240812T060055
-[2024-08-12T06:00:55.212+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 98 for task predict_and_save ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
-DETAIL:  Key (dag_id, task_id, run_id, map_index)=(generate_monthly_data, predict_and_save, scheduled__2024-07-01T00:00:00+00:00, -1) is not present in table "task_instance".
-
-[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
-[parameters: {'task_id': 'predict_and_save', 'dag_id': 'generate_monthly_data', 'run_id': 'scheduled__2024-07-01T00:00:00+00:00', 'map_index': -1, 'start_date': datetime.datetime(2024, 8, 12, 5, 59, 49, 399522, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2024, 8, 12, 6, 0, 55, 174265, tzinfo=Timezone('UTC')), 'duration': 65}]
-(Background on this error at: https://sqlalche.me/e/14/gkpj); 6677)
-[2024-08-12T06:00:55.233+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=6677, status='terminated', exitcode=1, started='05:59:48') (6677) terminated with exit code 1
-[2024-08-12T06:00:59.395+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T06:00:59.399+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T06:00:59.399+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
-[2024-08-12T06:00:59.406+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): predict_and_save> on 2024-07-01 00:00:00+00:00
-[2024-08-12T06:00:59.410+0000] {standard_task_runner.py:57} INFO - Started process 7286 to run task
-[2024-08-12T06:00:59.412+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'generate_monthly_data', 'predict_and_save', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '105', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpktc4cjv8']
-[2024-08-12T06:00:59.413+0000] {standard_task_runner.py:85} INFO - Job 105: Subtask predict_and_save
-[2024-08-12T06:00:59.443+0000] {task_command.py:415} INFO - Running <TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [running]> on host fa284eed0508
-[2024-08-12T06:00:59.549+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='generate_monthly_data' AIRFLOW_CTX_TASK_ID='predict_and_save' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
-[2024-08-12T06:00:59.580+0000] {logging_mixin.py:151} INFO - gs://mlflow-artifacts-bt/1/fab1118790cd421ab4d4d45e0b254b51/artifacts/models
-[2024-08-12T06:01:00.092+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:   0%|          | 0/9 [00:00<?, ?it/s]
-[2024-08-12T06:01:00.093+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  11%|#1        | 1/9 [00:00<00:00, 16710.37it/s]
-[2024-08-12T06:01:00.093+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  22%|##2       | 2/9 [00:00<00:00, 8089.30it/s] 
-[2024-08-12T06:01:00.124+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  33%|###3      | 3/9 [00:00<00:00, 95.66it/s]  
-[2024-08-12T06:01:00.143+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  44%|####4     | 4/9 [00:00<00:00, 80.00it/s]
-[2024-08-12T06:01:00.157+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  56%|#####5    | 5/9 [00:00<00:00, 77.92it/s]
-[2024-08-12T06:01:00.163+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 85.63it/s]
-[2024-08-12T06:01:00.168+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  78%|#######7  | 7/9 [00:00<00:00, 93.01it/s]
-[2024-08-12T06:01:00.185+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 86.39it/s]
-[2024-08-12T06:01:02.093+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  4.50it/s]
-[2024-08-12T06:01:02.094+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:02<00:00,  4.50it/s]
-[2024-08-12T06:01:02.094+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:02<00:00,  4.50it/s]
-[2024-08-12T06:01:02.235+0000] {logging_mixin.py:151} INFO - RandomForestClassifier version 1 loaded
-[2024-08-12T06:06:38.266+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to queued. Terminating instance.
-[2024-08-12T06:06:38.271+0000] {process_utils.py:131} INFO - Sending 15 to group 7286. PIDs of all processes in the group: [7286]
-[2024-08-12T06:06:38.272+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 7286
-[2024-08-12T06:06:38.274+0000] {taskinstance.py:1630} ERROR - Received SIGTERM. Terminating subprocesses.
-[2024-08-12T06:06:38.297+0000] {taskinstance.py:1935} ERROR - Task failed with exception
-Traceback (most recent call last):
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
-    return_value = super().execute(context)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
-    return_value = self.execute_callable()
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
-    return self.python_callable(*self.op_args, **self.op_kwargs)
-  File "/opt/airflow/dags/monthly_prediction.py", line 37, in predict_and_save
-    df.to_csv(output_path, index=False)
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 3772, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/format.py", line 1186, in to_csv
-    csv_formatter.save()
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/csvs.py", line 240, in save
-    with get_handle(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 716, in get_handle
-    ioargs = _get_filepath_or_buffer(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 414, in _get_filepath_or_buffer
-    file_obj = fsspec.open(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 484, in open
-    out = open_files(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 310, in open_files
-    fs.makedirs(parent, exist_ok=True)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 118, in wrapper
-    return sync(self.loop, func, *args, **kwargs)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 91, in sync
-    if event.wait(1):
-  File "/usr/local/lib/python3.8/threading.py", line 558, in wait
-    signaled = self._cond.wait(timeout)
-  File "/usr/local/lib/python3.8/threading.py", line 306, in wait
-    gotit = waiter.acquire(True, timeout)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1632, in signal_handler
-    raise AirflowException("Task received SIGTERM signal")
-airflow.exceptions.AirflowException: Task received SIGTERM signal
-[2024-08-12T06:06:38.306+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=generate_monthly_data, task_id=predict_and_save, execution_date=20240701T000000, start_date=, end_date=20240812T060638
-[2024-08-12T06:06:38.317+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 105 for task predict_and_save ((psycopg2.errors.UniqueViolation) duplicate key value violates unique constraint "dag_run_dag_id_execution_date_key"
-DETAIL:  Key (dag_id, execution_date)=(generate_monthly_data, 2024-07-01 00:00:00+00) already exists.
-
-[SQL: INSERT INTO dag_run (id, dag_id, queued_at, execution_date, start_date, end_date, state, run_id, creating_job_id, external_trigger, run_type, conf, data_interval_start, data_interval_end, last_scheduling_decision, dag_hash, log_template_id, updated_at) VALUES (%(id)s, %(dag_id)s, %(queued_at)s, %(execution_date)s, %(start_date)s, %(end_date)s, %(state)s, %(run_id)s, %(creating_job_id)s, %(external_trigger)s, %(run_type)s, %(conf)s, %(data_interval_start)s, %(data_interval_end)s, %(last_scheduling_decision)s, %(dag_hash)s, %(log_template_id)s, %(updated_at)s)]
-[parameters: {'id': 61, 'dag_id': 'generate_monthly_data', 'queued_at': datetime.datetime(2024, 8, 12, 6, 0, 55, 250364, tzinfo=Timezone('UTC')), 'execution_date': datetime.datetime(2024, 7, 1, 0, 0, tzinfo=Timezone('UTC')), 'start_date': datetime.datetime(2024, 8, 12, 6, 0, 55, 260051, tzinfo=Timezone('UTC')), 'end_date': None, 'state': 'running', 'run_id': 'scheduled__2024-07-01T00:00:00+00:00', 'creating_job_id': 74, 'external_trigger': False, 'run_type': 'scheduled', 'conf': <psycopg2.extensions.Binary object at 0xffff4c785f30>, 'data_interval_start': datetime.datetime(2024, 7, 1, 0, 0, tzinfo=Timezone('UTC')), 'data_interval_end': datetime.datetime(2024, 8, 1, 0, 0, tzinfo=Timezone('UTC')), 'last_scheduling_decision': datetime.datetime(2024, 8, 12, 6, 0, 58, 778200, tzinfo=Timezone('UTC')), 'dag_hash': '35994e529a67e0b911fe653c9da04a9b', 'log_template_id': 2, 'updated_at': datetime.datetime(2024, 8, 12, 6, 0, 58, 781480, tzinfo=Timezone('UTC'))}]
-(Background on this error at: https://sqlalche.me/e/14/gkpj); 7286)
-[2024-08-12T06:06:38.373+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=7286, status='terminated', exitcode=1, started='06:00:58') (7286) terminated with exit code 1
-[2024-08-12T06:06:41.595+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T06:06:41.599+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T06:06:41.600+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
-[2024-08-12T06:06:41.607+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): predict_and_save> on 2024-07-01 00:00:00+00:00
-[2024-08-12T06:06:41.615+0000] {standard_task_runner.py:57} INFO - Started process 8313 to run task
-[2024-08-12T06:06:41.617+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'generate_monthly_data', 'predict_and_save', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '114', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmp4anpw7a4']
-[2024-08-12T06:06:41.619+0000] {standard_task_runner.py:85} INFO - Job 114: Subtask predict_and_save
-[2024-08-12T06:06:41.658+0000] {task_command.py:415} INFO - Running <TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [running]> on host fa284eed0508
-[2024-08-12T06:06:41.763+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='generate_monthly_data' AIRFLOW_CTX_TASK_ID='predict_and_save' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
-[2024-08-12T06:06:41.807+0000] {logging_mixin.py:151} INFO - gs://mlflow-artifacts-bt/1/fab1118790cd421ab4d4d45e0b254b51/artifacts/models
-[2024-08-12T06:06:42.301+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:   0%|          | 0/9 [00:00<?, ?it/s]
-[2024-08-12T06:06:42.302+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  11%|#1        | 1/9 [00:00<00:00, 15087.42it/s]
-[2024-08-12T06:06:42.302+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  22%|##2       | 2/9 [00:00<00:00, 6388.89it/s] 
-[2024-08-12T06:06:42.332+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  33%|###3      | 3/9 [00:00<00:00, 98.66it/s]  
-[2024-08-12T06:06:42.343+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  44%|####4     | 4/9 [00:00<00:00, 95.37it/s]
-[2024-08-12T06:06:42.369+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  56%|#####5    | 5/9 [00:00<00:00, 73.65it/s]
-[2024-08-12T06:06:42.382+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 74.12it/s]
-[2024-08-12T06:06:42.386+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  78%|#######7  | 7/9 [00:00<00:00, 82.37it/s]
-[2024-08-12T06:06:42.411+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 72.87it/s]
-[2024-08-12T06:06:42.412+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 72.87it/s]
-[2024-08-12T06:06:43.359+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00, 72.87it/s]
-[2024-08-12T06:06:43.360+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.51it/s]
-[2024-08-12T06:06:43.509+0000] {logging_mixin.py:151} INFO - RandomForestClassifier version 1 loaded
-[2024-08-12T06:11:49.746+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to None. Terminating instance.
-[2024-08-12T06:11:49.752+0000] {process_utils.py:131} INFO - Sending 15 to group 8313. PIDs of all processes in the group: [8313]
-[2024-08-12T06:11:49.753+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 8313
-[2024-08-12T06:11:49.754+0000] {taskinstance.py:1630} ERROR - Received SIGTERM. Terminating subprocesses.
-[2024-08-12T06:11:49.793+0000] {taskinstance.py:1935} ERROR - Task failed with exception
-Traceback (most recent call last):
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
-    return_value = super().execute(context)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
-    return_value = self.execute_callable()
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
-    return self.python_callable(*self.op_args, **self.op_kwargs)
-  File "/opt/airflow/dags/monthly_prediction.py", line 37, in predict_and_save
-    df['prediction'] = prediction
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 3772, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/format.py", line 1186, in to_csv
-    csv_formatter.save()
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/csvs.py", line 240, in save
-    with get_handle(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 716, in get_handle
-    ioargs = _get_filepath_or_buffer(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 414, in _get_filepath_or_buffer
-    file_obj = fsspec.open(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 484, in open
-    out = open_files(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 310, in open_files
-    fs.makedirs(parent, exist_ok=True)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 118, in wrapper
-    return sync(self.loop, func, *args, **kwargs)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 91, in sync
-    if event.wait(1):
-  File "/usr/local/lib/python3.8/threading.py", line 558, in wait
-    signaled = self._cond.wait(timeout)
-  File "/usr/local/lib/python3.8/threading.py", line 306, in wait
-    gotit = waiter.acquire(True, timeout)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1632, in signal_handler
-    raise AirflowException("Task received SIGTERM signal")
-airflow.exceptions.AirflowException: Task received SIGTERM signal
-[2024-08-12T06:11:49.807+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=generate_monthly_data, task_id=predict_and_save, execution_date=20240701T000000, start_date=20240812T060641, end_date=20240812T061149
-[2024-08-12T06:11:49.826+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 114 for task predict_and_save ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
-DETAIL:  Key (dag_id, task_id, run_id, map_index)=(generate_monthly_data, predict_and_save, scheduled__2024-07-01T00:00:00+00:00, -1) is not present in table "task_instance".
-
-[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
-[parameters: {'task_id': 'predict_and_save', 'dag_id': 'generate_monthly_data', 'run_id': 'scheduled__2024-07-01T00:00:00+00:00', 'map_index': -1, 'start_date': datetime.datetime(2024, 8, 12, 6, 6, 41, 596325, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2024, 8, 12, 6, 11, 49, 805159, tzinfo=Timezone('UTC')), 'duration': 308}]
-(Background on this error at: https://sqlalche.me/e/14/gkpj); 8313)
-[2024-08-12T06:11:49.856+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=8313, status='terminated', exitcode=1, started='06:06:40') (8313) terminated with exit code 1
-[2024-08-12T06:12:08.601+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T06:12:08.605+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T06:12:08.605+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
-[2024-08-12T06:12:08.610+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): predict_and_save> on 2024-07-01 00:00:00+00:00
-[2024-08-12T06:12:08.615+0000] {standard_task_runner.py:57} INFO - Started process 9832 to run task
-[2024-08-12T06:12:08.618+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'generate_monthly_data', 'predict_and_save', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '122', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpo2fxbozo']
-[2024-08-12T06:12:08.618+0000] {standard_task_runner.py:85} INFO - Job 122: Subtask predict_and_save
-[2024-08-12T06:12:08.645+0000] {task_command.py:415} INFO - Running <TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [running]> on host fa284eed0508
-[2024-08-12T06:12:08.799+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='generate_monthly_data' AIRFLOW_CTX_TASK_ID='predict_and_save' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
-[2024-08-12T06:12:08.867+0000] {logging_mixin.py:151} INFO - gs://mlflow-artifacts-bt/1/fab1118790cd421ab4d4d45e0b254b51/artifacts/models
-[2024-08-12T06:12:09.400+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:   0%|          | 0/9 [00:00<?, ?it/s]
-[2024-08-12T06:12:09.400+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  11%|#1        | 1/9 [00:00<00:00, 9467.95it/s]
-[2024-08-12T06:12:09.400+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  22%|##2       | 2/9 [00:00<00:00, 5652.70it/s]
-[2024-08-12T06:12:09.422+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  33%|###3      | 3/9 [00:00<00:00, 134.54it/s] 
-[2024-08-12T06:12:09.428+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  44%|####4     | 4/9 [00:00<00:00, 141.02it/s]
-[2024-08-12T06:12:09.429+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  56%|#####5    | 5/9 [00:00<00:00, 172.26it/s]
-[2024-08-12T06:12:09.470+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 86.15it/s] 
-[2024-08-12T06:12:09.472+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  78%|#######7  | 7/9 [00:00<00:00, 97.09it/s]
-[2024-08-12T06:12:09.474+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 107.82it/s]
-[2024-08-12T06:12:10.427+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.77it/s] 
-[2024-08-12T06:12:10.428+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.77it/s]
-[2024-08-12T06:12:10.429+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.75it/s]
-[2024-08-12T06:12:10.667+0000] {logging_mixin.py:151} INFO - RandomForestClassifier version 1 loaded
-[2024-08-12T06:13:59.975+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to None. Terminating instance.
-[2024-08-12T06:13:59.997+0000] {process_utils.py:131} INFO - Sending 15 to group 9832. PIDs of all processes in the group: [9832]
-[2024-08-12T06:13:59.997+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 9832
-[2024-08-12T06:13:59.999+0000] {taskinstance.py:1630} ERROR - Received SIGTERM. Terminating subprocesses.
-[2024-08-12T06:14:00.034+0000] {taskinstance.py:1935} ERROR - Task failed with exception
-Traceback (most recent call last):
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/decorators/base.py", line 221, in execute
-    return_value = super().execute(context)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
-    return_value = self.execute_callable()
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
-    return self.python_callable(*self.op_args, **self.op_kwargs)
-  File "/opt/airflow/dags/monthly_prediction.py", line 40, in predict_and_save
-    output_path = f'gs://scoring-artifacts-bt/predictions_{month_end}.csv'
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 3772, in to_csv
-    return DataFrameRenderer(formatter).to_csv(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/format.py", line 1186, in to_csv
-    csv_formatter.save()
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/formats/csvs.py", line 240, in save
-    with get_handle(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 716, in get_handle
-    ioargs = _get_filepath_or_buffer(
-  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/common.py", line 414, in _get_filepath_or_buffer
-    file_obj = fsspec.open(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 484, in open
-    out = open_files(
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/core.py", line 310, in open_files
-    fs.makedirs(parent, exist_ok=True)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 118, in wrapper
-    return sync(self.loop, func, *args, **kwargs)
-  File "/home/airflow/.local/lib/python3.8/site-packages/fsspec/asyn.py", line 91, in sync
-    if event.wait(1):
-  File "/usr/local/lib/python3.8/threading.py", line 558, in wait
-    signaled = self._cond.wait(timeout)
-  File "/usr/local/lib/python3.8/threading.py", line 306, in wait
-    gotit = waiter.acquire(True, timeout)
-  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 1632, in signal_handler
-    raise AirflowException("Task received SIGTERM signal")
-airflow.exceptions.AirflowException: Task received SIGTERM signal
-[2024-08-12T06:14:00.045+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=generate_monthly_data, task_id=predict_and_save, execution_date=20240701T000000, start_date=20240812T061208, end_date=20240812T061400
-[2024-08-12T06:14:00.057+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 122 for task predict_and_save ((psycopg2.errors.ForeignKeyViolation) insert or update on table "task_fail" violates foreign key constraint "task_fail_ti_fkey"
-DETAIL:  Key (dag_id, task_id, run_id, map_index)=(generate_monthly_data, predict_and_save, scheduled__2024-07-01T00:00:00+00:00, -1) is not present in table "task_instance".
-
-[SQL: INSERT INTO task_fail (task_id, dag_id, run_id, map_index, start_date, end_date, duration) VALUES (%(task_id)s, %(dag_id)s, %(run_id)s, %(map_index)s, %(start_date)s, %(end_date)s, %(duration)s) RETURNING task_fail.id]
-[parameters: {'task_id': 'predict_and_save', 'dag_id': 'generate_monthly_data', 'run_id': 'scheduled__2024-07-01T00:00:00+00:00', 'map_index': -1, 'start_date': datetime.datetime(2024, 8, 12, 6, 12, 8, 601860, tzinfo=Timezone('UTC')), 'end_date': datetime.datetime(2024, 8, 12, 6, 14, 0, 44398, tzinfo=Timezone('UTC')), 'duration': 111}]
-(Background on this error at: https://sqlalche.me/e/14/gkpj); 9832)
-[2024-08-12T06:14:00.103+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=9832, status='terminated', exitcode=1, started='06:12:07') (9832) terminated with exit code 1
-[2024-08-12T06:14:13.379+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T06:14:13.382+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [queued]>
-[2024-08-12T06:14:13.383+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
-[2024-08-12T06:14:13.388+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): predict_and_save> on 2024-07-01 00:00:00+00:00
-[2024-08-12T06:14:13.394+0000] {standard_task_runner.py:57} INFO - Started process 10923 to run task
-[2024-08-12T06:14:13.396+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'generate_monthly_data', 'predict_and_save', 'scheduled__2024-07-01T00:00:00+00:00', '--job-id', '129', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpmlzkm39m']
-[2024-08-12T06:14:13.398+0000] {standard_task_runner.py:85} INFO - Job 129: Subtask predict_and_save
-[2024-08-12T06:14:13.423+0000] {task_command.py:415} INFO - Running <TaskInstance: generate_monthly_data.predict_and_save scheduled__2024-07-01T00:00:00+00:00 [running]> on host fa284eed0508
-[2024-08-12T06:14:13.583+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='generate_monthly_data' AIRFLOW_CTX_TASK_ID='predict_and_save' AIRFLOW_CTX_EXECUTION_DATE='2024-07-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-07-01T00:00:00+00:00'
-[2024-08-12T06:14:13.633+0000] {logging_mixin.py:151} INFO - gs://mlflow-artifacts-bt/1/fab1118790cd421ab4d4d45e0b254b51/artifacts/models
-[2024-08-12T06:14:14.125+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:   0%|          | 0/9 [00:00<?, ?it/s]
-[2024-08-12T06:14:14.125+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  11%|#1        | 1/9 [00:00<00:00, 16980.99it/s]
-[2024-08-12T06:14:14.125+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  22%|##2       | 2/9 [00:00<00:00, 6502.80it/s] 
-[2024-08-12T06:14:14.164+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  33%|###3      | 3/9 [00:00<00:00, 78.39it/s]  
-[2024-08-12T06:14:14.165+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  44%|####4     | 4/9 [00:00<00:00, 101.12it/s]
-[2024-08-12T06:14:14.176+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  56%|#####5    | 5/9 [00:00<00:00, 98.25it/s] 
-[2024-08-12T06:14:14.213+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 68.79it/s]
-[2024-08-12T06:14:14.225+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  78%|#######7  | 7/9 [00:00<00:00, 70.00it/s]
-[2024-08-12T06:14:14.231+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 75.76it/s]
-[2024-08-12T06:14:14.231+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 75.76it/s]
-[2024-08-12T06:14:15.156+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00, 75.76it/s]
-[2024-08-12T06:14:15.156+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.73it/s]
-[2024-08-12T06:14:15.310+0000] {logging_mixin.py:151} INFO - RandomForestClassifier version 1 loaded
-[2024-08-12T06:14:15.688+0000] {python.py:194} INFO - Done. Returned value was: None
-[2024-08-12T06:14:15.694+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=generate_monthly_data, task_id=predict_and_save, execution_date=20240701T000000, start_date=20240812T061413, end_date=20240812T061415
-[2024-08-12T06:14:15.719+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
-[2024-08-12T06:14:15.735+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

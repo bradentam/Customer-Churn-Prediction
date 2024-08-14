@@ -1,32 +1,0 @@
-[2024-08-12T20:07:17.355+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: monthly_prediction.predict_and_save manual__2024-08-12T20:07:10.548394+00:00 [queued]>
-[2024-08-12T20:07:17.363+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: monthly_prediction.predict_and_save manual__2024-08-12T20:07:10.548394+00:00 [queued]>
-[2024-08-12T20:07:17.364+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
-[2024-08-12T20:07:17.375+0000] {taskinstance.py:1380} INFO - Executing <Task(_PythonDecoratedOperator): predict_and_save> on 2024-08-12 20:07:10.548394+00:00
-[2024-08-12T20:07:17.381+0000] {standard_task_runner.py:57} INFO - Started process 12285 to run task
-[2024-08-12T20:07:17.384+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'monthly_prediction', 'predict_and_save', 'manual__2024-08-12T20:07:10.548394+00:00', '--job-id', '860', '--raw', '--subdir', 'DAGS_FOLDER/monthly_prediction.py', '--cfg-path', '/tmp/tmpgwou974g']
-[2024-08-12T20:07:17.387+0000] {standard_task_runner.py:85} INFO - Job 860: Subtask predict_and_save
-[2024-08-12T20:07:17.636+0000] {task_command.py:415} INFO - Running <TaskInstance: monthly_prediction.predict_and_save manual__2024-08-12T20:07:10.548394+00:00 [running]> on host a9166c5dc5ae
-[2024-08-12T20:07:17.834+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='monthly_prediction' AIRFLOW_CTX_TASK_ID='predict_and_save' AIRFLOW_CTX_EXECUTION_DATE='2024-08-12T20:07:10.548394+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-12T20:07:10.548394+00:00'
-[2024-08-12T20:07:17.908+0000] {logging_mixin.py:151} INFO - [<ModelVersion: aliases=[], creation_timestamp=1723486608788, current_stage='None', description='', last_updated_timestamp=1723486608788, name='RandomForestClassifier', run_id='8e3324f0d552449fb6fb74354defe916', run_link='', source='gs://mlflow-artifacts-bt/1/8e3324f0d552449fb6fb74354defe916/artifacts/models', status='READY', status_message='', tags={}, user_id='', version='3'>, <ModelVersion: aliases=[], creation_timestamp=1723484397049, current_stage='None', description='', last_updated_timestamp=1723484397049, name='RandomForestClassifier', run_id='24df18fe78344cedac31ecd5ee99d839', run_link='', source='gs://mlflow-artifacts-bt/1/24df18fe78344cedac31ecd5ee99d839/artifacts/models', status='READY', status_message='', tags={}, user_id='', version='2'>, <ModelVersion: aliases=[], creation_timestamp=1723483634222, current_stage='None', description='', last_updated_timestamp=1723483634222, name='RandomForestClassifier', run_id='562e66a99b734853943c65acca218544', run_link='', source='gs://mlflow-artifacts-bt/1/562e66a99b734853943c65acca218544/artifacts/models', status='READY', status_message='', tags={}, user_id='', version='1'>]
-[2024-08-12T20:07:17.909+0000] {logging_mixin.py:151} INFO - gs://mlflow-artifacts-bt/1/8e3324f0d552449fb6fb74354defe916/artifacts/models
-[2024-08-12T20:07:18.705+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:   0%|          | 0/9 [00:00<?, ?it/s]
-[2024-08-12T20:07:18.706+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  11%|#1        | 1/9 [00:00<00:00, 13842.59it/s]
-[2024-08-12T20:07:18.706+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  22%|##2       | 2/9 [00:00<00:00, 4478.70it/s] 
-[2024-08-12T20:07:18.714+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  33%|###3      | 3/9 [00:00<00:00, 383.29it/s] 
-[2024-08-12T20:07:18.714+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  44%|####4     | 4/9 [00:00<00:00, 472.97it/s]
-[2024-08-12T20:07:18.718+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  56%|#####5    | 5/9 [00:00<00:00, 425.31it/s]
-[2024-08-12T20:07:18.776+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  67%|######6   | 6/9 [00:00<00:00, 86.48it/s] 
-[2024-08-12T20:07:18.787+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  78%|#######7  | 7/9 [00:00<00:00, 86.22it/s]
-[2024-08-12T20:07:18.802+0000] {logging_mixin.py:151} WARNING - Downloading artifacts:  89%|########8 | 8/9 [00:00<00:00, 83.14it/s]
-[2024-08-12T20:07:19.713+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.93it/s]
-[2024-08-12T20:07:19.714+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.93it/s]
-[2024-08-12T20:07:19.714+0000] {logging_mixin.py:151} WARNING - Downloading artifacts: 100%|##########| 9/9 [00:01<00:00,  8.93it/s]
-[2024-08-12T20:07:19.896+0000] {logging_mixin.py:151} INFO - RandomForestClassifier version 3 loaded
-[2024-08-12T20:07:20.337+0000] {logging_mixin.py:151} INFO - prediction
-0    437
-1     63
-Name: count, dtype: int64
-[2024-08-12T20:07:20.338+0000] {python.py:194} INFO - Done. Returned value was: None
-[2024-08-12T20:07:20.360+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=monthly_prediction, task_id=predict_and_save, execution_date=20240812T200710, start_date=20240812T200717, end_date=20240812T200720
-[2024-08-12T20:07:20.436+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
-[2024-08-12T20:07:20.543+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

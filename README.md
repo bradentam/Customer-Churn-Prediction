@@ -127,6 +127,7 @@ To stop docker on the VM, run:
     ```
 
 To clean up GCP resources, run:
+
     ```shell
     make clean-resources
     ```

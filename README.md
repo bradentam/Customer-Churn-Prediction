@@ -82,7 +82,6 @@ Customer churn is a large part of every company as retaining existing customers 
     ```shell
     make build-resources
     ```
-    <br>
 
     This command will do the following:
     - Apply terraform code

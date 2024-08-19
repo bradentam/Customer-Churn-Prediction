@@ -8,12 +8,10 @@ This project was completed for the [MLOps Zoomcamp Course](https://github.com/Da
 
 ## Problem Description
 
-Customer churn is a large part of every company as retaining existing customers is crucial for maintaining revenue and growth. It's essential to understand what leads a customer to leave and what preventative measures we can put in place. The goal is to train a classification model using various metrics to predict whether a customer is likely to leave. 
-
+Customer churn is a large part of every company as retaining existing customers is crucial for maintaining revenue and growth. It's essential to understand what leads a customer to leave and what preventative measures we can put in place. The goal is to train a classification model using various metrics to predict whether a customer is likely to leave (specifically the response variable, customer status). In this example, we can get an understanding of churned customers in terms of age, how long the person has been a customer, the type of plan they have with the company, how many lines they have, etc.
+   
 The dataset used for training is from a Telecommunications company collected found from [Kaggle](https://www.kaggle.com/datasets/shilongzhuang/telecom-customer-churn-by-maven-analytics?resource=download). More information about the dataset is available at the link.
 
-In this example, we can get an understanding of churned customers in terms of age, how long the person has been a customer, the type of plan they have with the company, how many lines they have, etc.
-   
 ## Technologies used
 
 - `Terraform`: infrastructure as code (IaC)
@@ -104,8 +102,6 @@ The external IP address can be found by using the following command:
 ```shell
 gcloud compute instances list
 ```
-
-After following these steps, you should have everything deployed on the cloud!
 
 
 ### Airflow:

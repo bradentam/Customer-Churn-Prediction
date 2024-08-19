@@ -66,9 +66,9 @@ export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'
 
 1. Open a terminal where you would like to clone this repository and run:
 
-```shell
-git clone https://github.com/bradentam/Customer-Churn-Prediction.git
-```
+    ```shell
+    git clone https://github.com/bradentam/Customer-Churn-Prediction.git
+    ```
 
 1. In the terraform folder, configure the `variable.tf` file with your own specifications.
 
@@ -78,12 +78,12 @@ git clone https://github.com/bradentam/Customer-Churn-Prediction.git
 make build-resources
 ```
 
-This command will do the following:
-- Apply terraform code
-    - `terraform init`: Initializes the terraform files
-    - `terraform apply`: Creates all the resources required for this project (VPC, VM, SQL database, GCS)
-    - The terraform code will also produce a `.env` file which will be used by the docker-compose.yaml and other files to read in environmental variables to properly configure the connections to the cloud resources.
-- Copy required files to the VM and build the docker-compose file.
+    This command will do the following:
+    - Apply terraform code
+        - `terraform init`: Initializes the terraform files
+        - `terraform apply`: Creates all the resources required for this project (VPC, VM, SQL database, GCS)
+        - The terraform code will also produce a `.env` file which will be used by the docker-compose.yaml and other files to read in environmental variables to properly configure the connections to the cloud resources.
+    - Copy required files to the VM and build the docker-compose file.
 
 3. Download and upload the `telecom_customer_churn.csv` file to your GCS `data_bucket` specified in `variable.tf`.
 
@@ -94,7 +94,8 @@ This command will do the following:
 | Airflow | <EXTERNAL_IP>:8081 | 
 | MLflow  | <EXTERNAL_IP>:5000 | 
 | Grafana | <EXTERNAL_IP>:3000 | 
-- the external IP address can be found by using the following command
+
+The external IP address can be found by using the following command:
 ```shell
 gcloud compute instances list
 ```

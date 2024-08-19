@@ -132,6 +132,8 @@ After running the `monthly_prediction.py` and `monitor.py` DAGs, the monitoring 
 
 ## Clean up
 
+To prevent overusage of GCP resources and additional charges, you will want to destroy the cloud resources.
+
 To stop docker on the VM, run:
 
 ```shell

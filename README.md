@@ -10,18 +10,18 @@ This project was completed for the [MLOps Zoomcamp Course](https://github.com/Da
 
 Customer churn is a large part of every company as retaining existing customers is crucial for maintaining revenue and growth. It's essential to understand what leads a customer to leave and what preventative measures we can put in place. The goal is to train a classification model using various metrics to predict whether a customer is likely to leave. 
 
-The dataset used for training is from a Telecommunications company collected found from [Kaggle](https://www.kaggle.com/datasets/shilongzhuang/telecom-customer-churn-by-maven-analytics?resource=download). More information about the dataset is avaiable in the link.
+The dataset used for training is from a Telecommunications company collected found from [Kaggle](https://www.kaggle.com/datasets/shilongzhuang/telecom-customer-churn-by-maven-analytics?resource=download). More information about the dataset is available at the link.
 
-In this example, we can get an understanding of churned customers in terms of age, how long the person has been a customer, the type of plan they have with the company, how many lines they have, and many more related metrics.
+In this example, we can get an understanding of churned customers in terms of age, how long the person has been a customer, the type of plan they have with the company, how many lines they have, etc.
    
 ## Technologies used
 
-- Terraform: infrastructure as code (IaC)
-- GCP: cloud infrastructure (VPC, VM, SQL, GCS)
-- MLFlow: experiment tracking and model registry
-- Airflow: orchestration
-- Docker: deployment
-- Grafana/Evidently AI: model and data monitoring
+- `Terraform`: infrastructure as code (IaC)
+- `GCP`: cloud infrastructure (VPC, VM, SQL, GCS)
+- `MLFlow`: experiment tracking and model registry
+- `Airflow`: orchestration
+- `Docker`: deployment
+- `Grafana`/`Evidently AI`: model and data monitoring
 
 ## Pre-requesites
 
@@ -33,7 +33,7 @@ In this example, we can get an understanding of churned customers in terms of ag
 1. sign up for GCP and create a project
 2. install [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk) and configure
 3. create service account with owner and editor roles and create json key
-4. open command shell and insert the following prompts: 
+4. open command shell and insert the following prompts (don't forget to replace `<INSERT_PROJECT_NAME>`): 
 
     ```shell
     gcloud config set project <INSERT_PROJECT_NAME>
@@ -93,7 +93,7 @@ In this example, we can get an understanding of churned customers in terms of ag
 
 4. After the VM is created, you can view the Airflow, MLflow, and Grafana UIs by entering the following in your web browser.  
 
-    | **Service** | **URL**                | 
+    | **Service** | **URL**        | 
     |---------|--------------------|
     | Airflow | <EXTERNAL_IP>:8081 | 
     | MLflow  | <EXTERNAL_IP>:5000 | 
@@ -107,30 +107,31 @@ gcloud compute instances list
 
 After following these steps, you should have everything deployed on the cloud!
 
-### Airflow
-The DAGs can be turned on in the UI.
+
+### Airflow:
+The username and password is `airflow`. The DAGs can be turned on in the UI.
 ![image info](./images/airflow.png)
 
 #### Quarterly Retrain:
 
-The quarterly retrain DAG will read and process the data and train 3 models (`LogisticRegression`, `RandomForestClassifier`, and `XGBClassfier`). Once all the models are done training, it will optimize the best performing model based off precision recall area under the curve (PR AUC). PR AUC is used as we want to optimize the model with respect to churned customers without being affected by the large number of non-churned cases. The best performing model is then registered to the model registry. This DAG runs quarterly, however in the real world, the training frequency would be set based off numerous factors such as market factors, customer behaviour, and model performance.
+    The quarterly retrain DAG will read and process the data and train 3 models (`LogisticRegression`, `RandomForestClassifier`, and `XGBClassfier`). Once all the models are done training, it will optimize the best performing model based off precision recall area under the curve (PR AUC). PR AUC is used as we want to optimize the model with respect to churned customers without being affected by the large number of non-churned cases. The best performing model is then registered to the model registry. This DAG runs quarterly, however in the real world, the training frequency would be set based off numerous factors such as market factors, customer behaviour, and model performance.
 
 #### Monthly Prediction:
 
-The monthly prediction DAG will simulate monthly data, however in the real world, there would be new data unlabeled data that needs to be predicted. The registered model is loaded and used to predict the simulated data, which is saved on GCS.
+    The monthly prediction DAG will simulate monthly data, however in the real world, there would be new data unlabeled data that needs to be predicted. The registered model is loaded and used to predict the simulated data, which is saved on GCS.
 
 #### Monthly Monitor:
 
-The monthly monitor DAG will use evidently to generate metrics about data and model drift which will be uploaded to the postgres database for the Grafana dashboard.
+    The monthly monitor DAG will use evidently to generate metrics about data and model drift which will be uploaded to the postgres database for the Grafana dashboard.
 
-### MLflow
+### MLflow:
 After running the `quarterly_retrain.py` DAG, you'll be able to view the experiments and registered models in MLflow.
 ![image info](./images/mlflow_experiments.png)  
 
 ![image info](./images/mlflow_registry.png)
 
-### Grafana
-After running the `monthly_prediction.py` and `monitor.py` DAGs, the monitoring metrics can be viewed in the Grafana dashboard.
+### Grafana:
+After running the `monthly_prediction.py` and `monitor.py` DAGs, the monitoring metrics can be viewed in the Grafana dashboard. The username and password is `admin`. 
 ![image info](./images/grafana.png)
 
 ## Clean up

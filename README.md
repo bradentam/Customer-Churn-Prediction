@@ -86,7 +86,7 @@ The dataset used for training is from a Telecommunications company collected fou
         - `terraform apply`: 
             - Creates all the resources required for this project (VPC, VM, SQL database, GCS)
             - Docker and all required dependencies will be downloaded on the VM automatically
-        - The terraform code will also produce a `.env` file which will be used by the docker-compose.yaml and other files to read in environmental variables to properly configure the connections to the cloud resources
+            - The `.env` file will be created which will be used by the docker-compose.yaml and other files to read in environmental variables to properly configure the connections to the cloud resources
     - Copy required files to the VM and build the docker-compose file
 
 3. Download and upload the `telecom_customer_churn.csv` file to your GCS `data_bucket` specified in `variable.tf`.

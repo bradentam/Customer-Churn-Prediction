@@ -41,13 +41,11 @@ Customer churn is a large part of every company as retaining existing customers 
     ```
     - Configures the CLI to the project
     <br>
-    <br>
-    
+
     ```shell
     gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" 
     ```
     - Creates a service account to allow terraform to provision resources
-    <br>
     <br>
 
     ```shell
@@ -55,20 +53,17 @@ Customer churn is a large part of every company as retaining existing customers 
     ```
     - Configures the service account role to owner
     <br>
-    <br>
 
     ```shell
     gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com
     ```
     - Creates json key
     <br>
-    <br>
 
     ```shell
     export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'
     ```
     - Sets environmental variable in terminal to allow credentials to be used
-    <br>
     <br>
 
 
@@ -122,3 +117,18 @@ After running the `quarterly_retrain.py` DAG, you'll be able to view the experim
 
 After running the `monthly_prediction.py` and `monitor.py` DAGs, the monitoring metrics can be viewed in the Grafana dashboard.
 ![image info](./images/grafana.png)
+
+### Clean up
+
+To stop docker on the VM, run:
+
+    ```shell
+    make down-vm
+    ```
+
+To clean up GCP resources, run:
+    ```shell
+    make clean-resources
+    ```
+
+*Note: you may need to run `make clean-resources` several times to successfully destroy all resources*

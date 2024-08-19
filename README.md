@@ -42,10 +42,12 @@ Customer churn is a large part of every company as retaining existing customers 
     - Configures the CLI to the project
 
 
+
     ```shell
     gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" 
     ```
     - Creates a service account to allow terraform to provision resources
+
 
 
     ```shell
@@ -54,10 +56,12 @@ Customer churn is a large part of every company as retaining existing customers 
     - Configures the service account role to owner
 
 
+
     ```shell
     gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com
     ```
     - Creates json key
+
 
 
     ```shell
@@ -65,7 +69,8 @@ Customer churn is a large part of every company as retaining existing customers 
     ```
     - Sets environmental variable in terminal to allow credentials to be used
 
-        
+
+
 ### Installation: Deploying with Docker on the GCP VM
 
 1. Open a terminal where you would like to clone this repository and run:

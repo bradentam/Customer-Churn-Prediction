@@ -34,7 +34,7 @@ resource "google_compute_subnetwork" "subnet" {
 resource "google_compute_global_address" "private_ip_range" {
   project = var.project_id
 
-  network = var.network_name # module.vpc.network_name
+  network = var.network_name
 
   name          = var.ip_peering_name
   purpose       = "VPC_PEERING"
@@ -42,7 +42,6 @@ resource "google_compute_global_address" "private_ip_range" {
   prefix_length = "24"
   address_type  = "INTERNAL"
 
-  # depends_on = [module.vpc]
   depends_on = [google_compute_network.vpc_network]
 }
 

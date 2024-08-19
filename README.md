@@ -29,55 +29,50 @@ Customer churn is a large part of every company as retaining existing customers 
 - download docker, make ```brew install make```
 - setup GCP
 
-### Setting up the GCP environment
+### Setting up the GCP environment:
 
-- sign up for GCP and create a project
-- install [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk) and configure
-- create service account with owner and editor roles and create json key
+1. sign up for GCP and create a project
+2. install [Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk) and configure
+3. create service account with owner and editor roles and create json key
+4. open command shell and insert the following prompts: 
 
-- open command shell and insert the following prompts: 
-
-Configures the CLI to the project: 
 ```shell
 gcloud config set project <INSERT_PROJECT_NAME>
 ```
+    - Configures the CLI to the project
 
-Creates a service account: 
 ```shell
 gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" 
 ```
-
-Configures the service account role to owner: 
+    - Creates a service account to allow terraform to provision resources
+ 
 ```shell
 gcloud projects add-iam-policy-binding <INSERT_PROJECT_NAME> --member="serviceAccount:gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com" --role="roles/owner"
 ```
+    - Configures the service account role to owner
 
-Creates json key: 
+
 ```shell
 gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com
 ```
+    - Creates json key
 
-Sets environmental variable in terminal to allow credentials to be used: 
 ```shell
 export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'
 ```
-
-### Terraform
-
-- Configure the variable.tf file with your own specifications
-- Open a terminal and change your working directory to the terraform folder
-- Run ```terraform init```: Initializes the terraform files
-- Run ```terraform apply```: Creates all the resources required for this project (VPC, VM, SQL database, GCS)
-- After several minutes, you should see resources in your [google cloud console](console.cloud.google.com) start to appear. The SQL database instance will take the longest to spin up. 
-
-- The terraform code will also produce a ```.env``` file which will be used by the docker-compose.yaml and other files to read in environmental variables to properly configure the connections to the cloud resources. By default, it should create a plain text file in the root of the directory but if it's creating a executable file then you'll need to insert the following command into your terminal to convert it to a text file: 
-- ```chmod 644 ../.env```
+    - Sets environmental variable in terminal to allow credentials to be used
 
 ### Installation: Deploying with Docker on the GCP VM
 
-1. In the terraform folder, configure the variable.tf file with your own specifications.
+1. Open a terminal where you would like to clone this repository and run:
 
-2. To build the GCP resources and deploy docker-compose on the VM, run:
+```shell
+git clone https://github.com/bradentam/Customer-Churn-Prediction.git
+```
+
+1. In the terraform folder, configure the `variable.tf` file with your own specifications.
+
+2. To build the GCP resources and deploy docker-compose on the VM, go to the root of the directory and run:
 
 ```shell
 make build-resources
@@ -90,9 +85,10 @@ This command will do the following:
     - The terraform code will also produce a `.env` file which will be used by the docker-compose.yaml and other files to read in environmental variables to properly configure the connections to the cloud resources.
 - Copy required files to the VM and build the docker-compose file.
 
-3. Download and upload the `telecom_customer_churn.csv` file to your GCS `data_bucket`.
+3. Download and upload the `telecom_customer_churn.csv` file to your GCS `data_bucket` specified in `variable.tf`.
 
-4. After the VM is created, you can view the Airflow, MLflow, and Grafana UIs by entering the following in your web browser.
+4. After the VM is created, you can view the Airflow, MLflow, and Grafana UIs by entering the following in your web browser.  
+
 | Service | URL                | 
 |---------|--------------------|
 | Airflow | <EXTERNAL_IP>:8081 | 
@@ -115,11 +111,3 @@ After running the `quarterly_retrain.py` DAG, you'll be able to view the experim
 
 After running the `monthly_prediction.py` and `monitor.py` DAGs, the monitoring metrics can be viewed in the Grafana dashboard.
 ![image info](./images/grafana.png)
-
-
-
-### Airflow
-- access Airflow UI by entering "<EXTERNAL_IP_ADDRESS_VM>:8080" into your web browser
-- the external IP address can be found by using the following command
-```gcloud compute instances list```
-

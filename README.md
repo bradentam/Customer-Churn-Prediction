@@ -114,15 +114,15 @@ The DAGs can be turned on in the UI. The username and password is `airflow`.
 
 #### Quarterly Retrain:
 
-    > The quarterly retrain DAG will read and process the data and train 3 models (`LogisticRegression`, `RandomForestClassifier`, and `XGBClassfier`). Once all the models are done training, it will optimize the best performing model based off precision recall area under the curve (PR AUC). PR AUC is used as we want to optimize the model with respect to churned customers without being affected by the large number of non-churned cases. The best performing model is then registered to the model registry. This DAG runs quarterly, however in the real world, the training frequency would be set based off numerous factors such as market factors, customer behaviour, and model performance.
+> The quarterly retrain DAG will read and process the data and train 3 models (`LogisticRegression`, `RandomForestClassifier`, and `XGBClassfier`). Once all the models are done training, it will optimize the best performing model based off precision recall area under the curve (PR AUC). PR AUC is used as we want to optimize the model with respect to churned customers without being affected by the large number of non-churned cases. The best performing model is then registered to the model registry. This DAG runs quarterly, however in the real world, the training frequency would be set based off numerous factors such as market factors, customer behaviour, and model performance.
 
 #### Monthly Prediction:
 
-    > The monthly prediction DAG will simulate monthly data, however in the real world, there would be new data unlabeled data that needs to be predicted. The registered model is loaded and used to predict the simulated data, which is saved on GCS.
+> The monthly prediction DAG will simulate monthly data, however in the real world, there would be new data unlabeled data that needs to be predicted. The registered model is loaded and used to predict the simulated data, which is saved on GCS.
 
 #### Monthly Monitor:
 
-    > The monthly monitor DAG will use evidently to generate metrics about data and model drift which will be uploaded to the postgres database for the Grafana dashboard.
+> The monthly monitor DAG will use evidently to generate metrics about data and model drift which will be uploaded to the postgres database for the Grafana dashboard.
 
 ### MLflow:
 After running the `quarterly_retrain.py` DAG, you'll be able to view the experiments and registered models in MLflow.

@@ -23,7 +23,7 @@ The dataset used for training is from a Telecommunications company collected fou
 
 ## Pre-requesites
 
-- download make
+- download terraform and make
 - setup GCP
 
 ### Setting up the GCP environment:

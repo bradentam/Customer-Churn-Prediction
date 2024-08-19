@@ -36,30 +36,35 @@ Customer churn is a large part of every company as retaining existing customers 
 3. create service account with owner and editor roles and create json key
 4. open command shell and insert the following prompts: 
 
-```shell
-gcloud config set project <INSERT_PROJECT_NAME>
-```
+    ```shell
+    gcloud config set project <INSERT_PROJECT_NAME>
+    ```
+
     - Configures the CLI to the project
 
-```shell
-gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" 
-```
+    ```shell
+    gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" 
+    ```
+
     - Creates a service account to allow terraform to provision resources
  
-```shell
-gcloud projects add-iam-policy-binding <INSERT_PROJECT_NAME> --member="serviceAccount:gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com" --role="roles/owner"
-```
+    ```shell
+    gcloud projects add-iam-policy-binding <INSERT_PROJECT_NAME> --member="serviceAccount:gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com" --role="roles/owner"
+    ```
+
     - Configures the service account role to owner
 
 
-```shell
-gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com
-```
+    ```shell
+    gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com
+    ```
+
     - Creates json key
 
-```shell
-export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'
-```
+    ```shell
+    export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'
+    ```
+    
     - Sets environmental variable in terminal to allow credentials to be used
 
 ### Installation: Deploying with Docker on the GCP VM

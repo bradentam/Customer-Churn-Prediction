@@ -27,31 +27,10 @@ x-airflow-common:
   user: "50000:0"
   depends_on:
     &airflow-common-depends-on
-    postgres:
-      condition: service_healthy
     mlflow:
       condition: service_healthy
 
 services:
-  postgres:
-    image: postgres:14
-    environment:
-      POSTGRES_USER: airflow
-      POSTGRES_PASSWORD: airflow
-      POSTGRES_DB: airflow
-    volumes:
-      - postgres-db-volume:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    networks:
-      - backend
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "airflow"]
-      interval: 10s
-      retries: 5
-      start_period: 5s
-    restart: always
-
   airflow-webserver:
     <<: *airflow-common
     command: webserver
@@ -192,9 +171,6 @@ services:
     networks:
       - frontend
       - backend
-    depends_on:
-      postgres:
-        condition: service_healthy
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:5000"]
       interval: 10s
@@ -221,12 +197,10 @@ services:
       - frontend
     restart: always
     depends_on:
-      postgres:
-        condition: service_healthy
       mlflow:
         condition: service_healthy
+        
 volumes:
-  postgres-db-volume:
   mlflow_data:
   grafana_data:
 

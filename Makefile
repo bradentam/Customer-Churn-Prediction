@@ -42,9 +42,13 @@ build-resources:
 	gcloud compute ssh --zone ${ZONE} ${VM_NAME} --project ${PROJECT_ID} --command "make build up"
 
 down-vm:
-	gcloud compute ssh --zone ${ZONE} ${VM_NAME} --project ${PROJECT_ID} --command "docker-compose down"
+	@echo "shutting down docker..."
+	gcloud compute ssh --zone ${ZONE} ${VM_NAME} --project ${PROJECT_ID} --command "make down"
+	@echo "docker services succesfully shut down"
+
 clean-resources:
 	@echo "cleaning GCP resources..."
 	cd terraform && terraform destroy -auto-approve
+	@echo "GCP resources successfully destroyed"
 
 .PHONY:

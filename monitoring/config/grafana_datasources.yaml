@@ -1,17 +1,14 @@
-# config file version
 apiVersion: 1
 
-# list of datasources to insert/update
-# available in the database
 datasources:
   - name: PostgreSQL
     type: postgres
     access: proxy
-    url: <INTERNAL_IP_ADRESS_OF_DB_INSTANCE>:5432 # use the following if local: postgres:5432
-    database: churn
-    user: <DB_USERNAME> # use the following if local: airflow
+    url: ${DB_HOST}:5432
+    database: ${GRAFANA_DB_NAME}
+    user: ${DB_USERNAME}
     secureJsonData:
-      password: <DB_PASSWORD> # use the following if local: 'airflow'
+      password: ${DB_PASSWORD}
     jsonData:
       sslmode: 'disable'
-      database: churn
+      database: ${GRAFANA_DB_NAME}

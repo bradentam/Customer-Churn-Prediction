@@ -51,13 +51,16 @@ Customer churn is a large part of every company as retaining existing customers 
     ```shell
     gcloud projects add-iam-policy-binding <INSERT_PROJECT_NAME> --member="serviceAccount:gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com" --role="roles/owner"
     ```
-    - Configures the service account role to owner
+    ```markdown
+    > > Configures the service account role to owner
+    ```
     <br>
+
 
     ```shell
     gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com
     ```
-    - Creates json key
+        - Creates json key
     <br>
   
 

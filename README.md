@@ -83,7 +83,9 @@ The dataset used for training is from a Telecommunications company collected fou
     This command will do the following:
     - Apply terraform code
         - `terraform init`: Initializes the terraform files
-        - `terraform apply`: Creates all the resources required for this project (VPC, VM, SQL database, GCS)
+        - `terraform apply`: 
+            - Creates all the resources required for this project (VPC, VM, SQL database, GCS)
+            - Docker and all required dependencies will be downloaded on the VM automatically
         - The terraform code will also produce a `.env` file which will be used by the docker-compose.yaml and other files to read in environmental variables to properly configure the connections to the cloud resources
     - Copy required files to the VM and build the docker-compose file
 

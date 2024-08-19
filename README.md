@@ -39,8 +39,8 @@ Customer churn is a large part of every company as retaining existing customers 
     ```shell
     gcloud config set project <INSERT_PROJECT_NAME>
     ```
-    &nbsp;    
-        - Configures the CLI to the project
+    &nbsp;
+    - Configures the CLI to the project
 
 
     ```shell

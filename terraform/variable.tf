@@ -94,13 +94,19 @@ variable "compute_instance_name" {
   default     = "mlops-server"
 }
 
-variable "mlflow_bucket_name" {
+variable "data_bucket" {
+  description = "name of the mlflow bucket name"
+  type        = string
+  default     = "churn-data-bt"
+}
+
+variable "mlflow_bucket" {
   description = "name of the mlflow bucket name"
   type        = string
   default     = "mlflow-artifacts-bt"
 }
 
-variable "scoring_bucket_name" {
+variable "scoring_bucket" {
   description = "name of the mlflow bucket name"
   type        = string
   default     = "scoring-artifacts-bt"

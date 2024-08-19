@@ -1,35 +1,37 @@
 from airflow.decorators import task, dag
 from airflow.sensors.external_task import ExternalTaskSensor
-import pandas as pd
-import io
-import psycopg2
-from datetime import datetime, timedelta
+import os
+from dotenv import load_dotenv
+import sys
 
-from evidently.report import Report
-from evidently import ColumnMapping
-from evidently.metric_preset import DataDriftPreset
+from datetime import datetime
 
-from evidently.test_suite import TestSuite
-from evidently.test_preset import DataDriftTestPreset
-from evidently.metrics import ColumnDriftMetric, DatasetDriftMetric, DatasetMissingValuesMetric
-
-
-@dag(schedule_interval='@monthly', start_date=datetime(2024, 3, 1), catchup=True)
+@dag(schedule_interval='@monthly', start_date=datetime(2023, 3, 2), catchup=True)
 def monthly_monitor():
+    
     wait_for_data = ExternalTaskSensor(
         task_id='wait_for_data',
         external_dag_id='monthly_prediction',  
         external_task_id='predict_and_save',  
         allowed_states=['success'],
         failed_states=['failed', 'skipped'],
-        mode='reschedule', 
+        mode='poke', 
         timeout=600
     )
 
+    def connect_to_db(conn_params):
+        import psycopg2
+        import sys
+        try:
+            rs_conn = psycopg2.connect(**conn_params)
+            return rs_conn
+        except Exception as e:
+            print(f"Unable to connect to database. error {e}")
+            sys.exit(1)
+
     @task
     def create_db(conn_params, db_name):
-        conn = psycopg2.connect(**conn_params)
-        conn.autocommit = True
+        conn = connect_to_db(conn_params)
         with conn.cursor() as cur:
             cur.execute(f"SELECT 1 FROM pg_database WHERE datname='{db_name}'")
             if len(cur.fetchall()) == 0:
@@ -37,14 +39,11 @@ def monthly_monitor():
                 cur.execute(f'CREATE DATABASE {db_name};')
             else:
                 print(f'{db_name} database already created')
-        conn_params['dbname'] = db_name
-
-        return conn_params
+        conn.commit()
     
     @task
     def create_table(conn_params, table_name):
-        conn = psycopg2.connect(**conn_params)
-        conn.autocommit = True  
+        conn = connect_to_db(conn_params)
         
         create_table_statement = f"""
         create table {table_name}(
@@ -58,16 +57,26 @@ def monthly_monitor():
             with conn.cursor() as cur:
                 cur.execute(create_table_statement)
                 print(f'table {table_name} created')
+            conn.commit()
         except:
             print(f'table {table_name} already exists')
 
     @task 
     def prep_data(**kwargs):
+        import pandas as pd
+        from datetime import timedelta
+
+        from evidently import ColumnMapping
+        from evidently.report import Report
+        from evidently.metrics import ColumnDriftMetric
+        from evidently.metric_preset import DataDriftPreset
+
+
         month_end = (kwargs['logical_date'].replace(day=1) - timedelta(days=1)).strftime("%Y-%m-%d")
         previous_month = (pd.to_datetime(month_end) + pd.offsets.MonthEnd(-1)).strftime("%Y-%m-%d")
 
-        ref_path = f'gs://scoring-artifacts-bt/predictions_{previous_month}.csv'
-        curr_path = f'gs://scoring-artifacts-bt/predictions_{month_end}.csv'
+        ref_path = f'gs://{scoring_bucket_name}/predictions_{previous_month}.csv'
+        curr_path = f'gs://{scoring_bucket_name}/predictions_{month_end}.csv'
         
         ref_df = pd.read_csv(ref_path)
         curr_df = pd.read_csv(curr_path)
@@ -109,8 +118,7 @@ def monthly_monitor():
     
     @task
     def insert_data(conn_params, table_name, data):
-        conn = psycopg2.connect(**conn_params)
-        conn.autocommit = True 
+        conn = connect_to_db(conn_params)
 
         check_statement = f"""
         SELECT 1 FROM {table_name} WHERE timestamp = %s
@@ -132,17 +140,26 @@ def monthly_monitor():
             else:
                 cur.execute(insert_statement, data)
                 print(f'inserted data for {data[0]}')
+        conn.commit()
                 
 
-    conn_params = {'host': 'postgres',
+    load_dotenv()
+    scoring_bucket_name = os.getenv('SCORING_BUCKET_NAME')
+    db_host = os.getenv('DB_HOST')
+    db_username = os.getenv('DB_USERNAME')
+    db_password = os.getenv('DB_PASSWORD')
+    db_name = os.getenv('GRAFANA_DB_NAME')
+
+    conn_params = {'host': db_host,
                    'port': '5432',
-                   'user': 'airflow',
-                   'password': 'airflow'}  
+                   'user': db_username,
+                   'password': db_password,
+                   'dbname': db_name}  
 
-    db_name = 'churn'
     table_name = 'monitor_metrics'
-
-    conn_params = create_db(conn_params, db_name)
+    
+    wait_for_data
+    create_db(conn_params, db_name)
     create_table(conn_params, table_name)
     data = prep_data()
     insert_data(conn_params, table_name, data)

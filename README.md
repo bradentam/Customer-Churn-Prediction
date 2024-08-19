@@ -39,7 +39,7 @@ Customer churn is a large part of every company as retaining existing customers 
     ```shell
     gcloud config set project <INSERT_PROJECT_NAME>
     ```
-
+    `&nbsp;`    
         - Configures the CLI to the project
 
 
@@ -70,7 +70,7 @@ Customer churn is a large part of every company as retaining existing customers 
 
     - Sets environmental variable in terminal to allow credentials to be used
 
-        
+
 ### Installation: Deploying with Docker on the GCP VM
 
 1. Open a terminal where you would like to clone this repository and run:

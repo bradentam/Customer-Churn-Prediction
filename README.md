@@ -42,32 +42,30 @@ Customer churn is a large part of every company as retaining existing customers 
     - Configures the CLI to the project
     <br>
     <br>
-
     ```shell
     gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" 
     ```
     - Creates a service account to allow terraform to provision resources
     <br>
-
+    <br>
     ```shell
     gcloud projects add-iam-policy-binding <INSERT_PROJECT_NAME> --member="serviceAccount:gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com" --role="roles/owner"
     ```
     - Configures the service account role to owner
     <br>
-
+    <br>
     ```shell
     gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com
     ```
-        - Creates json key
+    - Creates json key
     <br>
-  
-
+    <br>
     ```shell
     export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'
     ```
     - Sets environmental variable in terminal to allow credentials to be used
     <br>
-  
+    <br>
 
 ### Installation: Deploying with Docker on the GCP VM
 
@@ -77,13 +75,14 @@ Customer churn is a large part of every company as retaining existing customers 
     git clone https://github.com/bradentam/Customer-Churn-Prediction.git
     ```
 
-1. In the terraform folder, configure the `variable.tf` file with your own specifications.
+2. In the terraform folder, configure the `variable.tf` file with your own specifications.
 
-2. To build the GCP resources and deploy docker-compose on the VM, go to the root of the directory and run:
+3. To build the GCP resources and deploy docker-compose on the VM, go to the root of the directory and run:
 
-```shell
-make build-resources
-```
+    ```shell
+    make build-resources
+    ```
+    <br>
 
     This command will do the following:
     - Apply terraform code
@@ -96,16 +95,16 @@ make build-resources
 
 4. After the VM is created, you can view the Airflow, MLflow, and Grafana UIs by entering the following in your web browser.  
 
-| Service | URL                | 
-|---------|--------------------|
-| Airflow | <EXTERNAL_IP>:8081 | 
-| MLflow  | <EXTERNAL_IP>:5000 | 
-| Grafana | <EXTERNAL_IP>:3000 | 
+    | Service | URL                | 
+    |---------|--------------------|
+    | Airflow | <EXTERNAL_IP>:8081 | 
+    | MLflow  | <EXTERNAL_IP>:5000 | 
+    | Grafana | <EXTERNAL_IP>:3000 | 
 
 The external IP address can be found by using the following command:
-```shell
-gcloud compute instances list
-```
+    ```shell
+    gcloud compute instances list
+    ```
 
 After following these steps, you should have everything deployed on the cloud!
 

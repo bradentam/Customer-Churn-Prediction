@@ -1,5 +1,6 @@
 FROM apache/airflow:2.7.1
 
+# RUN apt-get update && apt-get install -y curl
 RUN pip install -U pip --upgrade pip
 
 COPY requirements.txt /tmp

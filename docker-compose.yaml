@@ -7,14 +7,13 @@ x-airflow-common:
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql://mlopsuser:admin@<PRIVATE_IP_OF_DB_INSTANCE>:5432/airflow # replace with the following if local: postgresql+psycopg2://airflow:airflow@postgres/airflow
-    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql://mlopsuser:admin@1<PRIVATE_IP_OF_DB_INSTANCE>:5432/airflow # replace with the following if local: postgresql+psycopg2://airflow:airflow@postgres/airflow
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:5432/${AIRFLOW_DB_NAME}
+    AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:5432/${AIRFLOW_DB_NAME} 
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
-    AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:- psycopg2-binary}
+    AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true' 
     GOOGLE_APPLICATION_CREDENTIALS: '/opt/terraform-key.json'
   volumes:
     - ./airflow/dags:/opt/airflow/dags
@@ -24,7 +23,8 @@ x-airflow-common:
     - ./airflow/modules:/opt/airflow/modules
     - ./mlflow:/opt/mlflow # need to mount for mlflow
     - ./terraform-key.json:/opt/terraform-key.json:ro
-  user: "${AIRFLOW_UID:-50000}:0"
+    - ./.env:/opt/.env:ro
+  user: "50000:0"
   depends_on:
     &airflow-common-depends-on
     postgres:
@@ -56,7 +56,7 @@ services:
     <<: *airflow-common
     command: webserver
     ports:
-      - "8080:8080"
+      - "8081:8080" #8081 because jupyter uses 8080
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
@@ -112,15 +112,6 @@ services:
     command:
       - -c
       - |
-        if [[ -z "${AIRFLOW_UID}" ]]; then
-          echo
-          echo -e "\033[1;33mWARNING!!!: AIRFLOW_UID not set!\e[0m"
-          echo "If you are on Linux, you SHOULD follow the instructions below to set "
-          echo "AIRFLOW_UID environment variable, otherwise files will be owned by root."
-          echo "For other operating systems you can get rid of the warning with manually created .env file:"
-          echo "    See: https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#setting-the-right-airflow-user"
-          echo
-        fi
         one_meg=1048576
         mem_available=$$(($$(getconf _PHYS_PAGES) * $$(getconf PAGE_SIZE) / one_meg))
         cpus_available=$$(grep -cE 'cpu[0-9]+' /proc/stat)
@@ -155,7 +146,7 @@ services:
           echo
         fi
         mkdir -p /sources/logs /sources/dags /sources/plugins
-        chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins}
+        chown -R "50000:0" /sources/{logs,dags,plugins}
         exec /entrypoint airflow version
     # yamllint enable rule:line-length
     environment:
@@ -177,7 +168,7 @@ services:
       - debug
     environment:
       <<: *airflow-common-env
-      CONNECTION_CHECK_MAX_COUNT: "0"
+      CONNECTION_CHECK_MAX_COUNT: "100"
     # Workaround for entrypoint issue. See: https://github.com/apache/airflow/issues/16252
     networks:
       - frontend
@@ -193,6 +184,9 @@ services:
       dockerfile: Dockerfile.mlflow
     volumes:
       - ./mlflow:/mlflow
+    environment:
+      BACKEND_STORE_URI: postgresql+psycopg2://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:5432/${MLFLOW_DB_NAME}
+      ARTIFACT_ROOT: gs://${MLFLOW_BUCKET_NAME}
     ports:
       - "5000:5000"
     networks:
@@ -208,10 +202,15 @@ services:
       retries: 1
 
   grafana:
-    image: grafana/grafana:8.2.3
+    image: grafana/grafana-enterprise
     user: "472"
     ports:
       - "3000:3000"
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      GRAFANA_DB_NAME: ${GRAFANA_DB_NAME}
     volumes:
       - grafana_data:/grafana
       - ./monitoring/config/grafana_datasources.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
@@ -236,69 +235,3 @@ networks:
     driver: bridge
   backend:
     driver: bridge
-
-# services:
-#   postgres:
-#     image: postgres:14
-#     environment:
-#       POSTGRES_USER: airflow
-#       POSTGRES_PASSWORD: airflow
-#       POSTGRES_DB: airflow
-#     volumes:
-#       - postgres_data:/var/lib/postgresql/data
-#     ports:
-#       - "5432:5432"
-
-#   airflow:
-#     image: apache/airflow:2.9.1
-#     environment:
-#       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-#       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-#       AIRFLOW__CORE__LOAD_EXAMPLES: "False"
-#     volumes:
-#       - ./airflow/dags:/opt/airflow/dags
-#       - ./airflow/logs:/opt/airflow/logs
-#       - ./airflow/plugins:/opt/airflow/plugins
-#     ports:
-#       - "8080:8080"
-#     command: ["airflow", "webserver"]
-
-#   airflow_scheduler:
-#     image: apache/airflow:2.9.1
-#     environment:
-#       AIRFLOW__CORE__EXECUTOR: LocalExecutor
-#       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-#     volumes:
-#       - ./airflow/dags:/opt/airflow/dags
-#       - ./airflow/logs:/opt/airflow/logs
-#       - ./airflow/plugins:/opt/airflow/plugins
-#     command: ["airflow", "scheduler"]
-
-#   mlflow:
-#     build:
-#       context: .
-#       dockerfile: Dockerfile
-#     volumes:
-#       - mlflow_data:/mlflow
-#     ports:
-#       - "5001:5000"
-
-#   # grafana:
-#   #   image: grafana/grafana
-#   #   user: "472"
-#   #   ports:
-#   #     - "3000:3000"
-#   #   volumes:
-#       # - grafana_data:/grafana
-#   #     # - /monitoring/config/grafana_datasources.yaml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
-#   #     # - /monitoring/config/grafana_dashboards.yaml:/etc/grafana/provisioning/dashboards/dashboards.yaml:ro
-#   #     # - /monitoring/dashboards:/opt/grafana/dashboards
-#   #   # networks:
-#   #   #   - back-tier
-#   #   #   - front-tier
-#   #   restart: always
-
-# volumes:
-#   postgres-db-volume:
-#   mlflow_data:
-  # grafana_data:

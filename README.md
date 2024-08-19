@@ -40,35 +40,31 @@ Customer churn is a large part of every company as retaining existing customers 
     gcloud config set project <INSERT_PROJECT_NAME>
     ```
     - Configures the CLI to the project
-
+    &nbsp;
 
     ```shell
     gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" 
     ```
-
     - Creates a service account to allow terraform to provision resources
-
+    &nbsp;
 
     ```shell
     gcloud projects add-iam-policy-binding <INSERT_PROJECT_NAME> --member="serviceAccount:gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com" --role="roles/owner"
     ```
-
-       - Configures the service account role to owner
-
+    - Configures the service account role to owner
+    &nbsp;
 
     ```shell
     gcloud iam service-accounts keys create ~/terraform-key.json --iam-account=gcp-terraform@<INSERT_PROJECT_NAME>.iam.gserviceaccount.com
     ```
-
-        - Creates json key
-
+    - Creates json key
+    &nbsp;
 
     ```shell
     export GOOGLE_APPLICATION_CREDENTIALS='/path/to/credentials.json'
     ```
-
     - Sets environmental variable in terminal to allow credentials to be used
-
+    &nbsp;
 
 ### Installation: Deploying with Docker on the GCP VM
 

@@ -39,7 +39,6 @@ Customer churn is a large part of every company as retaining existing customers 
     ```shell
     gcloud config set project <INSERT_PROJECT_NAME>
     ```
-    &nbsp;
     - Configures the CLI to the project
 
 
@@ -47,7 +46,7 @@ Customer churn is a large part of every company as retaining existing customers 
     gcloud iam service-accounts create gcp-terraform --display-name "Terraform service account" 
     ```
 
-        - Creates a service account to allow terraform to provision resources
+    - Creates a service account to allow terraform to provision resources
 
 
     ```shell
